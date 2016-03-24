@@ -60,7 +60,24 @@ if ( ! isset( $_SESSION ) ) {
 
                     <div class="top-bar">
 
-                        <div class="top-bar-section hide-for-small-only nav-menu">
+                        <div class="top-bar-left top-bar-title">
+                            
+                            <span class="show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                                <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+                            </span>
+                            
+                            <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+                            <?php 
+                                echo wp_get_attachment_image( get_theme_mod( 'als_logo_image', 1 ), 'medium', false, array(
+                                    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                                    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                                ) ); 
+                            ?>
+                           </a>
+
+                        </div>
+
+                        <div class="top-bar-right hide-for-small-only nav-menu">
                             <?php
                             wp_nav_menu( array(
                                 'container' => false,
@@ -74,27 +91,6 @@ if ( ! isset( $_SESSION ) ) {
                             ?>
                         </div>
 
-                        <div class="top-bar-left show-for-small-only">
-
-                            <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-
-                        </div>
-
-                    </div>
-                    
-                    <div class="header-logo-wrapper">
-                        
-                        <?php if ( is_front_page() ) : ?>
-                    
-                            <img class="header-logo" src="<?php echo get_theme_mod( '_logo_image', 'http://placehold.it/1440x312' ); ?>" />
-                        
-                        <?php else : ?>
-                        
-                            <div class="header-logo not-home" style="background-image: url('<?php echo get_theme_mod( 'als_logo_image', 'http://placehold.it/1440x312' ); ?>')">
-                            </div>
-                        
-                        <?php endif; ?>
-                        
                     </div>
 
                 </header>

@@ -7,7 +7,25 @@
 $dark-color: #333;
 $light-color: #fff;
 
-$topbar-background: $black;
+$primary-color: #005790;
+$secondary-color: #eec31a;
+$tertiary-color: #b32025;
+
+// Overriding with the three brand colors
+$success-color: $primary-color;
+$warning-color: $secondary-color;
+$alert-color: $tertiary-color;
+
+$foundation-palette: (
+    primary: $primary-color,
+    secondary: $secondary-color,
+    tertiary: $tertiary-color,
+    success: $success-color,
+    warning: $warning-color,
+    alert: $alert-color,
+);
+
+$topbar-background: $primary-color;
 
 @if lightness( $topbar-background ) < 50% {
 
@@ -22,6 +40,9 @@ $topbar-background: $black;
 
 $titlebar-icon-color: $topbar-link-color;
 $titlebar-icon-color-hover: darken( $topbar-link-color, 20% );
+
+$header-font-family: 'Oswald', sans-serif;
+$body-font-family: 'Quattrocento Sans', sans-serif;
 
 // Media query ranges
 $small-range: (0em, 40em);

@@ -36,6 +36,8 @@ define( 'THEME_ID', 'als_theme' );
  */
 $als_fonts = array(
     'Font Awesome' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
+    'Oswald' => '//fonts.googleapis.com/css?family=Oswald:400,700',
+    'Quattrocento Sans' => '//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic',
 );
 
 /**
@@ -77,12 +79,12 @@ function als_customize_register( $wp_customize ) {
     );
     
     $wp_customize->add_setting( 'als_logo_image', array(
-            'default'     => 'http://placehold.it/1440x312',
+            'default'     => 1,
             'transport'   => 'refresh',
         ) 
     );
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'als_logo_image', array(
-        'label'        => __( 'Logo Banner', THEME_ID ),
+        'label'        => __( 'Logo', THEME_ID ),
         'section'    => 'als_customizer_section',
         'settings'   => 'als_logo_image',
         'mime_type'  => 'image',

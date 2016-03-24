@@ -1,36 +1,23 @@
 .top-bar {
+    
+    font-family: $header-font-family;
+    text-transform: uppercase;
 
     .nav-menu {
 
-        text-align: center;
-
         > .dropdown.menu {
-            display: inline-table;
-            vertical-align: middle;
-            text-align: left;
 
             > .current-menu-item, > .current-menu-ancestor {
 
-                background-color: lighten( $topbar-background, 25% );
-
                 > a {
-                    @include light-or-dark-text( lighten( $topbar-background, 25% ) );
+                    color: $secondary-color;
                 }
 
                 &.is-dropdown-submenu-parent.is-right-arrow {
 
                     > a:after {
 
-                        @if lightness( lighten( $topbar-background, 25% ) ) < 50% {
-
-                            border-left-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-left-color: $dark-color !important;
-
-                        }
+                        border-left-color: $secondary-color !important;
 
                     }
 
@@ -40,16 +27,7 @@
 
                     > a:after {
 
-                        @if lightness( lighten( $topbar-background, 25% ) ) < 50% {
-
-                            border-top-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-top-color: $dark-color !important;
-
-                        }
+                        border-top-color: $secondary-color !important;
 
                     }
 
@@ -107,13 +85,27 @@
         }
 
         > .menu {
+            
+            // All levels
+            li {
+                
+                &.is-dropdown-submenu-parent {
+                    
+                    > a:after {
+                        border-width: 4px;
+                        right: 10px;
+                    }
+                    
+                }
+                
+            }
 
             // Top Level
             > li:hover {
-                background-color: lighten( $topbar-background, 10% ) !important;
+                background-color: lighten( $topbar-background, 5% ) !important;
 
                 > a {
-                    @include light-or-dark-text( lighten( $topbar-background, 10% ) );
+                    @include light-or-dark-text( lighten( $topbar-background, 5% ) );
                 }
 
             }
@@ -122,9 +114,13 @@
             > li {
 
                 li {
+                    
+                    text-transform: none;
+                    
                     a {
                         @include light-or-dark-text( $dropdownmenu-background );
                     }
+                    
                 }
 
                 li:hover {
@@ -206,7 +202,7 @@
 
             }
 
-            li.current-menu-item, li.current-menu-ancestor {
+            > li li.current-menu-item, > li li.current-menu-ancestor {
 
                 background-color: darken( $light-gray, 10% );
 
