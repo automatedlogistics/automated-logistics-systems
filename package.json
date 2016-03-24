@@ -1,0 +1,13 @@
+{
+    "name": "automated_logistics_systems",
+    "version": "0.1.0",
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-sass": "*",
+        "grunt-autoprefixer": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-notify": "*",
+        "matchdep": "*"
+    }
+}

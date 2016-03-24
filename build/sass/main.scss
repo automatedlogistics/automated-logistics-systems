@@ -1,0 +1,44 @@
+/*!
+Theme Name: Automated Logistics Systems
+Description: A kick-butt theme for Automated Logistics Systems.
+Author: Eric Defore
+Author URI: http://realbigmarketing.com
+Version: 0.1.0
+*/
+
+// Vendor
+@import "../vendor/sass/normalize";
+
+// Dependencies
+@import "settings.scss";
+@import "functions.scss";
+
+// Foundation
+// Here we control all the various Foundation components to use
+@import "../vendor/sass/foundation/foundation";
+@include foundation-global-styles;
+@include foundation-visibility-classes;
+@include foundation-tabs;
+@include foundation-reveal;
+@include foundation-grid;
+@include foundation-button;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-top-bar;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-off-canvas;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-off-canvas;
+@include foundation-media-object;
+@include foundation-thumbnail;
+@include foundation-table;
+
+// Global Styling
+@import "global/foundation-extend";
+@import "global/base";
+@import "global/wp";
+
+// Static
+@import "static/top-bar";

@@ -1,0 +1,59 @@
+/*
+Base element settings (no classes or id's).
+
+@since 0.1.0
+*/
+
+@media
+    only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5){
+        html,
+        body{
+            width:100%;
+            overflow-x:hidden;
+        }
+}
+
+// Select color
+::selection {
+    background: $primary-color;
+    @include light-or-dark-text($primary-color);
+}
+
+::-moz-selection {
+    background: $primary-color;
+    @include light-or-dark-text($primary-color);
+}
+
+html {
+    height: auto;
+    overflow-y: auto;
+}
+
+// Classes
+.screen-reader-text {
+    display: none;
+}
+
+body {
+    font-weight: 600;
+}
+
+.page-content {
+    
+    background-color: $white;
+    padding: 30px;
+    
+}
+
+img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" button
+    
+    @include thumbnail;
+    
+}
+
+.pagination {
+    text-align: center;
+}

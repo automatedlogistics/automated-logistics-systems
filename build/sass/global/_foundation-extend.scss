@@ -1,0 +1,50 @@
+/*
+Adds some functionality to foundation.
+
+@since 0.1.0
+*/
+
+// Class names
+$class-names: small-only,
+    small,
+    medium-only,
+    medium,
+    large-only,
+    large,
+    xlarge-only,
+    xlarge,
+    xxlarge-only,
+    xxlarge;
+
+// Breakpoints
+$class-breakpoints: $small-only,
+    $small-up,
+    $medium-only,
+    $medium-up,
+    $large-only,
+    $large-up,
+    $xlarge-only,
+    $xlarge-up,
+    $xxlarge-only,
+    $xxlarge-up;
+
+// Media query floats
+@for $i from 1 through length($class-names) {
+    @media #{(nth($class-breakpoints, $i))} {
+        .#{(nth($class-names, $i))}-left {
+            float: left !important;
+        }
+        .#{(nth($class-names, $i))}-right {
+            float: right !important;
+        }
+    }
+}
+
+// Media query button expand
+@for $i from 1 through length($class-names) {
+    @media #{(nth($class-breakpoints, $i))} {
+        .button.#{(nth($class-names, $i))}-expand {
+            width: 100%;
+        }
+    }
+}
