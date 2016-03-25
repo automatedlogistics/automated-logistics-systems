@@ -90,7 +90,113 @@ function als_customize_register( $wp_customize ) {
         'mime_type'  => 'image',
     ) ) );
     
-    $wp_customize->add_setting( 'als_footer_columns' , array(
+    $wp_customize->add_setting( 'als_phone_number', array(
+            'default'     => '1-800-551-9399',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_phone_number', array(
+        'label'        => __( 'Phone Number', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_phone_number',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_fax_number', array(
+            'default'     => '1-888-764-6225',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_fax_number', array(
+        'label'        => __( 'Fax Number', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_fax_number',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_address', array(
+            'default'     => "3517 Scheele Drive\nJackson, MI 49202",
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_address', array(
+        'type' => 'textarea',
+        'label'        => __( 'Physical Address', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_address',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_facebook', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_facebook', array(
+        'type' => 'url',
+        'label'        => __( 'Facebook URL', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_facebook',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_twitter', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_twitter', array(
+        'type' => 'url',
+        'label'        => __( 'Twitter URL', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_twitter',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_pinterest', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_pinterest', array(
+        'type' => 'url',
+        'label'        => __( 'Pinterest URL', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_pinterest',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_linkedin', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_linkedin', array(
+        'type' => 'url',
+        'label'        => __( 'LinkedIn URL', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_linkedin',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_instagram', array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_instagram', array(
+        'type' => 'url',
+        'label'        => __( 'Instagram URL', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_instagram',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_rss_show', array(
+            'default'     => false,
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'als_rss_show', array(
+        'type' => 'checkbox',
+        'label'        => __( 'Show RSS Button', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_rss_show',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_footer_columns', array(
             'default'     => 4,
             'transport'   => 'refresh',
         )
