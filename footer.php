@@ -38,9 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         
         <div class="small-12 columns">
             
-            <?php echo sprintf( __( 'Copyright &copy; %d', THEME_ID ), date( 'Y' ) ); ?>
-            <?php _e( ' | All Rights Reserved | ', THEME_ID ); ?>
-            <?php echo sprintf( __( '%s, inc.', THEME_ID ), get_bloginfo( 'name' ) ); ?>
+            <?php echo sprintf( __( 'Copyright &copy; %d | All Rights Reserved | %s, inc.', THEME_ID ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
         
         </div>
         
