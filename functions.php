@@ -252,3 +252,112 @@ function remove_wp_smilies_from_feed( $query ) {
     }
     
 }
+
+/**
+ * Creates the Services CPT
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_cpt_als_service' );
+function register_cpt_als_service() {
+    $labels = array(
+        'name' => _x( 'Services', THEME_ID ),
+        'all_items' => __( 'All Services', THEME_ID ),
+        'singular_name' => _x( 'Service', THEME_ID ),
+        'add_new' => _x( 'Add New Service', THEME_ID ),
+        'add_new_item' => _x( 'Add New Service', THEME_ID ),
+        'edit_item' => _x( 'Edit Service', THEME_ID ),
+        'new_item' => _x( 'New Service', THEME_ID ),
+        'view_item' => _x( 'View Service', THEME_ID ),
+        'search_items' => _x( 'Search Services', THEME_ID ),
+        'not_found' => _x( 'No Services found', THEME_ID ),
+        'not_found_in_trash' => _x( 'No Services found in Trash', THEME_ID ),
+        'parent_item_colon' => _x( 'Parent Services:', THEME_ID ),
+        'menu_name' => _x( 'Services', THEME_ID ),
+        'featured_image'        => _x( 'Service Image', THEME_ID ),
+        'remove_featured_image' => _x( 'Remove Service Image', THEME_ID ),
+        'set_featured_image'    => _x( 'Set Service Image', THEME_ID ),
+        'use_featured_image'    => _x( 'Use as Service Image', THEME_ID ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'menu_icon' => 'dashicons-share-alt',
+        'hierarchical' => false,
+        'description' => 'service',
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => array(
+            'slug' => 'service',
+            'with_front' => false,
+            'feeds' => false,
+            'pages' => true
+        ),
+        'capability_type' => 'post',
+        /*
+        'capability_type' => 'service',
+        'capabilities' => array(
+            // Singular
+            'edit_post'	=>	'edit_service',
+            'read_post'	=>	'read_service',
+            'delete_post'	=>	'delete_service',
+            // Plural
+            'edit_posts'	=>	'edit_services',
+            'edit_others_posts'	=>	'edit_others_services',
+            'publish_posts'	=>	'publish_services',
+            'read_private_posts'	=>	'read_private_services',
+            'delete_posts'	=>	'delete_services',
+            'delete_private_posts'	=>	'delete_private_services',
+            'delete_published_posts'	=>	'delete_published_services',
+            'delete_others_posts'	=>	'delete_others_services',
+            'edit_private_posts'	=>	'edit_private_services',
+            'edit_published_posts'	=>	'edit_published_services',
+        ),
+		*/
+    );
+    register_post_type( 'als_service', $args );
+}
+
+/**
+ * Creates the Service Type Category
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_taxonomy_als_service_type' );
+function register_taxonomy_als_service_type() {
+    $labels = array(
+        'name' => _x( 'Service Type', THEME_ID ),
+        'singular_name' => _x( 'Service Type', THEME_ID ),
+        'search_items' => __( 'Search Service Types', THEME_ID ),
+        'popular_items' => __( 'Popular Service Types', THEME_ID ),
+        'all_items' => __( 'All Service Types', THEME_ID ),
+        'parent_item' => __( 'Parent Service Type', THEME_ID ),
+        'parent_item_colon' => __( 'Parent Service Type:', THEME_ID ),
+        'edit_item' => __( 'Edit Service Type', THEME_ID ),
+        'update_item' => __( 'Update Service Type', THEME_ID ),
+        'add_new_item' => __( 'Add New Service Type', THEME_ID ),
+        'new_item_name' => __( 'New Service Type Name', THEME_ID ),
+        'separate_items_with_commas' => __( 'Separate Service Types with commas', THEME_ID ),
+        'add_or_remove_items' => __( 'Add or remove Service Type', THEME_ID ),
+        'choose_from_most_used' => __( 'Choose from the most used Service Types', THEME_ID ),
+        'not_found' => __( 'No Service Types found.', THEME_ID ),
+        'menu_name' => __( 'Service Type', THEME_ID ),
+    );
+    $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'service-type' ),
+    );
+    register_taxonomy( 'als_service_type', 'als_service', $args );
+}
