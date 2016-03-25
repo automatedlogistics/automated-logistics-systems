@@ -3086,6 +3086,7 @@ a img.aligncenter {
   z-index: 100000;
   /* Above WP toolbar. */ }
 
+/* Override Foundation's _settings.scss here, or store your own variables */
 .top-bar {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase; }
@@ -3134,4 +3135,24 @@ a img.aligncenter {
       border-left-color: #333 !important; }
     .top-bar .nav-menu > .menu > li li.current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .menu > li li.current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
       border-top-color: #333 !important; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+#site-footer .footer-widgets {
+  background-color: #005790; }
+
+#site-footer .footer-connect .social-icon {
+  color: #cacaca;
+  font-size: 1.5em;
+  -webkit-transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
+          transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
+  -webkit-transition-property: all, all;
+          transition-property: all, all;
+  -webkit-transition-duration: 0.25s, 0.25s;
+          transition-duration: 0.25s, 0.25s;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out;
+          transition-timing-function: ease-in-out, ease-in-out;
+  -webkit-transition-delay: initial, initial;
+          transition-delay: initial, initial; }
+  #site-footer .footer-connect .social-icon:hover {
+    color: #8a8a8a; }
 /*# sourceMappingURL=style.css.map */
