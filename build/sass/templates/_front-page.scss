@@ -5,91 +5,136 @@ $divider-width: 4px;
 $dot-width: 20px;
 
 .home {
-
-    #home-timeline {
-
-        position: relative;
-
-        &:before {
-
-            content: '';
-            position: absolute;
-            top: 0;
-            height: 100%;
-            left: 50%;
-            width: $divider-width;
-            margin-left: -( $divider-width / 2 ); // Properly centers in accordance to width
-            background: $tertiary-color;
-
-        }
-
-        .row {
-
-            margin-bottom: 3em;
-            
-            .text-left {
-                padding-left: 2em;
-            }
-            
-            @media #{$medium-up} {
-                
-                // This way we don't have to figure out how to calculate the original value on Mobile
-                .text-right {
-                    padding-right: 2em;
-                }
-                
-            }
-
-            .timeline-dot {
-
-                position: absolute;                
-                left: 50%;            
-                width: $dot-width;
-                height: $dot-width;
-                margin-left: -( $dot-width / 2 ); // Properly centers in accordance to width
-                margin-top: ( $dot-width / 4 ); // Adjust top-alignment slightly
-                border-radius: 100%;
-                background-color: $tertiary-color;
-
-            }
-
-            &:first-of-type, &:last-of-type {
-                
-                * {
-                    margin-top: -( $dot-width / 4 ); // Hide end of line
-                }
-                
-            }
-
+    
+    #site-content {
+        // We need to do this per-section on the Home Page
+        box-shadow: none; 
+    }
+    
+    #mini-nav {
+        
+        background-color: $primary-color;
+        @include section-border;
+        
+        padding-top: 1em;
+        padding-bottom: 1em;
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: $white;
+            text-transform: uppercase;
         }
         
-        @media #{$small-only} {
+        a {
+            color: $white;
             
+            &:hover {
+                color: scale-color( $white, $lightness: -14% );
+            }
+            
+        }
+        
+        .fa-stack {
+            
+            .fa-inverse {
+                color: $primary-color !important;
+            }
+            
+        }
+        
+    }
+
+    #home-timeline {
+        
+        @include section-border;
+        padding-top: 3em;
+        padding-bottom: 1em;
+    
+        .container {
+
+            position: relative;
+
             &:before {
-                
-                left: 0%;
-                margin-left: ( $dot-width / 2 );
-                
+
+                content: '';
+                position: absolute;
+                top: 0;
+                height: 100%;
+                left: 50%;
+                width: $divider-width;
+                margin-left: -( $divider-width / 2 ); // Properly centers in accordance to width
+                background: $tertiary-color;
+
             }
-            
+
             .row {
-                
-                .timeline-dot {
-                    
-                    left: 0%;
-                    margin-left: ( $divider-width / 2 );
-                    
-                }
-                
-                .text-left, .text-right {
-                    
+
+                margin-bottom: 3em;
+
+                .text-left {
                     padding-left: 2em;
-                    text-align: left;
-                    
                 }
-                
+
+                @media #{$medium-up} {
+
+                    // This way we don't have to figure out how to calculate the original value on Mobile
+                    .text-right {
+                        padding-right: 2em;
+                    }
+
+                }
+
+                .timeline-dot {
+
+                    position: absolute;                
+                    left: 50%;            
+                    width: $dot-width;
+                    height: $dot-width;
+                    margin-left: -( $dot-width / 2 ); // Properly centers in accordance to width
+                    margin-top: ( $dot-width / 4 ); // Adjust top-alignment slightly
+                    border-radius: 100%;
+                    background-color: $tertiary-color;
+
+                }
+
+                &:first-of-type, &:last-of-type {
+
+                    * {
+                        margin-top: -( $dot-width / 4 ); // Hide end of line
+                    }
+
+                }
+
             }
-            
+
+            @media #{$small-only} {
+
+                &:before {
+
+                    left: 0%;
+                    margin-left: ( $dot-width / 2 );
+
+                }
+
+                .row {
+
+                    .timeline-dot {
+
+                        left: 0%;
+                        margin-left: ( $divider-width / 2 );
+
+                    }
+
+                    .text-left, .text-right {
+
+                        padding-left: 2em;
+                        text-align: left;
+
+                    }
+
+                }
+
+            }
+
         }
 
     }
