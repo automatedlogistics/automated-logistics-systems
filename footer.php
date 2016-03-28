@@ -38,69 +38,73 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     </div>
     
-    <div class="row footer-connect text-center">
+    <div class="footer-connect text-center">
         
-        <div class="small-12 columns">
-            
-            <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
-            <?php 
-                echo wp_get_attachment_image( get_theme_mod( 'als_footer_logo_image', 1 ), 'medium', false, array(
-                    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
-                    'class' => 'aligncenter',
-                ) ); 
-            ?>
-           </a>
-            
-            <?php echo sprintf( __( 'Copyright &copy; %d | All Rights Reserved | %s, inc.', THEME_ID ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+        <div class="row">
         
-        </div>
-        
-        <div class="small-12 columns">
-        
-            <?php 
-                $social_accounts = array(
-                    'als_facebook' => array( 
-                        'label' => 'Facebook',
-                        'icon' => 'facebook-square',
-                    ),
-                    'als_twitter' => array( 
-                        'label' => 'Twitter',
-                        'icon' => 'twitter-square',
-                    ),
-                    'als_pinterest' => array( 
-                        'label' => 'Pinterest',
-                        'icon' => 'pinterest-square',
-                    ),
-                    'als_linkedin' => array( 
-                        'label' => 'LinkedIn',
-                        'icon' => 'linkedin-square',
-                    ),
-                    'als_instagram' => array( 
-                        'label' => 'Instagram',
-                        'icon' => 'instagram',
-                    ),
-                );
+            <div class="small-12 columns">
 
-            foreach ( $social_accounts as $key => $social ) :
+                <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+                <?php 
+                    echo wp_get_attachment_image( get_theme_mod( 'als_footer_logo_image', 1 ), 'medium', false, array(
+                        'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                        'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                        'class' => 'aligncenter',
+                    ) ); 
+                ?>
+               </a>
 
-                if ( get_theme_mod( $key, '' ) !== '' ) : ?>
+                <?php echo sprintf( __( 'Copyright &copy; %d | All Rights Reserved | %s, inc.', THEME_ID ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
 
-                    <a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', THEME_ID ), $social['label'] ); ?>">
-                        <span class="fa fa-<?php echo $social['icon']; ?>"></span>
+            </div>
+
+            <div class="small-12 columns">
+
+                <?php 
+                    $social_accounts = array(
+                        'als_facebook' => array( 
+                            'label' => 'Facebook',
+                            'icon' => 'facebook-square',
+                        ),
+                        'als_twitter' => array( 
+                            'label' => 'Twitter',
+                            'icon' => 'twitter-square',
+                        ),
+                        'als_pinterest' => array( 
+                            'label' => 'Pinterest',
+                            'icon' => 'pinterest-square',
+                        ),
+                        'als_linkedin' => array( 
+                            'label' => 'LinkedIn',
+                            'icon' => 'linkedin-square',
+                        ),
+                        'als_instagram' => array( 
+                            'label' => 'Instagram',
+                            'icon' => 'instagram',
+                        ),
+                    );
+
+                foreach ( $social_accounts as $key => $social ) :
+
+                    if ( get_theme_mod( $key, '' ) !== '' ) : ?>
+
+                        <a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', THEME_ID ), $social['label'] ); ?>">
+                            <span class="fa fa-<?php echo $social['icon']; ?>"></span>
+                        </a>
+
+                    <?php endif;
+
+                endforeach;
+
+                if ( get_theme_mod( 'als_rss_show', false ) === true ) : ?>
+
+                    <a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', THEME_ID ); ?>">
+                        <span class="fa fa-rss-square"></span>
                     </a>
 
-                <?php endif;
+                <?php endif; ?>
 
-            endforeach;
-
-            if ( get_theme_mod( 'als_rss_show', false ) === true ) : ?>
-
-                <a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', THEME_ID ); ?>">
-                    <span class="fa fa-rss-square"></span>
-                </a>
-
-            <?php endif; ?>
+            </div>
 
         </div>
         

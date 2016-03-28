@@ -2969,6 +2969,10 @@ body {
   background-color: #fefefe;
   padding: 30px; }
 
+#site-content {
+  height: 100%;
+  box-shadow: 0 -2px 5px #b32025; }
+
 img[class*=" wp-image-"] {
   border: solid 4px #fefefe;
   box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
@@ -3142,7 +3146,8 @@ a img.aligncenter {
 /* Override Foundation's _settings.scss here, or store your own variables */
 #site-footer .footer-widgets, #site-footer .footer-connect {
   padding-top: 3em;
-  padding-bottom: 4em; }
+  padding-bottom: 4em;
+  box-shadow: 0 -2px 5px #b32025; }
 
 #site-footer .footer-widgets {
   background-color: #005790; }

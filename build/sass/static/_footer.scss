@@ -6,6 +6,7 @@
     .footer-widgets, .footer-connect {
         padding-top: 3em;
         padding-bottom: 4em;
+        @include section-border;
     }
     
     .footer-widgets {
