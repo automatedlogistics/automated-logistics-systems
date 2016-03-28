@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 if ( get_theme_mod( $key, '' ) !== '' ) : ?>
 
-                    <a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" title="<?php echo sprintf( __( 'Connect with us on %s', THEME_ID ), $social['label'] ); ?>">
+                    <a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', THEME_ID ), $social['label'] ); ?>">
                         <span class="fa fa-<?php echo $social['icon']; ?>"></span>
                     </a>
 

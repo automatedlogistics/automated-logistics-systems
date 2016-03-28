@@ -46,6 +46,9 @@ $als_fonts = array(
  * @since 0.1.0
  */
 add_action( 'after_setup_theme', function () {
+    
+    // Image sizes
+    add_image_size( 'timeline-image', 600, 200 );
 
     // Add theme support
     require_once __DIR__ . '/includes/theme-support.php';

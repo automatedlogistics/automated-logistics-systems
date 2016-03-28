@@ -1,0 +1,97 @@
+@import "../functions";
+@import "../settings";
+
+$divider-width: 4px;
+$dot-width: 20px;
+
+.home {
+
+    #home-timeline {
+
+        position: relative;
+
+        &:before {
+
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            left: 50%;
+            width: $divider-width;
+            margin-left: -( $divider-width / 2 ); // Properly centers in accordance to width
+            background: $tertiary-color;
+
+        }
+
+        .row {
+
+            margin-bottom: 3em;
+            
+            .text-left {
+                padding-left: 2em;
+            }
+            
+            @media #{$medium-up} {
+                
+                // This way we don't have to figure out how to calculate the original value on Mobile
+                .text-right {
+                    padding-right: 2em;
+                }
+                
+            }
+
+            .timeline-dot {
+
+                position: absolute;                
+                left: 50%;            
+                width: $dot-width;
+                height: $dot-width;
+                margin-left: -( $dot-width / 2 ); // Properly centers in accordance to width
+                margin-top: ( $dot-width / 4 ); // Adjust top-alignment slightly
+                border-radius: 100%;
+                background-color: $tertiary-color;
+
+            }
+
+            &:first-of-type, &:last-of-type {
+                
+                * {
+                    margin-top: -( $dot-width / 4 ); // Hide end of line
+                }
+                
+            }
+
+        }
+        
+        @media #{$small-only} {
+            
+            &:before {
+                
+                left: 0%;
+                margin-left: ( $dot-width / 2 );
+                
+            }
+            
+            .row {
+                
+                .timeline-dot {
+                    
+                    left: 0%;
+                    margin-left: ( $divider-width / 2 );
+                    
+                }
+                
+                .text-left, .text-right {
+                    
+                    padding-left: 2em;
+                    text-align: left;
+                    
+                }
+                
+            }
+            
+        }
+
+    }
+
+}

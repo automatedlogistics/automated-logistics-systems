@@ -1838,7 +1838,7 @@ h6 {
   font-family: "Oswald", sans-serif;
   font-weight: normal;
   font-style: normal;
-  color: inherit;
+  color: #005790;
   text-rendering: optimizeLegibility;
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -2985,6 +2985,9 @@ img[class*=" wp-image-"] {
 .pagination {
   text-align: center; }
 
+.button {
+  font-family: "Oswald", sans-serif; }
+
 /* Override Foundation's _settings.scss here, or store your own variables */
 /*
 This provides overrides for some WP stuff (not much at all).
@@ -3155,4 +3158,45 @@ a img.aligncenter {
           transition-delay: initial, initial; }
   #site-footer .footer-connect .social-icon:hover {
     color: #8a8a8a; }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+.home #home-timeline {
+  position: relative; }
+  .home #home-timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 50%;
+    width: 4px;
+    margin-left: -2px;
+    background: #b32025; }
+  .home #home-timeline .row {
+    margin-bottom: 3em; }
+    .home #home-timeline .row .text-left {
+      padding-left: 2em; }
+    @media screen and (min-width: 40em) {
+      .home #home-timeline .row .text-right {
+        padding-right: 2em; } }
+    .home #home-timeline .row .timeline-dot {
+      position: absolute;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin-left: -10px;
+      margin-top: 5px;
+      border-radius: 100%;
+      background-color: #b32025; }
+    .home #home-timeline .row:first-of-type *, .home #home-timeline .row:last-of-type * {
+      margin-top: -5px; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    .home #home-timeline:before {
+      left: 0%;
+      margin-left: 10px; }
+    .home #home-timeline .row .timeline-dot {
+      left: 0%;
+      margin-left: 2px; }
+    .home #home-timeline .row .text-left, .home #home-timeline .row .text-right {
+      padding-left: 2em;
+      text-align: left; } }
 /*# sourceMappingURL=style.css.map */
