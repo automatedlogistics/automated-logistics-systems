@@ -46,6 +46,25 @@ $body-font-family: 'Quattrocento Sans', sans-serif;
 
 $header-color: $primary-color;
 
+$header-sizes: (
+  small: (
+    'h1': 24,
+    'h2': 20,
+    'h3': 19,
+    'h4': 18,
+    'h5': 17,
+    'h6': 16,
+  ),
+  medium: (
+    'h1': 40,
+    'h2': 32,
+    'h3': 28,
+    'h4': 20,
+    'h5': 28,
+    'h6': 16,
+  ),
+);
+
 // Media query ranges
 $small-range: (0em, 40em);
 $medium-range: (40.063em, 64em);
