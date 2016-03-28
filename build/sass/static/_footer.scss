@@ -3,9 +3,54 @@
 
 #site-footer {
     
+    .footer-widgets, .footer-connect {
+        padding-top: 3em;
+        padding-bottom: 4em;
+    }
+    
     .footer-widgets {
         
         background-color: $primary-color;
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: $white;
+            text-transform: uppercase;
+        }
+        
+        a {
+            color: $white;
+            
+            &:hover {
+                color: scale-color( $white, $lightness: -14% );
+            }
+            
+        }
+        
+        .widget {
+            
+            width: 50%;
+            margin: 0 auto;
+            
+            .menu {
+            
+                list-style-type: $list-style-type;
+                margin-left: $list-side-margin;
+                margin-bottom: $list-margin-bottom;
+                color: $white;
+
+                li {
+
+                    display: list-item;
+
+                    a {
+                        padding: 0;
+                    }
+
+                }
+
+            }
+            
+        }
         
     }
     

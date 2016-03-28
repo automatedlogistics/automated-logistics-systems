@@ -87,9 +87,21 @@ function als_customize_register( $wp_customize ) {
         ) 
     );
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'als_logo_image', array(
-        'label'        => __( 'Logo', THEME_ID ),
+        'label'        => __( 'Header Logo', THEME_ID ),
         'section'    => 'als_customizer_section',
         'settings'   => 'als_logo_image',
+        'mime_type'  => 'image',
+    ) ) );
+    
+    $wp_customize->add_setting( 'als_footer_logo_image', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'als_footer_logo_image', array(
+        'label'        => __( 'Footer Logo', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => 'als_footer_logo_image',
         'mime_type'  => 'image',
     ) ) );
     

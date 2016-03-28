@@ -1868,15 +1868,15 @@ h6 {
 
 @media screen and (min-width: 40em) {
   h1 {
-    font-size: 3rem; }
-  h2 {
     font-size: 2.5rem; }
+  h2 {
+    font-size: 2rem; }
   h3 {
-    font-size: 1.9375rem; }
+    font-size: 1.75rem; }
   h4 {
-    font-size: 1.5625rem; }
-  h5 {
     font-size: 1.25rem; }
+  h5 {
+    font-size: 1.75rem; }
   h6 {
     font-size: 1rem; } }
 
@@ -3140,8 +3140,31 @@ a img.aligncenter {
       border-top-color: #333 !important; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
+#site-footer .footer-widgets, #site-footer .footer-connect {
+  padding-top: 3em;
+  padding-bottom: 4em; }
+
 #site-footer .footer-widgets {
   background-color: #005790; }
+  #site-footer .footer-widgets h1, #site-footer .footer-widgets h2, #site-footer .footer-widgets h3, #site-footer .footer-widgets h4, #site-footer .footer-widgets h5, #site-footer .footer-widgets h6 {
+    color: #fefefe;
+    text-transform: uppercase; }
+  #site-footer .footer-widgets a {
+    color: #fefefe; }
+    #site-footer .footer-widgets a:hover {
+      color: #dadada; }
+  #site-footer .footer-widgets .widget {
+    width: 50%;
+    margin: 0 auto; }
+    #site-footer .footer-widgets .widget .menu {
+      list-style-type: disc;
+      margin-left: 1.25rem;
+      margin-bottom: 1rem;
+      color: #fefefe; }
+      #site-footer .footer-widgets .widget .menu li {
+        display: list-item; }
+        #site-footer .footer-widgets .widget .menu li a {
+          padding: 0; }
 
 #site-footer .footer-connect .social-icon {
   color: #cacaca;

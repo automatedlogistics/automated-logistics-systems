@@ -17,26 +17,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <footer id="site-footer">
     
-    <div class="footer-widgets row">
-
-        <?php
-        $footer_columns = get_theme_mod( 'als_footer_columns', 4 );
-        for ( $index = 0; $index < $footer_columns; $index++ ) {
-            ?>
-
-                <div class = "small-12 medium-<?php echo ( 12 / $footer_columns ); ?> columns">
-                    <?php dynamic_sidebar( 'footer-' . ( $index + 1 ) ); ?>
-                </div>
+    <div class="footer-widgets">
+        
+        <div class="row">
 
             <?php
-        }
-        ?>
+            $footer_columns = get_theme_mod( 'als_footer_columns', 4 );
+            for ( $index = 0; $index < $footer_columns; $index++ ) {
+                ?>
+
+                    <div class = "small-12 medium-<?php echo ( 12 / $footer_columns ); ?> columns">
+                        <?php dynamic_sidebar( 'footer-' . ( $index + 1 ) ); ?>
+                    </div>
+
+                <?php
+            }
+            ?>
+            
+        </div>
 
     </div>
     
     <div class="row footer-connect text-center">
         
         <div class="small-12 columns">
+            
+            <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+            <?php 
+                echo wp_get_attachment_image( get_theme_mod( 'als_footer_logo_image', 1 ), 'medium', false, array(
+                    'title' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                    'alt' => get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ),
+                    'class' => 'aligncenter',
+                ) ); 
+            ?>
+           </a>
             
             <?php echo sprintf( __( 'Copyright &copy; %d | All Rights Reserved | %s, inc.', THEME_ID ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
         
