@@ -11,6 +11,35 @@ $dot-width: 20px;
         box-shadow: none; 
     }
     
+    #home-hero, #home-footer-hero {
+        @include section-border;
+        
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        
+        .row {
+            max-width: 100%;
+        }
+        
+        .hero-copy {
+            color: $white;
+            margin-top: 4em;
+            
+            p:last-of-type {
+                margin: 0;
+            }
+            
+            h1 {
+                font-size: 4em;
+                font-weight: 700;
+                color: $white;
+            }
+            
+        }
+        
+    }
+    
     #mini-nav {
         
         background-color: $primary-color;

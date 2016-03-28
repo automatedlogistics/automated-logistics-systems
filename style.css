@@ -3191,6 +3191,23 @@ a img.aligncenter {
 .home #site-content {
   box-shadow: none; }
 
+.home #home-hero, .home #home-footer-hero {
+  box-shadow: 0 -2px 5px #b32025;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat; }
+  .home #home-hero .row, .home #home-footer-hero .row {
+    max-width: 100%; }
+  .home #home-hero .hero-copy, .home #home-footer-hero .hero-copy {
+    color: #fefefe;
+    margin-top: 4em; }
+    .home #home-hero .hero-copy p:last-of-type, .home #home-footer-hero .hero-copy p:last-of-type {
+      margin: 0; }
+    .home #home-hero .hero-copy h1, .home #home-footer-hero .hero-copy h1 {
+      font-size: 4em;
+      font-weight: 700;
+      color: #fefefe; }
+
 .home #mini-nav {
   background-color: #005790;
   box-shadow: 0 -2px 5px #b32025;

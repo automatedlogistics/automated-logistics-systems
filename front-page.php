@@ -8,7 +8,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 the_post();
+
+if ( get_field( 'home_hero_image' ) ) :
+    $hero_image = wp_get_attachment_image_src( get_field( 'home_hero_image' ), 'hero-image' );
 ?>
+
+    <section id="home-hero" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+        <div class="row collapse">
+            <div class="small-12 medium-6 medium-offset-6 columns text-center">
+                <div class="hero-copy">
+                    <h1><?php the_field( 'home_hero_header' ); ?></h1>
+                </div>
+                <a class="secondary button" href="<?php the_field( 'home_hero_button_link' ); ?>"><?php the_field( 'home_hero_button_text' ); ?></a>
+            </div>
+        </div>
+    </section>
+
+<?php endif; ?>
 
 <section id="mini-nav">
     
@@ -129,6 +145,23 @@ the_post();
         <?php endif; ?>
 
 </section>
+
+<?php if ( get_field( 'home_footer_hero_image' ) ) :
+    $hero_image = wp_get_attachment_image_src( get_field( 'home_footer_hero_image' ), 'hero-image' );
+?>
+
+    <section id="home-footer-hero" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+        <div class="row collapse">
+            <div class="small-12 medium-6 columns text-center">
+                <div class="hero-copy">
+                    <?php echo apply_filters( 'the_content', get_field( 'home_footer_hero_text' ) ); ?>
+                </div>
+                <a class="secondary button" href="<?php the_field( 'home_footer_hero_button_link' ); ?>"><?php echo html_entity_decode( get_field( 'home_footer_hero_button_text' ) ); ?></a>
+            </div>
+        </div>
+    </section>
+
+<?php endif; ?>
 
 <?php
 get_footer();
