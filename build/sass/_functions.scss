@@ -24,3 +24,8 @@
     box-shadow: 0 -2px 5px $color;
     
 }
+
+// Allow hex color to be passed into a Data URI
+@function uri-friendly-color( $colour ) {
+    @return '%23' + str-slice( '#{$colour}', 2, -1 );
+}

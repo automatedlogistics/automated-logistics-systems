@@ -19,7 +19,7 @@ if ( get_field( 'home_hero_image' ) ) :
                 <div class="hero-copy">
                     <h1><?php the_field( 'home_hero_header' ); ?></h1>
                 </div>
-                <a class="secondary button" href="<?php the_field( 'home_hero_button_link' ); ?>"><?php the_field( 'home_hero_button_text' ); ?></a>
+                <a class="secondary large button with-arc" href="<?php the_field( 'home_hero_button_link' ); ?>"><?php the_field( 'home_hero_button_text' ); ?></a>
             </div>
         </div>
     </section>
@@ -100,7 +100,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
                                 <h3><?php echo get_sub_field( 'title' ); ?></h3>
                                 <?php echo apply_filters( 'the_content', get_sub_field( 'main_text' ) ); ?>
-                                <a class="secondary button" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
+                                <a class="secondary button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
 
                             <?php endif; ?>
 
@@ -114,7 +114,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
                                 <h3><?php echo get_sub_field( 'title' ); ?></h3>
                                 <?php echo apply_filters( 'the_content', get_sub_field( 'main_text' ) ); ?>
-                                <a class="secondary button" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
+                                <a class="secondary button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
 
                             <?php else :
 
@@ -156,7 +156,7 @@ if ( get_field( 'home_hero_image' ) ) :
                 <div class="hero-copy">
                     <?php echo apply_filters( 'the_content', get_field( 'home_footer_hero_text' ) ); ?>
                 </div>
-                <a class="secondary button" href="<?php the_field( 'home_footer_hero_button_link' ); ?>"><?php echo html_entity_decode( get_field( 'home_footer_hero_button_text' ) ); ?></a>
+                <a class="secondary large button with-arc" href="<?php the_field( 'home_footer_hero_button_link' ); ?>"><?php echo html_entity_decode( get_field( 'home_footer_hero_button_text' ) ); ?></a>
             </div>
         </div>
     </section>
