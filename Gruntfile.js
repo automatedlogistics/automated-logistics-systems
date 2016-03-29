@@ -92,6 +92,7 @@ module.exports = function (grunt) {
                         'build/vendor/js/foundation/foundation.dropdownMenu.js',
                         'build/vendor/js/foundation/foundation.offcanvas.js',
                         'build/vendor/js/foundation/foundation.reveal.js',
+                        'build/vendor/js/foundation/foundation.accordionMenu.js',
                         // Included dynamically in header.php
                         '!build/vendor/js/html5.js',
 

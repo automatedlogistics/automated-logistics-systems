@@ -1,0 +1,65 @@
+@import "../functions";
+@import "../settings";
+
+// Put Arrow on Left Side
+@if $accordionmenu-arrows {
+    
+    .is-accordion-submenu-parent > a {
+        
+        button {
+            position: absolute;
+            top: 50%;
+        }
+
+        &::before {
+            @include css-triangle( 6px, $accordionmenu-arrow-color, down );
+            position: absolute;
+            top: 50%;
+            margin-top: -3px;
+            left: 1rem;
+        }
+        
+        padding: 0.7rem 1rem 0.7rem 2rem;
+        
+        &::after {
+            display: none;
+        }
+        
+    }
+
+    .is-accordion-submenu-parent[aria-expanded='true'] {
+        
+        & > a::before {
+            @include css-triangle( 6px, $accordionmenu-arrow-color, right );
+            margin-top: -6px;
+            left: 1.25rem;
+        }
+        
+        & > a::after {
+            display: none;
+        }
+        
+    }
+    
+}
+
+ul[data-accordion-menu] {
+    
+    & > li:not( .menu-text ) {
+        
+        & > a {
+            
+            background-color: $light-gray;
+            font-family: $header-font-family;
+            color: $primary-color;
+            padding: 1rem 1rem 1rem 2rem;
+            
+        }
+        
+        & > ul {
+            padding: 1rem 2rem;
+        }
+        
+    }
+    
+}

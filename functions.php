@@ -395,7 +395,7 @@ function register_cpt_als_service() {
         'search_items' => _x( 'Search Services', THEME_ID ),
         'not_found' => _x( 'No Services found', THEME_ID ),
         'not_found_in_trash' => _x( 'No Services found in Trash', THEME_ID ),
-        'parent_item_colon' => _x( 'Parent Services:', THEME_ID ),
+        'parent_item_colon' => _x( 'Parent Service:', THEME_ID ),
         'menu_name' => _x( 'Services', THEME_ID ),
         'featured_image'        => _x( 'Service Image', THEME_ID ),
         'remove_featured_image' => _x( 'Remove Service Image', THEME_ID ),
@@ -483,4 +483,77 @@ function register_taxonomy_als_service_type() {
         'rewrite' => array( 'slug' => 'service-type' ),
     );
     register_taxonomy( 'als_service_type', 'als_service', $args );
+}
+
+/**
+ * Creates the Job Openings CPT
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_cpt_als_job_opening' );
+function register_cpt_als_job_opening() {
+    $labels = array(
+        'name' => _x( 'Job Openings', THEME_ID ),
+        'all_items' => __( 'All Job Openings', THEME_ID ),
+        'singular_name' => _x( 'Job Opening', THEME_ID ),
+        'add_new' => _x( 'Add New Job Opening', THEME_ID ),
+        'add_new_item' => _x( 'Add New Job Opening', THEME_ID ),
+        'edit_item' => _x( 'Edit Job Opening', THEME_ID ),
+        'new_item' => _x( 'New Job Opening', THEME_ID ),
+        'view_item' => _x( 'View Job Opening', THEME_ID ),
+        'search_items' => _x( 'Search Job Openings', THEME_ID ),
+        'not_found' => _x( 'No Job Openings found', THEME_ID ),
+        'not_found_in_trash' => _x( 'No Job Openings found in Trash', THEME_ID ),
+        'parent_item_colon' => _x( 'Parent Job Opening:', THEME_ID ),
+        'menu_name' => _x( 'Job Openings', THEME_ID ),
+        'featured_image'        => _x( 'Job Opening Image', THEME_ID ),
+        'remove_featured_image' => _x( 'Remove Job Opening Image', THEME_ID ),
+        'set_featured_image'    => _x( 'Set Job Opening Image', THEME_ID ),
+        'use_featured_image'    => _x( 'Use as Job Opening Image', THEME_ID ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'menu_icon' => 'dashicons-businessman',
+        'hierarchical' => false,
+        'description' => 'job opening',
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => array(
+            'slug' => 'job-opening',
+            'with_front' => false,
+            'feeds' => false,
+            'pages' => true
+        ),
+        'capability_type' => 'post',
+        /*
+        'capability_type' => 'service',
+        'capabilities' => array(
+            // Singular
+            'edit_post'	=>	'edit_service',
+            'read_post'	=>	'read_service',
+            'delete_post'	=>	'delete_service',
+            // Plural
+            'edit_posts'	=>	'edit_services',
+            'edit_others_posts'	=>	'edit_others_services',
+            'publish_posts'	=>	'publish_services',
+            'read_private_posts'	=>	'read_private_services',
+            'delete_posts'	=>	'delete_services',
+            'delete_private_posts'	=>	'delete_private_services',
+            'delete_published_posts'	=>	'delete_published_services',
+            'delete_others_posts'	=>	'delete_others_services',
+            'edit_private_posts'	=>	'edit_private_services',
+            'edit_published_posts'	=>	'edit_published_services',
+        ),
+		*/
+    );
+    register_post_type( 'als_job_opening', $args );
 }

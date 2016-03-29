@@ -13,7 +13,7 @@ if ( get_field( 'home_hero_image' ) ) :
     $hero_image = wp_get_attachment_image_src( get_field( 'home_hero_image' ), 'hero-image' );
 ?>
 
-    <section id="home-hero" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    <section id="home-hero" class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
         <div class="row collapse">
             <div class="small-12 medium-6 medium-offset-6 columns text-center">
                 <div class="hero-copy">
@@ -150,7 +150,7 @@ if ( get_field( 'home_hero_image' ) ) :
     $hero_image = wp_get_attachment_image_src( get_field( 'home_footer_hero_image' ), 'hero-image' );
 ?>
 
-    <section id="home-footer-hero" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    <section id="home-footer-hero" class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
         <div class="row collapse">
             <div class="small-12 medium-6 columns text-center">
                 <div class="hero-copy">

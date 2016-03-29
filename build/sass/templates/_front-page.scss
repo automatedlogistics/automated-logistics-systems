@@ -12,11 +12,6 @@ $dot-width: 20px;
     }
     
     #home-hero, #home-footer-hero {
-        @include section-border;
-        
-        background-size: cover;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
         
         .row {
             max-width: 100%;

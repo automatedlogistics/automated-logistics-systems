@@ -66,6 +66,14 @@ $header-sizes: (
   ),
 );
 
+// We use these to style anchors
+$anchor-color: scale-color( $secondary-color, $lightness: -15% );
+$anchor-color-hover: scale-color( $anchor-color, $lightness: -25% );
+
+$hr-border: 3px solid $tertiary-color;
+
+$accordionmenu-arrow-color: $tertiary-color;
+
 // Media query ranges
 $small-range: (0em, 40em);
 $medium-range: (40.063em, 64em);

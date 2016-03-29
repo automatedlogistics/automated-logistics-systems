@@ -41,10 +41,6 @@ section {
     display: none;
 }
 
-body {
-    font-weight: 600;
-}
-
 .page-content {
 
     background-color: $white;
@@ -65,4 +61,14 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 
 .pagination {
     text-align: center;
+}
+
+.hero-image {
+    
+        @include section-border;
+        
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    
 }
