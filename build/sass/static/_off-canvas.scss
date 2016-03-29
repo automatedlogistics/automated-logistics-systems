@@ -1,0 +1,42 @@
+@import "../functions";
+@import "../settings";
+
+.off-canvas-wrapper {
+    
+    background-color: darken( $primary-color, 15% );
+    
+}
+
+.off-canvas-content {
+    box-shadow: none;
+    // For something that has to wrap your Site Content, this is a really silly default...
+    
+    .menu-icon {
+        margin-left: 10px;
+    }
+    
+}
+
+.off-canvas {
+
+    > .menu {
+
+        > li {
+
+            background-color: $topbar-background; /* Top Level */
+            
+            a {
+                color: $topbar-link-color !important;
+            }
+
+            ul {
+                li {
+                    background-color: darken( $topbar-background, 5% );
+                }
+            }
+
+        }
+
+    }
+
+}

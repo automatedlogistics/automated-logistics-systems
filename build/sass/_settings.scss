@@ -26,6 +26,7 @@ $foundation-palette: (
 );
 
 $topbar-background: $primary-color;
+$offcanvas-background: $topbar-background;
 
 @if lightness( $topbar-background ) < 50% {
 
