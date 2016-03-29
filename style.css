@@ -2959,6 +2959,9 @@ html {
   height: auto;
   overflow-y: auto; }
 
+section {
+  position: relative; }
+
 .screen-reader-text {
   display: none; }
 
@@ -3209,58 +3212,68 @@ a img.aligncenter {
 /* Override Foundation's _settings.scss here, or store your own variables */
 .top-bar {
   font-family: "Oswald", sans-serif;
-  text-transform: uppercase; }
-  .top-bar .nav-menu > .dropdown.menu > .current-menu-item > a, .top-bar .nav-menu > .dropdown.menu > .current-menu-ancestor > a {
-    color: #eec31a; }
-  .top-bar .nav-menu > .dropdown.menu > .current-menu-item.is-dropdown-submenu-parent.is-right-arrow > a:after, .top-bar .nav-menu > .dropdown.menu > .current-menu-ancestor.is-dropdown-submenu-parent.is-right-arrow > a:after {
-    border-left-color: #eec31a !important; }
-  .top-bar .nav-menu > .dropdown.menu > .current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .dropdown.menu > .current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
-    border-top-color: #eec31a !important; }
-  .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-right-arrow > a:after {
-    border-left-color: #fff; }
-  .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-right-arrow:hover > a:after {
-    border-left-color: #fff; }
-  .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-down-arrow > a:after {
-    border-top-color: #fff; }
-  .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-down-arrow:hover > a:after {
-    border-top-color: #fff; }
-  .top-bar .nav-menu > .menu li.is-dropdown-submenu-parent > a:after {
-    border-width: 4px;
-    right: 10px; }
-  .top-bar .nav-menu > .menu > li:hover {
-    background-color: #0066aa !important; }
-    .top-bar .nav-menu > .menu > li:hover > a {
-      color: #fff; }
-  .top-bar .nav-menu > .menu > li li {
-    text-transform: none; }
-    .top-bar .nav-menu > .menu > li li a {
-      color: #333; }
-  .top-bar .nav-menu > .menu > li li:hover {
-    background-color: #e6e6e6 !important; }
-    .top-bar .nav-menu > .menu > li li:hover > a {
-      color: #333; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow > a:after {
-    border-left-color: #333 !important; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow:hover > a:after {
-    border-left-color: #333 !important; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow > a:after {
-    border-top-color: #333 !important; }
-  .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow:hover > a:after {
-    border-top-color: #333 !important; }
-  .top-bar .nav-menu > .menu > li li.current-menu-item, .top-bar .nav-menu > .menu > li li.current-menu-ancestor {
-    background-color: #cdcdcd; }
-    .top-bar .nav-menu > .menu > li li.current-menu-item > a, .top-bar .nav-menu > .menu > li li.current-menu-ancestor > a {
-      color: #333; }
-    .top-bar .nav-menu > .menu > li li.current-menu-item.is-dropdown-submenu-parent.is-right-arrow > a:after, .top-bar .nav-menu > .menu > li li.current-menu-ancestor.is-dropdown-submenu-parent.is-right-arrow > a:after {
+  text-transform: uppercase;
+  position: relative; }
+  .top-bar .nav-menu {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translate(-2%, -50%);
+    -webkit-transform: translate(-2%, -50%);
+    -o-transform: translate(-2%, -50%);
+    -ms-transform: translate(-2%, -50%); }
+    .top-bar .nav-menu > .dropdown.menu > .current-menu-item > a, .top-bar .nav-menu > .dropdown.menu > .current-menu-ancestor > a {
+      color: #eec31a; }
+    .top-bar .nav-menu > .dropdown.menu > .current-menu-item.is-dropdown-submenu-parent.is-right-arrow > a:after, .top-bar .nav-menu > .dropdown.menu > .current-menu-ancestor.is-dropdown-submenu-parent.is-right-arrow > a:after {
+      border-left-color: #eec31a !important; }
+    .top-bar .nav-menu > .dropdown.menu > .current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .dropdown.menu > .current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
+      border-top-color: #eec31a !important; }
+    .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-right-arrow > a:after {
+      border-left-color: #fff; }
+    .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-right-arrow:hover > a:after {
+      border-left-color: #fff; }
+    .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-down-arrow > a:after {
+      border-top-color: #fff; }
+    .top-bar .nav-menu > .dropdown.menu .is-dropdown-submenu-parent.is-down-arrow:hover > a:after {
+      border-top-color: #fff; }
+    .top-bar .nav-menu > .menu li.is-dropdown-submenu-parent > a:after {
+      border-width: 4px;
+      right: 10px; }
+    .top-bar .nav-menu > .menu > li:hover {
+      background-color: #0066aa !important; }
+      .top-bar .nav-menu > .menu > li:hover > a {
+        color: #fff; }
+    .top-bar .nav-menu > .menu > li li {
+      text-transform: none; }
+      .top-bar .nav-menu > .menu > li li a {
+        color: #333; }
+    .top-bar .nav-menu > .menu > li li:hover {
+      background-color: #e6e6e6 !important; }
+      .top-bar .nav-menu > .menu > li li:hover > a {
+        color: #333; }
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow > a:after {
       border-left-color: #333 !important; }
-    .top-bar .nav-menu > .menu > li li.current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .menu > li li.current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-right-arrow:hover > a:after {
+      border-left-color: #333 !important; }
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow > a:after {
       border-top-color: #333 !important; }
+    .top-bar .nav-menu > .menu > li .is-dropdown-submenu-parent.is-down-arrow:hover > a:after {
+      border-top-color: #333 !important; }
+    .top-bar .nav-menu > .menu > li li.current-menu-item, .top-bar .nav-menu > .menu > li li.current-menu-ancestor {
+      background-color: #cdcdcd; }
+      .top-bar .nav-menu > .menu > li li.current-menu-item > a, .top-bar .nav-menu > .menu > li li.current-menu-ancestor > a {
+        color: #333; }
+      .top-bar .nav-menu > .menu > li li.current-menu-item.is-dropdown-submenu-parent.is-right-arrow > a:after, .top-bar .nav-menu > .menu > li li.current-menu-ancestor.is-dropdown-submenu-parent.is-right-arrow > a:after {
+        border-left-color: #333 !important; }
+      .top-bar .nav-menu > .menu > li li.current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .menu > li li.current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
+        border-top-color: #333 !important; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 #site-footer .footer-widgets, #site-footer .footer-connect {
   padding-top: 3em;
   padding-bottom: 4em;
-  box-shadow: 0 -2px 5px #b32025; }
+  box-shadow: 0 -2px 5px #b32025;
+  position: relative; }
 
 #site-footer .footer-widgets {
   background-color: #005790; }

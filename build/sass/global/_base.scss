@@ -32,6 +32,10 @@ html {
     overflow-y: auto;
 }
 
+section {
+    position: relative;
+}
+
 // Classes
 .screen-reader-text {
     display: none;
@@ -42,10 +46,10 @@ body {
 }
 
 .page-content {
-    
+
     background-color: $white;
     padding: 30px;
-    
+
 }
 
 #site-content {
@@ -54,9 +58,9 @@ body {
 }
 
 img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" button
-    
+
     @include thumbnail;
-    
+
 }
 
 .pagination {
