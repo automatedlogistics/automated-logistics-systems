@@ -100,7 +100,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
                                 <h3><?php echo get_sub_field( 'title' ); ?></h3>
                                 <?php echo apply_filters( 'the_content', get_sub_field( 'main_text' ) ); ?>
-                                <a class="secondary button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
+                                <a class="secondary tiny button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
 
                             <?php endif; ?>
 
@@ -114,7 +114,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
                                 <h3><?php echo get_sub_field( 'title' ); ?></h3>
                                 <?php echo apply_filters( 'the_content', get_sub_field( 'main_text' ) ); ?>
-                                <a class="secondary button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
+                                <a class="secondary tiny button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
 
                             <?php else :
 

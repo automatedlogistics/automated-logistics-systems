@@ -92,16 +92,6 @@ if ( ! isset( $_SESSION ) ) {
                         </div>
 
                     </div>
-                    
-                    <svg height="0" width="0">
-                        <defs>
-                            <path id="button-shape" d="M 16.505859 0 A 55.80645 55.80645 0 0 0 8.7089844 28.322266 A 55.80645 55.80645 0 0 0 17.333984 58 L 20.783203 58 A 52.903225 52.903225 0 0 1 11.613281 28.322266 A 52.903225 52.903225 0 0 1 19.904297 0 L 16.505859 0 z " />
-                        </defs>
-                        <mask id="button-clip">
-                            <rect id="bg" x="0" y="0" width="100%" height="100%" fill="white" />
-                            <use xlink:href="#button-shape" fill="Black" />
-                        </mask>
-                    </svg>
 
                 </header>
 
