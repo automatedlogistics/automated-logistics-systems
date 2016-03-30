@@ -1,0 +1,39 @@
+@import "../functions";
+@import "../settings";
+
+.als-testimonial {
+    
+    img {
+        width: 100%;
+    }
+
+    .testimonial-content {
+
+        @include section-border;
+        background-color: scale-color( $secondary-color, $lightness: 60% );
+        padding: 1em;
+
+        blockquote {
+            border: none;
+            font-style: italic;
+            padding: 0;
+
+            &, * {
+                color: $body-font-color;
+                line-height: 1.35;
+            }
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+
+        }
+
+        > *:not( blockquote ) {
+            padding-left: 1.5em;
+            line-height: 1;
+        }
+
+    }
+
+}

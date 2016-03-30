@@ -36,7 +36,36 @@ the_post();
         </div>
         
         <div class="small-12 medium-3 columns">
-            employee testimonials
+            
+            <?php 
+            
+            $args = array(
+                'post_type' => 'als_testimonial',
+                'posts_per_page' => 1,
+                'meta_query' => array(
+                    array(
+                        'key' => 'employee_testimonial',
+                        'value' => '"true"',
+                        'compare' => 'LIKE',
+                    ),
+                ),
+            );
+            
+            global $post;
+            $testimonials = new WP_Query( $args );
+            
+            if ( $testimonials->have_posts() ) : 
+            
+                while ( $testimonials->have_posts() ) : $testimonials->the_post();
+            
+                    get_template_part( 'partials/als_testimonial', 'sidebar-single' );
+            
+                endwhile;
+            
+            endif; 
+            
+            wp_reset_postdata(); ?>
+            
         </div>
 
     </div>

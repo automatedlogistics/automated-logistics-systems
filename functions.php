@@ -426,23 +426,23 @@ function register_cpt_als_service() {
         ),
         'capability_type' => 'post',
         /*
-        'capability_type' => 'service',
+        'capability_type' => 'als_service',
         'capabilities' => array(
             // Singular
-            'edit_post'	=>	'edit_service',
-            'read_post'	=>	'read_service',
-            'delete_post'	=>	'delete_service',
+            'edit_post'	=>	'edit_als_service',
+            'read_post'	=>	'read_als_service',
+            'delete_post'	=>	'delete_als_service',
             // Plural
-            'edit_posts'	=>	'edit_services',
-            'edit_others_posts'	=>	'edit_others_services',
-            'publish_posts'	=>	'publish_services',
-            'read_private_posts'	=>	'read_private_services',
-            'delete_posts'	=>	'delete_services',
-            'delete_private_posts'	=>	'delete_private_services',
-            'delete_published_posts'	=>	'delete_published_services',
-            'delete_others_posts'	=>	'delete_others_services',
-            'edit_private_posts'	=>	'edit_private_services',
-            'edit_published_posts'	=>	'edit_published_services',
+            'edit_posts'	=>	'edit_als_services',
+            'edit_others_posts'	=>	'edit_others_als_services',
+            'publish_posts'	=>	'publish_als_services',
+            'read_private_posts'	=>	'read_private_als_services',
+            'delete_posts'	=>	'delete_als_services',
+            'delete_private_posts'	=>	'delete_private_als_services',
+            'delete_published_posts'	=>	'delete_published_als_services',
+            'delete_others_posts'	=>	'delete_others_als_services',
+            'edit_private_posts'	=>	'edit_private_als_services',
+            'edit_published_posts'	=>	'edit_published_als_services',
         ),
 		*/
     );
@@ -535,25 +535,98 @@ function register_cpt_als_job_opening() {
         ),
         'capability_type' => 'post',
         /*
-        'capability_type' => 'service',
+        'capability_type' => 'als_job_opening',
         'capabilities' => array(
             // Singular
-            'edit_post'	=>	'edit_service',
-            'read_post'	=>	'read_service',
-            'delete_post'	=>	'delete_service',
+            'edit_post'	=>	'edit_als_job_opening',
+            'read_post'	=>	'read_als_job_opening',
+            'delete_post'	=>	'delete_als_job_opening',
             // Plural
-            'edit_posts'	=>	'edit_services',
-            'edit_others_posts'	=>	'edit_others_services',
-            'publish_posts'	=>	'publish_services',
-            'read_private_posts'	=>	'read_private_services',
+            'edit_posts'	=>	'edit_als_job_openings',
+            'edit_others_posts'	=>	'edit_others_als_job_openings',
+            'publish_posts'	=>	'publish_als_job_openings',
+            'read_private_posts'	=>	'read_private_als_job_openings',
             'delete_posts'	=>	'delete_services',
-            'delete_private_posts'	=>	'delete_private_services',
-            'delete_published_posts'	=>	'delete_published_services',
-            'delete_others_posts'	=>	'delete_others_services',
-            'edit_private_posts'	=>	'edit_private_services',
-            'edit_published_posts'	=>	'edit_published_services',
+            'delete_private_posts'	=>	'delete_private_als_job_openings',
+            'delete_published_posts'	=>	'delete_published_als_job_openings',
+            'delete_others_posts'	=>	'delete_others_als_job_openings',
+            'edit_private_posts'	=>	'edit_private_als_job_openings',
+            'edit_published_posts'	=>	'edit_published_als_job_openings',
         ),
 		*/
     );
     register_post_type( 'als_job_opening', $args );
+}
+
+/**
+ * Creates the Testimonials CPT
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_cpt_als_testimonial' );
+function register_cpt_als_testimonial() {
+    $labels = array(
+        'name' => _x( 'Testimonials', THEME_ID ),
+        'all_items' => __( 'All Testimonials', THEME_ID ),
+        'singular_name' => _x( 'Testimonial', THEME_ID ),
+        'add_new' => _x( 'Add New Testimonial', THEME_ID ),
+        'add_new_item' => _x( 'Add New Testimonial', THEME_ID ),
+        'edit_item' => _x( 'Edit Testimonial', THEME_ID ),
+        'new_item' => _x( 'New Testimonial', THEME_ID ),
+        'view_item' => _x( 'View Testimonial', THEME_ID ),
+        'search_items' => _x( 'Search Testimonials', THEME_ID ),
+        'not_found' => _x( 'No Testimonials found', THEME_ID ),
+        'not_found_in_trash' => _x( 'No Testimonials found in Trash', THEME_ID ),
+        'parent_item_colon' => _x( 'Parent Testimonial:', THEME_ID ),
+        'menu_name' => _x( 'Testimonials', THEME_ID ),
+        'featured_image'        => _x( 'Testimonial Image', THEME_ID ),
+        'remove_featured_image' => _x( 'Remove Testimonial Image', THEME_ID ),
+        'set_featured_image'    => _x( 'Set Testimonial Image', THEME_ID ),
+        'use_featured_image'    => _x( 'Use as Testimonial Image', THEME_ID ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'menu_icon' => 'dashicons-awards',
+        'hierarchical' => false,
+        'description' => 'Testimonial',
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+        'public' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => false,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => array(
+            'slug' => 'testimonial',
+            'with_front' => false,
+            'feeds' => false,
+            'pages' => true
+        ),
+        'capability_type' => 'post',
+        /*
+        'capability_type' => 'als_testimonial',
+        'capabilities' => array(
+            // Singular
+            'edit_post'	=>	'edit_als_testimonial',
+            'read_post'	=>	'read_als_testimonial',
+            'delete_post'	=>	'delete_als_testimonial',
+            // Plural
+            'edit_posts'	=>	'edit_als_testimonials',
+            'edit_others_posts'	=>	'edit_others_als_testimonials',
+            'publish_posts'	=>	'publish_als_testimonials',
+            'read_private_posts'	=>	'read_private_als_testimonials',
+            'delete_posts'	=>	'delete_als_testimonials',
+            'delete_private_posts'	=>	'delete_private_als_testimonials',
+            'delete_published_posts'	=>	'delete_published_als_testimonials',
+            'delete_others_posts'	=>	'delete_others_als_testimonials',
+            'edit_private_posts'	=>	'edit_private_als_testimonials',
+            'edit_published_posts'	=>	'edit_published_als_testimonials',
+        ),
+		*/
+    );
+    register_post_type( 'als_testimonial', $args );
 }

@@ -2988,11 +2988,11 @@ section {
 
 .page-content {
   background-color: #fefefe;
-  padding: 30px; }
+  padding: 30px;
+  border-top: 3px solid #b32025; }
 
 #site-content {
-  height: 100%;
-  box-shadow: 0 -2px 5px #b32025; }
+  height: 100%; }
 
 img[class*=" wp-image-"] {
   border: solid 4px #fefefe;
@@ -3011,7 +3011,7 @@ img[class*=" wp-image-"] {
   text-align: center; }
 
 .hero-image {
-  box-shadow: 0 -2px 5px #b32025;
+  border-top: 3px solid #b32025;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat; }
@@ -3358,7 +3358,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 #site-footer .footer-widgets, #site-footer .footer-connect {
   padding-top: 3em;
   padding-bottom: 4em;
-  box-shadow: 0 -2px 5px #b32025;
+  border-top: 3px solid #b32025;
   position: relative; }
 
 #site-footer .footer-widgets {
@@ -3400,9 +3400,6 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     color: #8a8a8a; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
-.home #site-content {
-  box-shadow: none; }
-
 .home #home-hero .row, .home #home-footer-hero .row {
   max-width: 100%; }
 
@@ -3418,7 +3415,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 
 .home #mini-nav {
   background-color: #005790;
-  box-shadow: 0 -2px 5px #b32025;
+  border-top: 3px solid #b32025;
   padding-top: 1em;
   padding-bottom: 1em; }
   .home #mini-nav h1, .home #mini-nav h2, .home #mini-nav h3, .home #mini-nav h4, .home #mini-nav h5, .home #mini-nav h6 {
@@ -3432,7 +3429,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     color: #005790 !important; }
 
 .home #home-timeline {
-  box-shadow: 0 -2px 5px #b32025;
+  border-top: 3px solid #b32025;
   padding-top: 3em;
   padding-bottom: 1em; }
   .home #home-timeline .container {
@@ -3474,4 +3471,25 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       .home #home-timeline .container .row .text-left, .home #home-timeline .container .row .text-right {
         padding-left: 2em;
         text-align: left; } }
+
+/* Override Foundation's _settings.scss here, or store your own variables */
+.als-testimonial img {
+  width: 100%; }
+
+.als-testimonial .testimonial-content {
+  border-top: 3px solid #b32025;
+  background-color: #f8e7a3;
+  padding: 1em; }
+  .als-testimonial .testimonial-content blockquote {
+    border: none;
+    font-style: italic;
+    padding: 0; }
+    .als-testimonial .testimonial-content blockquote, .als-testimonial .testimonial-content blockquote * {
+      color: #0a0a0a;
+      line-height: 1.35; }
+    .als-testimonial .testimonial-content blockquote p:last-of-type {
+      margin-bottom: 0; }
+  .als-testimonial .testimonial-content > *:not(blockquote) {
+    padding-left: 1.5em;
+    line-height: 1; }
 /*# sourceMappingURL=style.css.map */

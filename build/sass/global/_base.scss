@@ -45,12 +45,12 @@ section {
 
     background-color: $white;
     padding: 30px;
+    @include section-border;
 
 }
 
 #site-content {
     height: 100%;
-    @include section-border;
 }
 
 img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" button
