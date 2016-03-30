@@ -16,15 +16,18 @@ get_header();
 the_post();
 ?>
 
+<?php if ( has_post_thumbnail() ) :
+    $hero_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'hero-image' );
+?>
+
+    <section class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    </section>
+
+<?php endif; ?>
+
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'full-width' ) ); ?>>
     <div class="row">
         <div class="small-12 columns">
-
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="page-image">
-                <?php the_post_thumbnail( 'full' ); ?>
-            </div>
-            <?php endif; ?>
             
             <h1 class="page-title"><?php the_title(); ?></h1>
 
@@ -35,6 +38,13 @@ the_post();
         </div>
 
     </div>
+    
+    <div class"row">
+        <div id="after-content-text" class="small-12 columns text-center">
+            <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
+        </div>
+    </div>
+    
 </section>
 
 <?php
