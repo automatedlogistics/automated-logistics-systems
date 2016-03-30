@@ -1857,7 +1857,7 @@ h4,
 h5,
 h6 {
   font-family: "Oswald", sans-serif;
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
   color: #005790;
   text-rendering: optimizeLegibility;
@@ -3473,23 +3473,27 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
         text-align: left; } }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
-.als-testimonial img {
-  width: 100%; }
-
-.als-testimonial .testimonial-content {
-  border-top: 3px solid #b32025;
-  background-color: #f8e7a3;
-  padding: 1em; }
-  .als-testimonial .testimonial-content blockquote {
-    border: none;
-    font-style: italic;
-    padding: 0; }
-    .als-testimonial .testimonial-content blockquote, .als-testimonial .testimonial-content blockquote * {
-      color: #0a0a0a;
+.als-testimonial {
+  margin-bottom: 2em; }
+  .als-testimonial img {
+    width: 100%; }
+  .als-testimonial .testimonial-content {
+    border-top: 3px solid #b32025;
+    background-color: #f8e7a3;
+    padding: 1em; }
+    .als-testimonial .testimonial-content * {
       line-height: 1.35; }
-    .als-testimonial .testimonial-content blockquote p:last-of-type {
+    .als-testimonial .testimonial-content blockquote {
+      border: none;
+      font-style: italic;
+      padding: 0;
       margin-bottom: 0; }
-  .als-testimonial .testimonial-content > *:not(blockquote) {
-    padding-left: 1.5em;
-    line-height: 1; }
+      .als-testimonial .testimonial-content blockquote, .als-testimonial .testimonial-content blockquote * {
+        color: #0a0a0a;
+        line-height: 1.35; }
+      .als-testimonial .testimonial-content blockquote p:last-of-type {
+        margin-bottom: 0; }
+    .als-testimonial .testimonial-content > *:not(blockquote) {
+      padding-left: 1.5em;
+      display: block; }
 /*# sourceMappingURL=style.css.map */

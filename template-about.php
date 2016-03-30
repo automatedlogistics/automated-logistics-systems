@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Careers Page
+ * Template Name: About Us Page
  *
  * @since 0.1.0
  * @package automated-logistics-systems
@@ -25,7 +25,7 @@ the_post();
 
 <?php endif; ?>
 
-<section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'careers' ) ); ?>>
+<section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'about' ) ); ?>>
     
     <div class="row">
         
@@ -41,12 +41,12 @@ the_post();
             
             $args = array(
                 'post_type' => 'als_testimonial',
-                'posts_per_page' => 1,
+                'posts_per_page' => 2,
                 'meta_query' => array(
                     array(
                         'key' => 'employee_testimonial',
                         'value' => '"true"',
-                        'compare' => 'LIKE',
+                        'compare' => 'NOT LIKE',
                     ),
                 ),
             );
@@ -69,51 +69,6 @@ the_post();
         </div>
 
     </div>
-            
-    <?php
-
-    $args = array(
-        'post_type' => 'als_job_opening',
-        'posts_per_page' => -1, // Shouldn't be so many openings to neccessitate pagination
-    );
-
-    global $post;
-    $job_openings = new WP_Query( $args );
-
-    if ( $job_openings->have_posts() ) : ?>
-    
-    <hr />
-    
-    <div class="row">
-    
-        <div class="small-12 columns">
-            
-            <h3><?php _e( 'Job Openings at ALS', THEME_ID ); ?></h3>
-            
-            <ul id="employment-accordion" class="vertical menu" data-accordion-menu data-multi-open="false">
-                
-                <?php while ( $job_openings->have_posts() ) : $job_openings->the_post(); ?>
-                
-                <li>
-                    <a href="#"><?php the_title(); ?></a>
-                    <ul class="menu vertical nested">
-                        <li><?php the_content(); ?></li>
-                    </ul>
-                </li>
-                
-                <?php endwhile; ?>
-                
-            </ul>
-            
-        </div>
-    
-    </div>
-    
-    <?php 
-    
-    wp_reset_postdata();
-    
-    endif; ?>
     
 </section>
 

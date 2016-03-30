@@ -3,6 +3,8 @@
 
 .als-testimonial {
     
+    margin-bottom: 2em;
+    
     img {
         width: 100%;
     }
@@ -12,11 +14,16 @@
         @include section-border;
         background-color: scale-color( $secondary-color, $lightness: 60% );
         padding: 1em;
+        
+        * {
+            line-height: 1.35;
+        }
 
         blockquote {
             border: none;
             font-style: italic;
             padding: 0;
+            margin-bottom: 0;
 
             &, * {
                 color: $body-font-color;
@@ -31,7 +38,7 @@
 
         > *:not( blockquote ) {
             padding-left: 1.5em;
-            line-height: 1;
+            display: block;
         }
 
     }
