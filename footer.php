@@ -54,9 +54,15 @@ if ( ! defined( 'ABSPATH' ) ) {
                 ?>
                </a>
 
-                <?php echo sprintf( __( 'Copyright &copy; %d | All Rights Reserved | %s, inc.', THEME_ID ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+                <div class="copyright">
+                    <?php echo sprintf( __( 'Copyright &copy; %d | All Rights Reserved | %s, inc.', THEME_ID ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+                </div>
 
             </div>
+            
+        </div>
+        
+        <div class="social row">
 
             <div class="small-12 columns">
 
