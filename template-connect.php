@@ -18,6 +18,7 @@ the_post();
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'connect' ) ); ?>>
     <div class="row">
+        
         <div class="small-12 columns">
 
             <?php if ( has_post_thumbnail() ) : ?>
@@ -32,6 +33,10 @@ the_post();
                 <?php the_content(); ?>
             </div>
             
+        </div>
+        
+        <div id="after-content-text" class="small-12 columns text-center">
+            <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
         </div>
 
     </div>

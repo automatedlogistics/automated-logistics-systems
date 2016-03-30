@@ -3472,6 +3472,10 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
         padding-left: 2em;
         text-align: left; } }
 
+.page #after-content-text {
+  margin-top: 2em;
+  color: #8a8a8a; }
+
 /* Override Foundation's _settings.scss here, or store your own variables */
 .als-testimonial {
   margin-bottom: 2em; }

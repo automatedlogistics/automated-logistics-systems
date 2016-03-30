@@ -115,6 +115,14 @@ the_post();
     
     endif; ?>
     
+    <div class="row">
+        
+        <div id="after-content-text" class="small-12 columns text-center">
+            <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
+        </div>
+    
+    </div>
+    
 </section>
 
 <?php
