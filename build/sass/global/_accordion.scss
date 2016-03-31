@@ -58,6 +58,18 @@ ul[data-accordion-menu] {
         
         & > ul {
             padding: 1rem 2rem;
+            
+            li:last-of-type {
+                margin-bottom: 1em;
+            }
+            
+            a {
+                display: inline-block;
+                
+                &:before {
+                    display: none;
+                }
+            }
         }
         
     }

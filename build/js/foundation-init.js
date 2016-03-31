@@ -14,6 +14,8 @@ jQuery( function( $ ) {
                     .attr( 'aria-hidden', 'false' )
                     .removeClass( 'submenu is-accordion-submenu' )
                     .removeAttr( 'data-submenu' );
+                
+                $( item ).find( 'ul.nested > li > a' ).unbind( 'click' );
 
             } );
 

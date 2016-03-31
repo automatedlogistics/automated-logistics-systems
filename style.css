@@ -3300,6 +3300,12 @@ ul[data-accordion-menu] > li:not(.menu-text) > a {
 
 ul[data-accordion-menu] > li:not(.menu-text) > ul {
   padding: 1rem 2rem; }
+  ul[data-accordion-menu] > li:not(.menu-text) > ul li:last-of-type {
+    margin-bottom: 1em; }
+  ul[data-accordion-menu] > li:not(.menu-text) > ul a {
+    display: inline-block; }
+    ul[data-accordion-menu] > li:not(.menu-text) > ul a:before {
+      display: none; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .top-bar {

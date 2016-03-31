@@ -97,7 +97,10 @@ the_post();
                 <li>
                     <a href="#"><?php the_title(); ?></a>
                     <ul class="menu vertical nested">
-                        <li><?php the_content(); ?></li>
+                        <li>
+                            <?php the_content(); ?>
+                            <a class="secondary button tiny with-arc" href="/connect">Apply Now</a>
+                        </li>
                     </ul>
                 </li>
                 
