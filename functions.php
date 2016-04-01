@@ -537,6 +537,79 @@ function register_taxonomy_als_service_type() {
 }
 
 /**
+ * Creates the Staff CPT
+ *
+ * @since 0.1.0
+ */
+add_action( 'init', 'register_cpt_als_staff' );
+function register_cpt_als_staff() {
+    $labels = array(
+        'name' => _x( 'Staff', THEME_ID ),
+        'all_items' => __( 'All Staff', THEME_ID ),
+        'singular_name' => _x( 'Staff', THEME_ID ),
+        'add_new' => _x( 'Add New Staff', THEME_ID ),
+        'add_new_item' => _x( 'Add New Staff', THEME_ID ),
+        'edit_item' => _x( 'Edit Staff', THEME_ID ),
+        'new_item' => _x( 'New Staff', THEME_ID ),
+        'view_item' => _x( 'View Staff', THEME_ID ),
+        'search_items' => _x( 'Search Staff', THEME_ID ),
+        'not_found' => _x( 'No Staff found', THEME_ID ),
+        'not_found_in_trash' => _x( 'No Staff found in Trash', THEME_ID ),
+        'parent_item_colon' => _x( 'Parent Staff:', THEME_ID ),
+        'menu_name' => _x( 'Staff', THEME_ID ),
+        'featured_image'        => _x( 'Staff Image', THEME_ID ),
+        'remove_featured_image' => _x( 'Remove Staff Image', THEME_ID ),
+        'set_featured_image'    => _x( 'Set Staff Image', THEME_ID ),
+        'use_featured_image'    => _x( 'Use as Staff Image', THEME_ID ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'menu_icon' => 'dashicons-businessman',
+        'hierarchical' => false,
+        'description' => 'staff',
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => array(
+            'slug' => 'staff',
+            'with_front' => false,
+            'feeds' => false,
+            'pages' => true
+        ),
+        'capability_type' => 'post',
+        /*
+        'capability_type' => 'als_staff',
+        'capabilities' => array(
+            // Singular
+            'edit_post'	=>	'edit_als_staff',
+            'read_post'	=>	'read_als_staff',
+            'delete_post'	=>	'delete_als_staff',
+            // Plural
+            'edit_posts'	=>	'edit_als_staffs',
+            'edit_others_posts'	=>	'edit_others_als_staffs',
+            'publish_posts'	=>	'publish_als_staffs',
+            'read_private_posts'	=>	'read_private_als_staffs',
+            'delete_posts'	=>	'delete_als_staffs',
+            'delete_private_posts'	=>	'delete_private_als_staffs',
+            'delete_published_posts'	=>	'delete_published_als_staffs',
+            'delete_others_posts'	=>	'delete_others_als_staffs',
+            'edit_private_posts'	=>	'edit_private_als_staffs',
+            'edit_published_posts'	=>	'edit_published_als_staffs',
+        ),
+		*/
+    );
+    register_post_type( 'als_staff', $args );
+}
+
+/**
  * Creates the Job Openings CPT
  *
  * @since 0.1.0
@@ -564,10 +637,10 @@ function register_cpt_als_job_opening() {
     );
     $args = array(
         'labels' => $labels,
-        'menu_icon' => 'dashicons-businessman',
+        'menu_icon' => 'dashicons-id-alt',
         'hierarchical' => false,
         'description' => 'job opening',
-        'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
+        'supports' => array( 'title', 'author', 'thumbnail' ),
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
