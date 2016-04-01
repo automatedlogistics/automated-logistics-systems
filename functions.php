@@ -225,6 +225,29 @@ function als_customize_register( $wp_customize ) {
         'settings'   => 'als_footer_columns',
     ) ) );
     
+    $wp_customize->add_setting( '404_image', array(
+            'default'     => 1,
+            'transport'   => 'refresh',
+        ) 
+    );
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, '404_image', array(
+        'label'        => __( '404 Hero Image', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => '404_image',
+        'mime_type'  => 'image',
+    ) ) );
+    
+    $wp_customize->add_setting( '404_text', array(
+            'default'     =>  __( "Sorry, but this page doesn't seem to be here!", THEME_ID ),
+            'transport'   => 'refresh',
+        )
+    );
+    $wp_customize->add_control( new Text_Editor_Custom_Control( $wp_customize, '404_text', array(
+        'label'        => __( '404 Page Message', THEME_ID ),
+        'section'    => 'als_customizer_section',
+        'settings'   => '404_text',
+    ) ) );
+    
 }
 
 /**
@@ -254,6 +277,15 @@ add_action( 'init', function () {
     );
     
     wp_localize_script( THEME_ID, THEME_ID . '_data', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ) ) );
+    
+    // Customizer Controls
+    wp_register_script(
+        THEME_ID . '-customizer-controls',
+        get_template_directory_uri() . '/customizer-controls.js',
+        array( 'jquery', 'editor' ),
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        true
+    );
 
     // Theme fonts
     if ( ! empty( $als_fonts ) ) {
@@ -279,6 +311,13 @@ add_action( 'widgets_init', function () {
         'name' => __( 'Main Sidebar', THEME_ID ),
         'id' => 'main-sidebar',
         'description' => __( 'This is the default sidebar that appears.', THEME_ID ),
+    ) );
+    
+    // 404 Sidebar
+    register_sidebar( array(
+        'name' => __( '404 Page Sidebar', THEME_ID ),
+        'id' => '404-sidebar',
+        'description' => __( 'This is the sidebar that shows on 404 Pages.', THEME_ID ),
     ) );
     
     // Footer
@@ -341,6 +380,18 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 /**
+ *
+ * @since 0.1.0
+ * 
+ */
+add_action( 'customize_controls_enqueue_scripts', function() {
+    
+    wp_enqueue_script( THEME_ID . '-customizer-controls' );
+    
+} );
+
+/** 
+ * Add JavaScript for Customizer Controls
  *
  * @since 0.1.0
  * 

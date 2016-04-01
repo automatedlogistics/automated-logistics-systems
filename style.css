@@ -3016,6 +3016,17 @@ img[class*=" wp-image-"] {
   background-position: 50% 50%;
   background-repeat: no-repeat; }
 
+.widget {
+  list-style-type: none; }
+  .widget .menu {
+    list-style-type: disc;
+    margin-left: 1.25rem;
+    margin-bottom: 1rem; }
+    .widget .menu li {
+      display: list-item; }
+      .widget .menu li a {
+        padding: 0; }
+
 /* Override Foundation's _settings.scss here, or store your own variables */
 /*
 This provides overrides for some WP stuff (not much at all).
@@ -3404,14 +3415,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     width: 50%;
     margin: 0 auto; }
     #site-footer .footer-widgets .widget .menu {
-      list-style-type: disc;
-      margin-left: 1.25rem;
-      margin-bottom: 1rem;
       color: #fefefe; }
-      #site-footer .footer-widgets .widget .menu li {
-        display: list-item; }
-        #site-footer .footer-widgets .widget .menu li a {
-          padding: 0; }
 
 #site-footer .footer-connect .copyright {
   margin-top: 1em; }

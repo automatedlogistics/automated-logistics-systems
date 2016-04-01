@@ -34,22 +34,7 @@
             margin: 0 auto;
             
             .menu {
-            
-                list-style-type: $list-style-type;
-                margin-left: $list-side-margin;
-                margin-bottom: $list-margin-bottom;
                 color: $white;
-
-                li {
-
-                    display: list-item;
-
-                    a {
-                        padding: 0;
-                    }
-
-                }
-
             }
             
         }

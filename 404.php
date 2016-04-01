@@ -16,27 +16,31 @@ get_header();
 the_post();
 ?>
 
+<?php // Ensure that it is set and not the default
+if ( ( get_theme_mod( '404_image' ) ) && ( get_theme_mod( '404_image' ) !== 1 ) ) :
+    $hero_image = wp_get_attachment_image_src( get_theme_mod( '404_image', 1 ), 'hero-image' );
+?>
+
+    <section class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    </section>
+
+<?php endif; ?>
+
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content' ) ); ?>>
     <div class="row">
         <div class="small-12 medium-9 columns">
-
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="page-image">
-                <?php the_post_thumbnail( 'full' ); ?>
-            </div>
-            <?php endif; ?>
             
             <h1 class="page-title"><?php echo __( '404 - Page Not Found', THEME_ID ); ?></h1>
 
             <div class="page-copy">
-                <?php echo __( 'Sorry, but this page doesn\'t seem to be here!', THEME_ID ); ?>
+                <?php echo apply_filters( 'the_content', get_theme_mod( '404_text', __( "Sorry, but this page doesn't seem to be here!", THEME_ID ) ) ); ?>
             </div>
             
         </div>
         
         <div class="small-12 medium-3 columns sidebar">
 
-            <?php dynamic_sidebar( 'main-sidebar' ); ?>
+            <?php dynamic_sidebar( '404-sidebar' ); ?>
 
         </div>
 

@@ -72,3 +72,27 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
         background-repeat: no-repeat;
     
 }
+
+.widget {
+    
+    list-style-type: none;
+
+    .menu {
+
+        list-style-type: $list-style-type;
+        margin-left: $list-side-margin;
+        margin-bottom: $list-margin-bottom;
+
+        li {
+
+            display: list-item;
+
+            a {
+                padding: 0;
+            }
+
+        }
+
+    }
+
+}
