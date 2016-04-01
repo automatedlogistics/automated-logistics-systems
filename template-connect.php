@@ -16,16 +16,19 @@ get_header();
 the_post();
 ?>
 
+<?php if ( has_post_thumbnail() ) :
+    $hero_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'hero-image' );
+?>
+
+    <section class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    </section>
+
+<?php endif; ?>
+
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'connect' ) ); ?>>
     <div class="row">
         
-        <div class="small-12 columns">
-
-            <?php if ( has_post_thumbnail() ) : ?>
-            <div class="page-image">
-                <?php the_post_thumbnail( 'full' ); ?>
-            </div>
-            <?php endif; ?>
+        <div class="small-12 medium-9 columns">
             
             <h1 class="page-title"><?php the_title(); ?></h1>
 
@@ -33,6 +36,61 @@ the_post();
                 <?php the_content(); ?>
             </div>
             
+        </div>
+        
+        <div class="small-12 medium-3 columns">
+            
+            <?php echo get_phone_number_link( get_theme_mod( 'als_phone_number', '1-800-551-9399' ) ); ?><br />
+            <?php echo get_phone_number_link( get_theme_mod( 'als_fax_number', '1-888-764-6225' ) ); ?><br />
+            
+            <?php 
+                $social_accounts = array(
+                    'als_facebook' => array( 
+                        'label' => 'Facebook',
+                        'icon' => 'facebook-square',
+                    ),
+                    'als_twitter' => array( 
+                        'label' => 'Twitter',
+                        'icon' => 'twitter-square',
+                    ),
+                    'als_pinterest' => array( 
+                        'label' => 'Pinterest',
+                        'icon' => 'pinterest-square',
+                    ),
+                    'als_linkedin' => array( 
+                        'label' => 'LinkedIn',
+                        'icon' => 'linkedin-square',
+                    ),
+                    'als_instagram' => array( 
+                        'label' => 'Instagram',
+                        'icon' => 'instagram',
+                    ),
+                );
+
+            foreach ( $social_accounts as $key => $social ) :
+
+                if ( get_theme_mod( $key, '' ) !== '' ) : ?>
+
+                    <a class="social-icon" href="<?php echo get_theme_mod( $key, '' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with us on %s', THEME_ID ), $social['label'] ); ?>">
+                        <span class="fa fa-<?php echo $social['icon']; ?>"></span>
+                    </a>
+
+                <?php endif;
+
+            endforeach;
+
+            if ( get_theme_mod( 'als_rss_show', false ) === true ) : ?>
+
+                <a class="social-icon" href="<?php bloginfo( 'rss2_url' ); ?>" title="<?php _e( 'Get our RSS Feed', THEME_ID ); ?>">
+                    <span class="fa fa-rss-square"></span>
+                </a>
+
+            <?php endif; ?>
+            
+            <?php echo apply_filters( 'the_content', get_theme_mod( 'als_address', "3517 Scheele Drive\nJackson, MI 49202" ) ); ?>
+            
+            <iframe class="google-map" frameborder="0" scrolling="no" src="//maps.google.com/maps?&amp;q=<?php echo get_theme_mod( 'als_address', urlencode( "3517 Scheele Drive\nJackson, MI 49202" ) ); ?>&amp;output=embed"></iframe>
+        
         </div>
         
         <div id="after-content-text" class="small-12 columns text-center">

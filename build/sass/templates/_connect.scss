@@ -1,0 +1,26 @@
+.connect {
+    
+    .google-map {
+        width: auto;
+        min-height: 300px;
+    }
+    
+    .social-icon {
+            
+        color: $medium-gray;
+        font-size: 1.5em;
+        transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
+        transition-property: all, all;
+        transition-duration: 0.25s, 0.25s;
+        transition-timing-function: ease-in-out, ease-in-out;
+        transition-delay: initial, initial;
+
+        &:hover {
+
+            color: $dark-gray;
+
+        }
+
+    }
+    
+}

@@ -3515,6 +3515,26 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   margin-top: 2em;
   color: #8a8a8a; }
 
+.connect .google-map {
+  width: auto;
+  min-height: 300px; }
+
+.connect .social-icon {
+  color: #cacaca;
+  font-size: 1.5em;
+  -webkit-transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
+          transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
+  -webkit-transition-property: all, all;
+          transition-property: all, all;
+  -webkit-transition-duration: 0.25s, 0.25s;
+          transition-duration: 0.25s, 0.25s;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out;
+          transition-timing-function: ease-in-out, ease-in-out;
+  -webkit-transition-delay: initial, initial;
+          transition-delay: initial, initial; }
+  .connect .social-icon:hover {
+    color: #8a8a8a; }
+
 /* Override Foundation's _settings.scss here, or store your own variables */
 .services .services-list {
   margin-top: 1em; }
