@@ -40,8 +40,8 @@ the_post();
         
         <div class="small-12 medium-3 columns">
             
-            <?php echo get_phone_number_link( get_theme_mod( 'als_phone_number', '1-800-551-9399' ) ); ?><br />
-            <?php echo get_phone_number_link( get_theme_mod( 'als_fax_number', '1-888-764-6225' ) ); ?><br />
+            <?php echo sprintf( __( 'Phone Number: %s', THEME_ID ), get_phone_number_link( get_theme_mod( 'als_phone_number', '1-800-551-9399' ) ) ); ?><br />
+            <?php echo sprintf( __( 'Fax Number: %s', THEME_ID ), get_phone_number_link( get_theme_mod( 'als_fax_number', '1-888-764-6225' ) ) ); ?><br />
             
             <?php 
                 $social_accounts = array(
