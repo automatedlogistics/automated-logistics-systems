@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
+global $post;
+
 ?>
 
 
@@ -39,5 +41,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 </a>
 
 <div class="post-copy">
-    <?php echo apply_filters( 'the_excerpt', get_field( 'staff_professional_bio' ) ); ?>
+    <?php acf_the_excerpt( 'staff_professional_bio' ); ?>
 </div>

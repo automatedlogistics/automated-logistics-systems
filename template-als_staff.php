@@ -21,6 +21,15 @@ global $wp_query;
 
 ?>
 
+<?php if ( has_post_thumbnail() ) :
+    $hero_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'hero-image' );
+?>
+
+    <section class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+    </section>
+
+<?php endif; ?>
+
 <section id="staff-index" class="page-content">
     
     <div class="row">

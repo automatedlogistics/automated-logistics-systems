@@ -34,3 +34,37 @@ function als_load_template_part( $template_name, $part_name = null ) {
     return $var;
     
 }
+
+/**
+ * Forcefully implements the_excerpt on an ACF field
+ * @param string $key      ACF Field Name
+ */
+function acf_get_excerpt( $key ) {
+    
+    global $post;
+    $text = get_field( $key );
+    
+    if ( $text !== '' ) {
+        
+        $text = strip_shortcodes( $text );
+        $text = apply_filters( 'the_content', $text );
+        $text = str_replace( ']]>', ']]>&gt;', $text );
+        $excerpt_length = apply_filters( 'excerpt_length', 55 );
+        $excerpt_more = apply_filters( 'excerpt_more', '[...]' );
+        $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+        
+    }
+    
+    return apply_filters( 'the_excerpt', $text );
+    
+}
+
+/**
+ * Echos acf_get_excerpt() to mimic some WP Core functionality
+ * @param string $key      ACF Field Name
+ */
+function acf_the_excerpt( $key ) {
+    
+    echo acf_get_excerpt( $key );
+    
+}
