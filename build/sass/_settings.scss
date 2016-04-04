@@ -104,3 +104,6 @@ $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (m
 
 // Flexbox breaks Media Object
 $global-flexbox: false;
+
+// This messes up creating columns in a loop and having them "spill over". It will often try to float: right an orphaned column
+$grid-column-align-edge: false;

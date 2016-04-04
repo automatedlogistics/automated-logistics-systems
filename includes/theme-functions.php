@@ -19,3 +19,18 @@ function get_phone_number_link( $phone_number, $link_text = '', $phone_icon = fa
     return "<a href='$tel_link' class='phone-number-link'>$phone_icon$link_text</a>";
     
 }
+
+/**
+ * Loads Templates as buffered HTML so that it can be stored to a variable
+ * @param string $template_name      First argument of get_template_part()
+ * @param string [$part_name = null] Secondary argument of get_template_part()
+ */
+function als_load_template_part( $template_name, $part_name = null ) {
+    
+    ob_start();
+    get_template_part( $template_name, $part_name );
+    $var = ob_get_contents();
+    ob_end_clean();
+    return $var;
+    
+}

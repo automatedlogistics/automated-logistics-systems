@@ -1028,10 +1028,6 @@ body.is-reveal-open {
     .column, .columns {
       padding-left: 0.9375rem;
       padding-right: 0.9375rem; } }
-  .column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
-    float: right; }
-  .column.end:last-child:last-child, .end.columns:last-child:last-child {
-    float: left; }
 
 .column.row.row, .row.row.columns {
   float: none; }
@@ -3590,6 +3586,10 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
         text-align: center; }
       .services .services-list .media-object.stack-for-small .media-object-section img {
         width: auto; } }
+
+#staff-index article.als_staff .post-thumbnail-container {
+  display: block;
+  text-align: center; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .als-testimonial {
