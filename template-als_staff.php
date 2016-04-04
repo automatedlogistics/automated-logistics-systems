@@ -45,6 +45,8 @@ global $wp_query;
             $args = array(
                 'post_type' => 'als_staff',
                 'posts_per_page' => -1, // This seems to be an instnace where pagination would be undesirable.
+                'orderby' => 'als_last_word', // Custom Ordering function
+                'order' => 'ASC',
             );
 
             $staff = new WP_Query( $args );

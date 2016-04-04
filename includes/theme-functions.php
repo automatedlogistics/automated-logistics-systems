@@ -68,3 +68,24 @@ function acf_the_excerpt( $key ) {
     echo acf_get_excerpt( $key );
     
 }
+
+/**
+ * Order posts by the last word in the post_title. 
+ * Activated when orderby is 'als_last_word'
+ */
+add_filter( 'posts_orderby', function( $orderby, \WP_Query $q ) {
+    
+    if ( 'als_last_word' === $q->get( 'orderby' ) && $get_order =  $q->get( 'order' ) ) {
+        
+        if( in_array( strtoupper( $get_order ), ['ASC', 'DESC'] ) ) {
+            
+            global $wpdb;
+            $orderby = " RIGHT(post_title, LOCATE(' ', REVERSE(post_title)) - 1) " . $get_order;
+            
+        }
+        
+    }
+    
+    return $orderby;
+    
+}, PHP_INT_MAX, 2 );
