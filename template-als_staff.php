@@ -41,79 +41,94 @@ global $wp_query;
             </div>
 
             <?php
+            
+            $column_counter = 0;
+            $columns = 4;
+            $column_class = 'medium-' . ( 12 / $columns );
 
-            $args = array(
+            $base_args = array(
                 'post_type' => 'als_staff',
+                'post_status' => 'publish',
                 'posts_per_page' => -1, // This seems to be an instnace where pagination would be undesirable.
                 'orderby' => 'als_last_word', // Custom Ordering function
                 'order' => 'ASC',
+                'meta_key' => 'staff_executive_lead',
             );
+            
+            $executive_args = $base_args;
+            $executive_args['meta_value'] = 'executive';
+            
+            $lead_args = $base_args;
+            $lead_args['meta_value'] = 'lead';
+            
+            $staff_args = $base_args;
+            $staff_args['meta_value'] = 'staff';
 
-            $staff = new WP_Query( $args );
+            $output_loop = array(
+                array(
+                    'query' => new WP_Query( $executive_args ),
+                    'label' => __( 'Executive Team', THEME_ID ),
+                ),
+                array(
+                    'query' => new WP_Query( $lead_args ),
+                    'label' => __( 'Lead Representatives', THEME_ID ),
+                ),
+                array(
+                    'query' => new WP_Query( $staff_args ),
+                    'label' => __( 'Staff', THEME_ID ),
+                ),
+            );
+            
+            foreach ( $output_loop as $section ) { // Foundation wouldn't handle things how I wanted without a horrible loop.
+                
+                if ( $column_counter != 1 ) : ?>
+                    </div>
+                <?php 
+                    $column_counter = 0; // Reset counter after each section
+                endif;
+                
+                if ( ( $column_counter == 0 ) || $column_counter == 1 ) : 
+                    $column_counter = 0; // In a section ends at the maximum, the counter will be 1 with a closed <div>. This ensures things go as expected
+                ?>
+                    <div class="small-12 columns">
+                    <h2><?php echo $section['label']; ?></h2>
+                <?php endif;
 
-            if ( $staff->have_posts() ) : ?>
+                if ( $section['query']->have_posts() ) : 
 
-                <?php
-                    $executive = '';
-                    $lead = '';
-                    $other = '';
-
-                    while ( $staff->have_posts() ) :
-                        $staff->the_post();
-                        ?>
+                        while ( $section['query']->have_posts() ) :
+                            $section['query']->the_post(); 
+                
+                            if ( $column_counter == 1 ) : ?>
+                                <div class="small-12 columns">
+                            <?php 
+                            elseif ( $column_counter == 0 ) : // If we're a new section, let's set it back to 1 for the rest of the loop
+                                $column_counter = 1;
+                            endif; ?>
+                            
+                            <article <?php post_class( "small-12 $column_class columns" ); ?>>
+                                <?php get_template_part( 'partials/als_staff', 'loop-single' ); ?>
+                            </article>
+                                    
                             <?php
-                                if ( get_field( 'staff_executive_lead' ) == 'executive' ) {
-                                    $executive .= '<article class="' . implode( ' ', get_post_class( 'small-12 medium-3 columns' ) ) . '">';
-                                        $executive .= als_load_template_part( 'partials/als_staff', 'loop-single' );
-                                    $executive .= '</article>';
-                                }
-                                else if ( get_field( 'staff_executive_lead' ) == 'lead' ) {
-                                    $lead .= '<article class="' . implode( ' ', get_post_class( 'small-12 medium-3 columns' ) ) . '">';
-                                        $lead .= als_load_template_part( 'partials/als_staff', 'loop-single' );
-                                    $lead .= '</article>';
-                                }
-                                else {
-                                    $other .= '<article class="' . implode( ' ', get_post_class( 'small-12 medium-3 columns' ) ) . '">';
-                                        $other .= als_load_template_part( 'partials/als_staff', 'loop-single' );
-                                    $other .= '</article>';
-                                }
-                            ?>
+                            
+                            if ( $column_counter == $columns ) : ?>
+                                </div>
+                            <?php 
+                                $column_counter = 1;
+                            else : 
+                                $column_counter++;
+                            endif;
+                                                      
+                        endwhile;
 
-                        </article>
-                        <?php
-                    endwhile;
+                wp_reset_postdata();
 
-                    if ( $executive !== '' ) : ?>
-                        <div class="row">
-                            <h2><?php _e( 'Executive Team', THEME_ID ); ?></h2>
-                            <?php echo $executive; ?>
-                        </div>
-                    <?php endif;
+                else: // If no Staff ?>
 
-                    if ( $lead !== '' ) : ?>
-                        <div class="row">
-                            <h2><?php _e( 'Lead Representatives', THEME_ID ); ?></h2>
-                            <?php echo $lead; ?>
-                        </div>
-
-                    <?php endif;
-
-                    if ( $other !== '' ): ?>
-                        <div class="row">
-                            <h2><?php _e( 'Staff', THEME_ID ); ?></h2>
-                            <?php echo $other; ?>
-                        </div>
-                    <?php endif; ?>
-
-            <?php 
-        
-            wp_reset_postdata();
-
-            else: // If no Staff ?>
-
-                <?php _e( 'No Staff Found', THEME_ID ); ?>
-
-            <?php endif; ?>
+                <?php endif;
+                
+            } ?>
         
         </div> <?php // Close Main Content Column ?>
         
