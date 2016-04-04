@@ -14,6 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 the_post();
+
+global $wp_query;
+
 ?>
 
 <?php if ( has_post_thumbnail() ) :
@@ -37,24 +40,35 @@ the_post();
 
     </div>
     
-    <?php if ( have_rows( 'services_fields' ) ) : ?>
+    <?php 
+    
+    $args = array(
+        'post_type' => 'als_service',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+    );
+    
+    global $post;
+    $services = new WP_Query( $args );
+    
+    if ( $services->have_posts() ) : ?>
     
         <div class="row">
             
             <div class="services-list small-12 medium-9 medium-centered">
                 
-                <?php while ( have_rows( 'services_fields' ) ) : the_row(); ?>
+                <?php while ( $services->have_posts() ) : $services->the_post(); ?>
 
                 <div class="media-object stack-for-small">
 
                     <div class="media-object-section image-wrapper">
-                        <?php echo wp_get_attachment_image( get_sub_field( 'image' ), 'medium' ); ?>
+                        <?php the_post_thumbnail( 'medium' ); ?>
                     </div>
 
                     <div class="media-object-section">
-                        <h4><?php echo get_sub_field( 'service_name' ); ?></h4>
-                        <?php echo apply_filters( 'the_content', get_sub_field( 'content' ) ); ?>
-                        <a class="secondary tiny button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo get_sub_field( 'button_text' ); ?></a>
+                        <h4><?php the_title(); ?></h4>
+                        <?php the_excerpt(); ?>
+                        <a class="secondary tiny button with-arc" href="<?php the_permalink(); ?>"><?php _e( 'Find Out More', THEME_ID ); ?></a>
                     </div>
 
                 </div>
@@ -65,7 +79,9 @@ the_post();
     
         </div>
     
-    <?php endif; ?>
+    <?php 
+    wp_reset_postdata();
+    endif; ?>
     
     <div class="row">
         <div id="after-content-text" class="small-12 columns text-center">

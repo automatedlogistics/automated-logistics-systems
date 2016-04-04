@@ -50,8 +50,9 @@ function acf_get_excerpt( $key ) {
         $text = apply_filters( 'the_content', $text );
         $text = str_replace( ']]>', ']]>&gt;', $text );
         $excerpt_length = apply_filters( 'excerpt_length', 55 );
-        $excerpt_more = apply_filters( 'excerpt_more', '[...]' );
+        $excerpt_more = apply_filters( 'excerpt_more', '...' );
         $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+        $text = apply_filters( 'the_content', $text );
         
     }
     
@@ -89,3 +90,86 @@ add_filter( 'posts_orderby', function( $orderby, \WP_Query $q ) {
     return $orderby;
     
 }, PHP_INT_MAX, 2 );
+
+
+/**
+ * Sometimes it is nice to allow some HTML through the_excerpt(), WordPress
+ * 
+ */
+remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
+add_filter( 'get_the_excerpt', 'als_excerpt_with_html' );
+
+function als_excerpt_with_html( $text = '' ) {
+    
+	$raw_excerpt = $text;
+    
+	if ( '' == $text ) {
+        
+		$text = get_the_content( '' );
+		$text = strip_shortcodes( $text );
+		$text = str_replace( ']]>', ']]&gt;', $text );
+		$excerpt_length = apply_filters( 'excerpt_length', 55 );
+		$excerpt_more = apply_filters( 'excerpt_more', '...' );
+		$text = html_trim_words( $text, $excerpt_length, $excerpt_more );
+		$text = apply_filters( 'the_content', $text );
+        
+	}
+    
+	return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+    
+}
+
+function html_trim_words( $text, $num_words = 55, $more = null ) {
+    
+	if ( null === $more )
+		$more = __( '&hellip;' );
+	$original_text = $text;
+    
+	/**
+	 * Remove space characters between html
+	 * tags to avoid not matching the pattern
+	 */
+	$text = preg_replace( '/(?<=>)[\s]*(?=<)/', '', $text );
+    
+	/**
+	 * It doesn't catch any nested elements or Headers,
+	 * only their parents as a whole
+	 */
+	$token_re = "/<[^>]+?\/>|<([a-z]+)[^>]*>.*?(?!<\\1)<\/\\1>|[^><\s]+/iu";
+	preg_match_all($token_re, $text, $words);
+	$words_array = $words[0];
+    
+	/**
+	 * Need to count the number of real
+	 * words so we get result as accurate
+	 * as possible
+	 */
+	$count_array = array();
+	$wordcount = 0;
+    
+	foreach ( $words[0] as $key => $value ) {
+        
+		$value = wp_strip_all_tags( $value );
+		$words = preg_split('/[\s]/', $value, -1, PREG_SPLIT_NO_EMPTY);
+		$wordcount += $count_array[$key] = count($words);
+        
+	}
+    
+	if ( $wordcount > $num_words ) {
+        
+		while ( $wordcount > $num_words ) {
+			array_pop( $words_array );
+			$wordcount -= array_pop( $count_array );
+		}
+        
+		$text = implode( ' ', $words_array );
+		$text = $text . $more;
+        
+	}
+    else {
+		$text = implode( ' ', $words_array );
+	}
+    
+	return apply_filters( 'wp_trim_words', $text, $num_words, $more, $original_text );
+    
+}
