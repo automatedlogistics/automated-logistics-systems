@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Services Page
+ * Template Name: Shippers Page
  *
  * @since 0.1.0
  * @package automated-logistics-systems
@@ -46,6 +46,13 @@ global $wp_query;
         'post_type' => 'als_service',
         'posts_per_page' => -1,
         'post_status' => 'publish',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'als_service_type',
+                'field' => 'slug',
+                'terms' => 'shipper',
+            ),
+        ),
     );
     
     global $post;
@@ -70,11 +77,15 @@ global $wp_query;
     <?php 
     wp_reset_postdata();
     
-    else : 
+    else : ?>
     
-        _e( 'No Services Found', THEME_ID );
+    <div class="row">
+        <div class="small-12 columns">
+            <?php _e( 'No Shipper Services Found', THEME_ID ); ?>
+        </div>
+    </div>
     
-    endif; ?>
+    <?php endif; ?>
     
     <div class="row">
         <div id="after-content-text" class="small-12 columns text-center">
