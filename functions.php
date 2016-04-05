@@ -413,6 +413,17 @@ add_action( 'after_setup_theme', function () {
 
 } );
 
+add_filter( 'wp_nav_menu_items','als_add_search_to_menu', 10, 2 ); 
+function als_add_search_to_menu( $items, $args ) {
+
+    if ( ( $args->theme_location == 'primary-nav' ) ) {
+        $items .= '<li class="menu-search-icon-kt panel"><a id="trigger-search-overlay"><span class="fa fa-search"></span><span class="show-for-small-only"> ' . __( "Search", THEME_ID ) . '</a></li>';
+    }
+
+    return $items;    
+
+}
+
 /*
  * Since WP Smilies load as Images, MailChimp makes them HUGE. For RSS Feeds, let's make sure they are straight text.
  *

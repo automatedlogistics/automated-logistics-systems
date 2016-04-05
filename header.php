@@ -94,5 +94,13 @@ if ( ! isset( $_SESSION ) ) {
                     </div>
 
                 </header>
+                
+                <div class="overlay" data-path-to="m 0,0 1439.999975,0 0,805.99999 -1439.999975,0 z">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 806" preserveAspectRatio="none">
+                        <path class="overlay-path" d="m 0,0 1439.999975,0 0,805.99999 0,-805.99999 z"/>
+                    </svg>
+                    <button type="button" class="overlay-close"><span class="fa fa-3x fa-close"></span></button>
+                    <?php echo get_search_form(); ?>
+                </div>
 
                 <section id="site-content">

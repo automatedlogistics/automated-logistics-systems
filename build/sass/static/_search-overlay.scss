@@ -1,0 +1,103 @@
+/* Overlay style */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    @include background-opacity( $primary-color, 0.9 );
+    background: transparent;
+    visibility: hidden;
+    -webkit-transition: visibility 0s 0.5s;
+    transition: visibility 0s 0.5s;
+    z-index: 999;
+
+    .overlay-close {
+        position: absolute;
+        right: 2em;
+        top: 2.5em;
+        overflow: hidden;
+        border: none;
+        color: $white;
+    }
+
+    form {
+
+        width: 50%;
+        margin: 0 auto;
+        height: 60%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        display: block;
+        -webkit-transition: color 0.2s;
+        transition: color 0.2s;
+
+        &, * {
+            position: relative;
+            top: 45%;
+        }
+
+        input[type="search"] {
+            display: block;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid $white;
+            box-shadow: none;
+            color: $white;
+        }
+
+        ::-webkit-input-placeholder {
+            color: $white;
+        }
+
+    }
+
+    .overlay-path {
+        fill: $primary-color;
+        fill: rgba( $primary-color, 0.9 );
+    }
+
+    &.open {
+        visibility: visible;
+        -webkit-transition: none;
+        transition: none;
+    }
+
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    form, .overlay-close {
+        opacity: 0;
+        -webkit-transition: opacity 0.4s 0.4s;
+        transition: opacity 0.4s 0.4s;
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+    }
+
+    &.open form, &.open .overlay-close {
+        opacity: 1;
+        -webkit-transition-delay: 0.4s;
+        transition-delay: 0.4s;
+    }
+
+    &.close form, &.close .overlay-close {
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+    }
+
+}
+
+@media screen and (max-height: 30.5em) {
+    .overlay form {
+        height: 70%;
+        font-size: 34px;
+    }
+    .overlay form {
+        min-height: 34px;
+    }
+}

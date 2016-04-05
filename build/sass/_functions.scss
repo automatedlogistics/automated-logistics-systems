@@ -29,3 +29,9 @@
 @function uri-friendly-color( $colour ) {
     @return '%23' + str-slice( '#{$colour}', 2, -1 );
 }
+
+// Convert Hex to RGBA
+@mixin background-opacity( $color, $opacity: 0.3 ) {
+    background: $color; /* The fallback for ancient things */
+    background: rgba( $color, $opacity );
+}

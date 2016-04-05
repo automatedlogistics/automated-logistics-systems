@@ -4,6 +4,12 @@ jQuery( function( $ ) {
     
     $( document ).ready( function() {
         
+        $( 'a#trigger-search-overlay' ).on( 'click', function( event ) {
+            
+            $( '.off-canvas' ).foundation( 'close' ); // Close Off-Canvas to Search
+            
+        } );
+        
         if ( $( '#employment-accordion' ).length > 0 ) {
         
             // We're only going one-level deep, so any interior <ul>s are within the Post Content
