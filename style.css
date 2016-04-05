@@ -3416,7 +3416,9 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       .top-bar .nav-menu > .menu > li li.current-menu-item.is-dropdown-submenu-parent.is-down-arrow > a:after, .top-bar .nav-menu > .menu > li li.current-menu-ancestor.is-dropdown-submenu-parent.is-down-arrow > a:after {
         border-top-color: #333 !important; }
 
-/* Overlay style */
+.admin-bar .overlay .overlay-close {
+  top: 4.5em; }
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -3433,7 +3435,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   z-index: 999; }
   .overlay .overlay-close {
     position: absolute;
-    right: 2em;
+    right: 2.75em;
     top: 2.5em;
     overflow: hidden;
     border: none;
@@ -3697,4 +3699,13 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     .als-testimonial .testimonial-content > *:not(blockquote) {
       padding-left: 1.5em;
       display: block; }
+
+.post-loop .text-wrapper {
+  padding-left: 0 !important; }
+
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .post-loop .media-object-section.image-wrapper {
+    text-align: center; }
+  .post-loop .media-object-section img {
+    width: auto; } }
 /*# sourceMappingURL=style.css.map */

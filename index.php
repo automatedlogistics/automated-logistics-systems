@@ -14,6 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header();
+
+global $wp_query;
+
+usort( $wp_query->posts, 'als_pages_first' );
+
 ?>
 
 <section id="post-index" class="page-content">
@@ -29,7 +34,7 @@ get_header();
                     ?>
                     <article <?php post_class(); ?>>
 
-                        <?php get_template_part( 'partials/' . get_post_type(), 'loop-single' ); ?>
+                        <?php get_template_part( 'partials/post', 'loop-single' ); ?>
 
                     </article>
                     <?php

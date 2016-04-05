@@ -91,6 +91,25 @@ add_filter( 'posts_orderby', function( $orderby, \WP_Query $q ) {
     
 }, PHP_INT_MAX, 2 );
 
+/**
+ * usort Function to put Pages before all other WP_Query Results
+ * @param  WP_POST $a WP Post Type Object
+ * @param  WP_POST $b WP Post Type Object
+ * @return bool Success/Failure
+ */
+function als_pages_first( $a, $b ) {
+    
+    if ( $a->post_type == 'page' ) :
+        return -1;
+    endif;
+    
+    if ( $b->post_type == 'page' ) :
+        return 1;
+    endif;
+    
+    return strcmp( str_replace( 'als_', '', $a->post_type ), str_replace( 'als_', '', $b->post_type ) );
+    
+}
 
 /**
  * Sometimes it is nice to allow some HTML through the_excerpt(), WordPress
@@ -124,6 +143,8 @@ function html_trim_words( $text, $num_words = 55, $more = null ) {
 	if ( null === $more )
 		$more = __( '&hellip;' );
 	$original_text = $text;
+    
+    $text = preg_replace( '/\<(\/)?h[1-6]\>+/i', '', $text );
     
 	/**
 	 * Remove space characters between html

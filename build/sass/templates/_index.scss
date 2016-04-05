@@ -1,0 +1,23 @@
+.post-loop {
+    
+    .text-wrapper {
+        padding-left: 0 !important;
+    }
+    
+    .media-object-section {
+                
+        @media #{$small-only} {
+
+            &.image-wrapper {
+                text-align: center;
+            }
+
+            img {
+                width: auto;
+            }
+
+        }
+
+    }
+    
+}

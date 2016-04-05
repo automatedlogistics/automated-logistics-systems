@@ -33,6 +33,8 @@ jQuery( function( $ ) {
             $( overlay ).addClass( 'open' );
             $( overlay ).removeClass( 'close' );
             path.animate( { 'path' : pathConfig.to }, 400, mina.linear );
+            
+            $( overlay ).find( '.search-field' ).focus();
         }
 
     }
@@ -45,6 +47,12 @@ jQuery( function( $ ) {
     $( 'div.overlay .overlay-close' ).on( 'click', function( event ) {
         event.preventDefault();
         toggleOverlay();
+    } );
+    
+    $( document ).on( 'keyup', function( event ) {
+        if ( ( event.keyCode == 27 ) && ( $( overlay ).hasClass( 'open' ) ) ) {
+            toggleOverlay();
+        }
     } );
     
 } );

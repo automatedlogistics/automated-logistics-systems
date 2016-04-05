@@ -1,4 +1,17 @@
-/* Overlay style */
+.admin-bar {
+    
+    .overlay {
+        
+        .overlay-close {
+            
+            top: 4.5em;
+            
+        }
+        
+    }
+    
+}
+
 .overlay {
     position: fixed;
     width: 100%;
@@ -14,7 +27,7 @@
 
     .overlay-close {
         position: absolute;
-        right: 2em;
+        right: 2.75em;
         top: 2.5em;
         overflow: hidden;
         border: none;

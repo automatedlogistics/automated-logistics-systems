@@ -416,12 +416,52 @@ add_action( 'after_setup_theme', function () {
 add_filter( 'wp_nav_menu_items','als_add_search_to_menu', 10, 2 ); 
 function als_add_search_to_menu( $items, $args ) {
 
-    if ( ( $args->theme_location == 'primary-nav' ) ) {
+    if ( $args->theme_location == 'primary-nav' ) {
         $items .= '<li class="menu-search-icon-kt panel"><a id="trigger-search-overlay"><span class="fa fa-search"></span><span class="show-for-small-only"> ' . __( "Search", THEME_ID ) . '</a></li>';
     }
 
     return $items;    
 
+}
+
+/**
+ * Force WP Search to work across Post Types
+ * 
+ * @since 0.1.0
+ */
+add_filter( 'pre_get_posts', 'als_post_types_in_search' );
+function als_post_types_in_search( $query ) {
+    
+    if ( $query->is_search ) {
+        
+	   $query->set( 'post_type', array(
+           'post',
+           'page',
+           'als_service',
+           'als_staff',
+           'als_job_opening',
+       ) );
+        
+    }
+    
+    return $query;
+    
+};
+
+/**
+ * Set Excerpt More Text
+ * 
+ * @since 0.1.0
+ */
+add_filter( 'excerpt_more', 'als_excerpt_more_text' );
+function als_excerpt_more_text( $more ) {
+    
+    global $post;
+    
+    $more = '<a href="' . get_permalink() . '" title="' . get_the_title() . '"> ' . __( 'Read More...', THEME_ID ) . '</a>';
+    
+    return $more;
+    
 }
 
 /*
