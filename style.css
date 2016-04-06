@@ -3639,6 +3639,9 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   margin-top: 2em;
   color: #8a8a8a; }
 
+.single .post-thumbnail-container.alignleft {
+  margin-right: 3em; }
+
 .connect .google-map {
   width: auto;
   min-height: 300px; }

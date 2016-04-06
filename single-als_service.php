@@ -1,6 +1,6 @@
 <?php
 /**
- * Posts template
+ * Single Service template
  *
  * @since 0.1.0
  * @package automated-logistics-systems
@@ -31,10 +31,6 @@ the_post();
             <h1 class="post-title">
                 <?php the_title(); ?>
             </h1>
-
-            <div class="post-meta">
-                <p><strong>Date: </strong><?php the_date(); ?></p>
-            </div>
 
             <div class="post-copy">
                 <?php the_content(); ?>
