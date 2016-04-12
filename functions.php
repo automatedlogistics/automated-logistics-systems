@@ -805,3 +805,65 @@ function register_cpt_als_testimonial() {
     );
     register_post_type( 'als_testimonial', $args );
 }
+
+/**
+ * Use Footer Logo for the Login Screen
+ * The Footer Logo is used since it works best against White
+ * 
+ * @since 1.0
+ *
+ */
+add_action( 'login_head', 'als_custom_login_logo' );
+function als_custom_login_logo() {
+
+    // We're using the Footer Logo since it works best against White
+    $attachment_id = get_theme_mod( 'als_footer_logo_image', 1 );
+    $image_src = wp_get_attachment_image_src( $attachment_id, 'medium', false );
+    $image_url = $image_src[0];
+    $image_width = $image_src[1];
+    $image_height = $image_src[2];
+    
+    ?>
+
+    <style type="text/css">
+        .login h1 a { 
+            background-image: url('<?php echo $image_url; ?>') !important; 
+            background-size: <?php echo $image_width; ?>px <?php echo $image_height; ?>px !important; 
+            height: <?php echo $image_height; ?>px !important; 
+            width: <?php echo $image_width; ?>px !important; 
+            margin-bottom: 0 !important; 
+            padding-bottom: 0 !important; 
+        }
+        .login form { 
+            margin-top: 10px !important; 
+        }
+    </style>
+
+    <?php
+}
+
+/**
+ * Use the Site URL instead of wordpress.org for the Logo link
+ * 
+ * @since 1.0
+ * 
+ */
+add_filter( 'login_headerurl', 'als_url_login_logo' );
+function als_url_login_logo() {
+
+    return get_bloginfo( 'url' );
+
+}
+
+/**
+ * Change the Logo link's title attribute to match the new Link
+ * 
+ * @since 1.0
+ *
+ */
+add_filter( 'login_headertitle', 'als_login_logo_url_title' );
+function als_login_logo_url_title() {
+
+    return get_bloginfo( 'name' ) . ' - Home';
+
+}
