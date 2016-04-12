@@ -837,7 +837,7 @@ function als_custom_login_logo() {
         .login form { 
             margin-top: 10px !important; 
         }
-        .login .message {
+        .login .message, .login #login_error {
             margin-top: 1em;
         }
     </style>
