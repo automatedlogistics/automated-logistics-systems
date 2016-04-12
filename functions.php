@@ -837,6 +837,9 @@ function als_custom_login_logo() {
         .login form { 
             margin-top: 10px !important; 
         }
+        .login .message {
+            margin-top: 1em;
+        }
     </style>
 
     <?php
