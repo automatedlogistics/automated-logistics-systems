@@ -3555,7 +3555,6 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 .home #home-hero .hero-copy, .home #home-footer-hero .hero-copy {
   color: #fefefe;
   margin-top: 4em;
-  -webkit-text-stroke: 0.15px black;
   text-shadow: -0.15px -0.15px 0 #0a0a0a, 0.15px -0.15px 0 #0a0a0a, -0.15px 0.15px 0 #0a0a0a, 0.15px 0.15px 0 #0a0a0a; }
   .home #home-hero .hero-copy p:last-of-type, .home #home-footer-hero .hero-copy p:last-of-type {
     margin: 0; }
@@ -3563,7 +3562,6 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     font-size: 4em;
     font-weight: 700;
     color: #fefefe;
-    -webkit-text-stroke: 1px #0a0a0a;
     text-shadow: -1px -1px 0 #0a0a0a, 1px -1px 0 #0a0a0a, -1px 1px 0 #0a0a0a, 1px 1px 0 #0a0a0a; }
 
 .home #mini-nav {
