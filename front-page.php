@@ -146,22 +146,54 @@ if ( get_field( 'home_hero_image' ) ) :
 
 </section>
 
-<?php if ( get_field( 'home_footer_hero_image' ) ) :
-    $hero_image = wp_get_attachment_image_src( get_field( 'home_footer_hero_image' ), 'hero-image' );
-?>
+<?php if ( have_rows( 'home_row_sections' ) ) : 
+    
+    $index = 0;
 
-    <section id="home-footer-hero" class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
-        <div class="row collapse">
-            <div class="small-12 medium-6 columns text-center">
-                <div class="hero-copy">
-                    <?php echo apply_filters( 'the_content', get_field( 'home_footer_hero_text' ) ); ?>
+    // Create styles dynamically
+    $styles = '';
+    
+    while ( have_rows( 'home_row_sections' ) ) : the_row();
+
+        // Don't show sections without Hero Images.
+        if ( ( get_sub_field( 'hero_image' ) && ( get_sub_field( 'hero_image' ) !== '' ) ) ) :
+            $hero_image = wp_get_attachment_image_src( get_sub_field( 'hero_image' ), 'hero-image' );
+
+            $button_size = get_sub_field( 'button_size' );
+            if ( $button_size == 'default' ) $button_size = '';
+
+            $styles .= "#home-footer-hero-$index { color:";
+            $styles .= get_sub_field( 'text_color' ) . '; }';
+
+            $styles .= "#home-footer-hero-$index h1, #home-footer-hero-$index h2, #home-footer-hero-$index h3, #home-footer-hero-$index h4, #home-footer-hero-$index h5, #home-footer-hero-$index h6 { color:";
+            $styles .= get_sub_field( 'header_color' ) . '; }';
+
+        ?>
+
+            <section id="home-footer-hero-<?php echo $index; ?>" class="home-footer-hero hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
+                <div class="row collapse">
+                    <div class="small-12 medium-6 <?php echo ( ( $index % 2 == 1 ) ? 'medium-offset-6 ' : '' ); ?>columns text-center">
+                        <div class="hero-copy">
+                            <?php echo apply_filters( 'the_content', get_sub_field( 'hero_text' ) ); ?>
+                        </div>
+                        <a class="secondary <?php echo ( ( $button_size !== '' ) ? $button_size . ' ' : '' ); ?>button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo html_entity_decode( get_sub_field( 'button_text' ) ); ?></a>
+                    </div>
                 </div>
-                <a class="secondary large button with-arc" href="<?php the_field( 'home_footer_hero_button_link' ); ?>"><?php echo html_entity_decode( get_field( 'home_footer_hero_button_text' ) ); ?></a>
-            </div>
-        </div>
-    </section>
+            </section>
 
-<?php endif; ?>
+        <?php 
+          
+        // Only increment if the section was shown
+        $index++;
+            
+        endif;
 
-<?php
+    endwhile; ?>
+
+    <style type="text/css">
+        <?php echo $styles; ?>
+    </style>
+
+<?php endif;
+            
 get_footer();

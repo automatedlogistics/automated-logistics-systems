@@ -3549,20 +3549,39 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       color: #8a8a8a; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
-.home #home-hero .row, .home #home-footer-hero .row {
+.home #home-hero .row, .home .home-footer-hero .row {
   max-width: 100%; }
 
-.home #home-hero .hero-copy, .home #home-footer-hero .hero-copy {
-  color: #fefefe;
+.home #home-hero .hero-copy h1 {
+  color: #fefefe; }
+
+.home #home-hero .hero-copy, .home .home-footer-hero .hero-copy {
   margin-top: 4em;
-  text-shadow: -0.15px -0.15px 0 #0a0a0a, 0.15px -0.15px 0 #0a0a0a, -0.15px 0.15px 0 #0a0a0a, 0.15px 0.15px 0 #0a0a0a; }
-  .home #home-hero .hero-copy p:last-of-type, .home #home-footer-hero .hero-copy p:last-of-type {
+  text-shadow: -0.5px -0.5px 0 #0a0a0a, 0.5px -0.5px 0 #0a0a0a, -0.5px 0.5px 0 #0a0a0a, 0.5px 0.5px 0 #0a0a0a; }
+  .home #home-hero .hero-copy p, .home .home-footer-hero .hero-copy p {
+    font-size: 2em;
+    font-weight: 700; }
+  .home #home-hero .hero-copy p:last-of-type, .home .home-footer-hero .hero-copy p:last-of-type {
     margin: 0; }
-  .home #home-hero .hero-copy h1, .home #home-footer-hero .hero-copy h1 {
-    font-size: 4em;
+  .home #home-hero .hero-copy h1, .home #home-hero .hero-copy h2, .home #home-hero .hero-copy h3, .home #home-hero .hero-copy h4, .home #home-hero .hero-copy h5, .home #home-hero .hero-copy h6, .home .home-footer-hero .hero-copy h1, .home .home-footer-hero .hero-copy h2, .home .home-footer-hero .hero-copy h3, .home .home-footer-hero .hero-copy h4, .home .home-footer-hero .hero-copy h5, .home .home-footer-hero .hero-copy h6 {
     font-weight: 700;
-    color: #fefefe;
     text-shadow: -1px -1px 0 #0a0a0a, 1px -1px 0 #0a0a0a, -1px 1px 0 #0a0a0a, 1px 1px 0 #0a0a0a; }
+  .home #home-hero .hero-copy h1, .home .home-footer-hero .hero-copy h1 {
+    font-size: 4em; }
+  .home #home-hero .hero-copy h2, .home .home-footer-hero .hero-copy h2 {
+    font-size: 3.75em; }
+  .home #home-hero .hero-copy h3, .home .home-footer-hero .hero-copy h3 {
+    font-size: 3.5em; }
+  .home #home-hero .hero-copy h4, .home .home-footer-hero .hero-copy h4 {
+    font-size: 3.25em; }
+  .home #home-hero .hero-copy h5, .home .home-footer-hero .hero-copy h5 {
+    font-size: 3em; }
+  .home #home-hero .hero-copy h6, .home .home-footer-hero .hero-copy h6 {
+    font-size: 2.75em; }
+
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .home .home-footer-hero .hero-copy {
+    margin-top: 1em; } }
 
 .home #mini-nav {
   background-color: #005790;
