@@ -1,0 +1,118 @@
+@import "../functions.scss";
+@import "../settings";
+
+// Font-face generated using IcoMoon, CSS based on FontAwesome
+
+@font-face {
+    font-family: 'als-icons';
+    src:    url('fonts/als-icons/als-icons.eot?v4oar8');
+    src:    url('fonts/als-icons/als-icons.eot?v4oar8#iefix') format('embedded-opentype'),
+        url('fonts/als-icons/als-icons.ttf?v4oar8') format('truetype'),
+        url('fonts/als-icons/als-icons.woff?v4oar8') format('woff'),
+        url('fonts/als-icons/als-icons.svg?v4oar8#als-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin als-icon {
+    font-family: 'als-icons', sans-serif;
+    display: inline-block;
+    font-size: inherit;
+    text-rendering: auto;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$als-icon-prefix: 'als-icon';
+
+.#{$als-icon-prefix} {
+    @include als-icon;
+    
+    &.sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect( 0, 0, 0, 0 );
+        border: 0;
+    }
+    
+    &.sr-only-focusable {
+        &:active, &:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+        }
+    }
+    
+}
+
+.#{$als-icon-prefix}-lg {
+    font-size: ( 4em /3 );
+    line-height: ( 3em / 4 );
+    vertical-align: -15%;
+}
+
+.#{$als-icon-prefix}-2x {
+    font-size: 2em;
+}
+
+.#{$als-icon-prefix}-3x {
+    font-size: 3em;
+}
+
+.#{$als-icon-prefix}-4x {
+    font-size: 4em;
+}
+
+.#{$als-icon-prefix}-5x {
+    font-size: 5em;
+}
+
+.#{$als-icon-prefix}-fw {
+    width: ( 18em /14 );
+    text-align: center;
+}
+
+.#{$als-icon-prefix}-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+}
+
+.#{$als-icon-prefix}-stack-1x, .#{$als-icon-prefix}-stack-2x {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.#{$als-icon-prefix}-stack-1x {
+    line-height: inherit;
+}
+
+.#{$als-icon-prefix}-stack-2x {
+    font-size: 2em;
+}
+
+.#{$als-icon-prefix}-careers:before {
+    content: "\e900";
+}
+.#{$als-icon-prefix}-carriers:before {
+    content: "\e901";
+}
+.#{$als-icon-prefix}-circle:before {
+    content: "\e902";
+}
+.#{$als-icon-prefix}-shippers:before {
+    content: "\e903";
+}

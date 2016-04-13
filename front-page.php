@@ -35,9 +35,9 @@ if ( get_field( 'home_hero_image' ) ) :
                 
                 <div class="small-12 medium-4 columns text-center">
                     <a href="/shippers">
-                        <span class="fa-stack fa-4x">
-                            <span class="fa fa-stack-2x fa-circle"></span>
-                            <span class="fa fa-stack fa-inverse fa-cube"></span>
+                        <span class="als-icon-stack als-icon-4x">
+                            <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
+                            <span class="als-icon als-icon-stack als-icon-inverse als-icon-shippers"></span>
                         </span><br />
                         <h6>Shippers</h6>
                     </a>
@@ -45,9 +45,9 @@ if ( get_field( 'home_hero_image' ) ) :
                 
                 <div class="small-12 medium-4 columns text-center">
                     <a href="/carriers">
-                        <span class="fa-stack fa-4x">
-                            <span class="fa fa-stack-2x fa-circle"></span>
-                            <span class="fa fa-stack fa-inverse fa-circle-o"></span>
+                        <span class="als-icon-stack als-icon-4x">
+                            <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
+                            <span class="als-icon als-icon-stack als-icon-inverse als-icon-carriers"></span>
                         </span><br />
                         <h6>Carriers</h6>
                     </a>
@@ -55,9 +55,9 @@ if ( get_field( 'home_hero_image' ) ) :
                 
                 <div class="small-12 medium-4 columns text-center">
                     <a href="/careers">
-                        <span class="fa-stack fa-4x">
-                            <span class="fa fa-stack-2x fa-circle"></span>
-                            <span class="fa fa-stack fa-inverse fa-suitcase"></span>
+                        <span class="als-icon-stack als-icon-4x">
+                            <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
+                            <span class="als-icon als-icon-stack als-icon-inverse als-icon-careers"></span>
                         </span><br />
                         <h6>Careers</h6>
                     </a>

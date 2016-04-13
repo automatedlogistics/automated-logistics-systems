@@ -104,9 +104,13 @@ $dot-width: 20px;
             
         }
         
-        .fa-stack {
+        .als-icon-stack {
             
-            .fa-inverse {
+            .als-icon-stack-2x {
+                font-size: 1.5em;
+            }
+            
+            .als-icon-inverse {
                 color: $primary-color !important;
             }
             
