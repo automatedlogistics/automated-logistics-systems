@@ -32,6 +32,14 @@ the_post();
 
             <div class="page-copy">
                 <?php the_content(); ?>
+                
+                <?php 
+                    if ( get_field( 'als_contact_form' ) !== '' ) : ?>
+                        <h3><?php _e( 'Connect With Us', THEME_ID ); ?></h3>
+                        <?php the_field( 'als_contact_form' ); 
+                    endif;
+                ?>
+                
             </div>
             
         </div>
