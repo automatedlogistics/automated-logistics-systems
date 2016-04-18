@@ -9,6 +9,9 @@ Version: 0.1.0
 // Vendor
 @import "../vendor/sass/normalize";
 
+// Motion-UI is a Node Module
+@import "../../node_modules/motion-ui/src/motion-ui";
+
 // Dependencies
 @import "settings.scss";
 @import "functions.scss";
@@ -35,6 +38,8 @@ Version: 0.1.0
 @include foundation-media-object;
 @include foundation-thumbnail;
 @include foundation-table;
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
 // Global Styling
 @import "global/foundation-extend";

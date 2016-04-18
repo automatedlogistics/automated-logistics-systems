@@ -84,7 +84,8 @@ if ( get_field( 'home_hero_image' ) ) :
 
                 <?php while ( have_rows( 'home_timeline' ) ) : the_row(); ?>
 
-                    <div class="row">
+                    <?php // If we want to use WOW.js with Motion-UI Transitions, we need to apply the Enter/Leave Class to the element itself ?>
+                    <div class="row wow fade-in mui-enter">
 
                         <div class="small-12 medium-6 columns text-right">
 

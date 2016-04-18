@@ -82,6 +82,7 @@ module.exports = function (grunt) {
                         'build/vendor/js/placeholder.js',
                         'build/vendor/js/jquery.cookie.js',
                         'build/vendor/js/snap.svg-min.js',
+                        'build/vendor/js/wow.min.js',
                         'build/vendor/js/foundation/foundation.core.js',
                         'build/vendor/js/foundation/foundation.util.keyboard.js',
                         'build/vendor/js/foundation/foundation.util.box.js',
