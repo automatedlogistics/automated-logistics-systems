@@ -15,7 +15,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
     <section id="home-hero" class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
         <div class="row collapse">
-            <div class="small-12 medium-6 medium-offset-6 columns text-center">
+            <div class="small-12 medium-6 medium-offset-6 columns text-center wow slide-in-right mui-enter">
                 <div class="hero-copy">
                     <h1><?php the_field( 'home_hero_header' ); ?></h1>
                 </div>
@@ -33,7 +33,7 @@ if ( get_field( 'home_hero_image' ) ) :
         <div class="small-12 medium-6 medium-centered columns">
             <div class="row">
                 
-                <div class="small-12 medium-4 columns text-center">
+                <div class="small-12 medium-4 columns text-center wow scale-in-up mui-enter">
                     <a href="/shippers">
                         <span class="als-icon-stack als-icon-4x">
                             <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
@@ -43,7 +43,7 @@ if ( get_field( 'home_hero_image' ) ) :
                     </a>
                 </div>
                 
-                <div class="small-12 medium-4 columns text-center">
+                <div class="small-12 medium-4 columns text-center wow scale-in-up mui-enter">
                     <a href="/carriers">
                         <span class="als-icon-stack als-icon-4x">
                             <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
@@ -53,7 +53,7 @@ if ( get_field( 'home_hero_image' ) ) :
                     </a>
                 </div>
                 
-                <div class="small-12 medium-4 columns text-center">
+                <div class="small-12 medium-4 columns text-center wow scale-in-up mui-enter">
                     <a href="/careers">
                         <span class="als-icon-stack als-icon-4x">
                             <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
@@ -173,7 +173,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
             <section id="home-footer-hero-<?php echo $index; ?>" class="home-footer-hero hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
                 <div class="row collapse">
-                    <div class="small-12 medium-6 <?php echo ( ( $index % 2 == 1 ) ? 'medium-offset-6 ' : '' ); ?>columns text-center">
+                    <div class="small-12 medium-6 <?php echo ( ( $index % 2 == 1 ) ? 'medium-offset-6 wow slide-in-right mui-enter ' : 'wow slide-in-left mui-enter ' ); ?>columns text-center">
                         <div class="hero-copy">
                             <?php echo apply_filters( 'the_content', get_sub_field( 'hero_text' ) ); ?>
                         </div>
