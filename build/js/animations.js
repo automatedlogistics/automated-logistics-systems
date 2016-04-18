@@ -12,11 +12,11 @@ jQuery( function( $ ) {
         
         var classes = ' ' + $( element ).attr( 'class' ).replace( /\s+/, ' ' ) + ' ';
         
-        if ( ( classes.match( transitionInRegex ) !== null ) && ( classes.match( transitionInRegex ).length > 0 ) ) {
-            Foundation.Motion.animateIn( element, classes.match( transitionInRegex )[0].trim() );
+        if ( $( element ).data( 'inOrOut' ) == 'in' ) {
+            Foundation.Motion.animateIn( element, $( element ).data( 'animation' ) );
         }
-        else if ( ( classes.match( transitionOutRegex ) !== null ) && ( classes.match( transitionOutRegex ).length > 0 ) ) {
-            Foundation.Motion.animateOut( element, classes.match( transitionOutRegex )[0].trim() );
+        if ( $( element ).data( 'inOrOut' ) == 'out' ) {
+            Foundation.Motion.animateOut( element, $( element ).data( 'animation' ) );
         }
         
     }
@@ -38,8 +38,19 @@ jQuery( function( $ ) {
         
         $( '.animate-on-scroll' ).each( function( index, element ) {
             
-            // If the animation should Transition In, then start invisible
-            $( element ).filter( transitionIn.join() ).css( 'visibility', 'hidden' );
+            // Generate Data attributes on page-load. This way we only need to run Regex at maximum twice per element.
+            var classes = ' ' + $( element ).attr( 'class' ).replace( /\s+/, ' ' ) + ' ';
+        
+            if ( ( classes.match( transitionInRegex ) !== null ) && ( classes.match( transitionInRegex ).length > 0 ) ) {
+                // If the animation should Transition In, then start invisible
+                $( element ).css( 'visibility', 'hidden' );
+                $( element ).data( 'inOrOut', 'in' );
+                $( element ).data( 'animation', classes.match( transitionInRegex )[0].trim() );
+            }
+            else if ( ( classes.match( transitionOutRegex ) !== null ) && ( classes.match( transitionOutRegex ).length > 0 ) ) {
+                $( element ).data( 'inOrOut', 'out' );
+                $( element ).data( 'animation', classes.match( transitionOutRegex )[0].trim() );
+            }
             
             if ( checkAnimation( element, percent ) ) {
                 
@@ -61,9 +72,7 @@ jQuery( function( $ ) {
 
         $( '.animate-on-scroll' ).each( function( index, element ) {
             
-            var classes = ' ' + $( element ).attr( 'class' ).replace( /\s+/, ' ' ) + ' ';
-            
-            if ( ( $( element ).css( 'visibility' ) == 'hidden' ) || ( classes.match( transitionOutRegex ) !== null ) ) {
+            if ( ( $( element ).css( 'visibility' ) == 'hidden' ) || ( $( element ).data( 'inOrOut' ) == 'out' ) ) {
             
                 if ( checkAnimation( element, percent ) ) {
 
