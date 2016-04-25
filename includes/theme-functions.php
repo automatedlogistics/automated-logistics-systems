@@ -249,7 +249,25 @@ function als_custom_breadcrumbs() {
             }
             elseif ( is_single() && ! is_attachment() ) {
 
-                if ( get_post_type() != 'post' ) {
+                // Since we used Page Templates for most Archives (To allow a Content Editor), we need to make our own Breadcrumbs for each
+                
+                if ( get_post_type() == 'als_service' ) {
+                    
+                    $post_type = get_post_type_object( get_post_type() );
+                    echo $before . '<a href="' . $home_link . '/services/">' . $post_type->labels->name . '</a>' . $after;
+
+                    if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+                    
+                }
+                else if ( get_post_type() == 'als_staff' ) {
+                    
+                    $post_type = get_post_type_object( get_post_type() );
+                    echo $before . '<a href="' . $home_link . '/staff/">' . $post_type->labels->name . '</a>' . $after;
+
+                    if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+                    
+                }
+                else if ( get_post_type() != 'post' ) {
 
                     $post_type = get_post_type_object( get_post_type() );
                     $slug = $post_type->rewrite;

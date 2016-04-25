@@ -26,6 +26,13 @@ the_post();
 <?php endif; ?>
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'full-width' ) ); ?>>
+    
+    <div class="row">
+        <div class="small-12 columns">
+            <?php als_custom_breadcrumbs(); ?>
+        </div>
+    </div>
+    
     <div class="row">
         <div class="small-12 columns">
             

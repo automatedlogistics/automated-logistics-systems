@@ -17,6 +17,13 @@ the_post();
 ?>
 
 <section id="post-<?php the_ID(); ?>" class="page-content">
+    
+    <div class="row">
+        <div class="small-12 columns">
+            <?php als_custom_breadcrumbs(); ?>
+        </div>
+    </div>
+    
     <div class="row">
         <article <?php post_class( array( 'small-12', 'medium-9', 'columns' ) ); ?>>
 

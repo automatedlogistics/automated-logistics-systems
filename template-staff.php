@@ -33,12 +33,16 @@ global $wp_query;
 <section id="staff-index" class="page-content">
     
     <div class="row">
+        <div class="small-12 columns">
+            <?php als_custom_breadcrumbs(); ?>
+        </div>
+    </div>
+    
+    <div class="row">
         
         <div class="small-12 columns"> <?php // This container is closed later in the template ?>
             
-            <div class="row">
-                <?php the_content(); ?>
-            </div>
+            <?php the_content(); ?>
 
             <?php
             
