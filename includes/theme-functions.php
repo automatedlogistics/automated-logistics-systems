@@ -194,3 +194,160 @@ function html_trim_words( $text, $num_words = 55, $more = null ) {
 	return apply_filters( 'wp_trim_words', $text, $num_words, $more, $original_text );
     
 }
+
+function als_custom_breadcrumbs() {
+ 
+    $delimiter = __( ' &raquo; ', THEME_ID ); // delimiter between miscellaneous things
+    $home = __( 'Home', THEME_ID ); // text for the 'Home' link
+    $show_current = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
+    $before_current = '<li><span class="show-for-sr">Current: </span>'; // tag before the current crumb
+    $before = '<li>'; // tag before every crumb
+    $after = '</li>'; // tag after the current crumb
+
+    if ( is_front_page() ) return false;
+
+    global $post;
+    $home_link = get_bloginfo( 'url' ); ?>
+ 
+    <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+            <li><a href="<?php echo $home_link; ?>"><?php echo $home; ?></a></li>
+
+            <?php
+
+            if ( is_category() ) {
+                
+                $this_cat = get_category( get_query_var( 'cat' ), false );
+
+                if ( $this_cat->parent != 0 ) echo get_category_parents( $this_cat->parent, TRUE, $delimiter );
+
+                echo $before_current . sprintf( __( 'Archive by category "%s"', THEME_ID ), single_cat_title( '', false ) ) . $after;
+
+            }
+            elseif ( is_search() ) {
+
+                echo $before_current . sprintf( __( 'Search results for "%s"', THEME_ID ), get_search_query() ) . $after;
+
+            }
+            elseif ( is_day() ) {
+
+                echo $before . '<a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a>' . $after;
+                echo $before . '<a href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '">' . get_the_time( 'F' ) . '</a>' . $after;
+                echo $before_current . get_the_time( 'd' ) . $after;
+
+            }
+            elseif ( is_month() ) {
+
+                echo $before . '<a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a>' . $after;
+                echo $before_current . get_the_time( 'F' ) . $after;
+
+            }
+            elseif ( is_year() ) {
+
+                echo $before_current . get_the_time( 'Y' ) . $after;
+
+            }
+            elseif ( is_single() && ! is_attachment() ) {
+
+                if ( get_post_type() != 'post' ) {
+
+                    $post_type = get_post_type_object( get_post_type() );
+                    $slug = $post_type->rewrite;
+                    echo $before . '<a href="' . $home_link . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>' . $after;
+
+                    if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+
+                }
+                else {
+
+                    $cat = get_the_category(); $cat = $cat[0];
+                    $cats = get_category_parents( $cat, TRUE, $delimiter );
+
+                    if ( $show_current == 0 ) $cats = preg_replace( "#^(.+)\s$delimiter\s$#", "$1", $cats );
+
+                    echo $cats;
+
+                    if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+
+                }
+
+            } 
+            elseif ( ! is_single() && ! is_page() && get_post_type() != 'post' && ! is_404() ) {
+
+                $post_type = get_post_type_object( get_post_type() );
+                echo $before_current . $post_type->labels->singular_name . $after;
+
+            }
+            elseif ( is_attachment() ) {
+
+                $parent = get_post( $post->post_parent );
+                $cat = get_the_category( $parent->ID ); $cat = $cat[0];
+                
+                echo $before . get_category_parents( $cat, TRUE, $delimiter );
+                echo '<a href="' . get_permalink( $parent ) . '">' . $parent->post_title . '</a>' . $after;
+
+                if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+
+            }
+            elseif ( is_page() && ! $post->post_parent ) {
+
+                if ( $show_current == 1) echo $before_current . get_the_title() . $after;
+
+            }
+            elseif ( is_page() && $post->post_parent ) {
+
+                $parent_id  = $post->post_parent;
+                $breadcrumbs = array();
+
+                while ( $parent_id ) {
+                    $page = get_page( $parent_id );
+                    $breadcrumbs[] = $before . '<a href="' . get_permalink( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a>' . $after;
+                    $parent_id  = $page->post_parent;
+                }
+                $breadcrumbs = array_reverse( $breadcrumbs );
+
+                for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
+
+                    echo $breadcrumbs[$i];
+                    
+                }
+
+                if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+
+            }
+            elseif ( is_tag() ) {
+                echo $before_current . sprintf( __( 'Posts tagged "%s"', THEME_ID ), single_tag_title( '', false ) ) . $after;
+
+            }
+            elseif ( is_author() ) {
+
+                global $author;
+                $userdata = get_userdata( $author );
+                echo $before_current . sprintf( __( 'Articles posted by %s', THEME_ID ), $userdata->display_name ) . $after;
+
+            }
+            elseif ( is_404() ) {
+                echo $before_current . __( 'Error 404', THEME_ID ) . $after;
+            }
+
+            if ( get_query_var( 'paged' ) ) {
+                
+                echo $before;
+
+                if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
+
+                echo sprintf( __( 'Page %d', THEME_ID ), get_query_var( 'paged' ) );
+
+                if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
+                
+                echo $after;
+
+            }
+
+            ?>
+
+        </ul>
+</nav>
+
+<?php
+}
