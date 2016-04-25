@@ -13,7 +13,7 @@
 
 }
 
-// Applies a blurry-colored edge to the TOP of the section you apply it to.
+// Applies a colored edge to the TOP of the section you apply it to.
 // It overlaps the section above it
 @mixin section-border( $color: null ) {
     

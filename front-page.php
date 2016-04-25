@@ -22,6 +22,11 @@ if ( get_field( 'home_hero_image' ) ) :
                 <a class="secondary large button with-arc" href="<?php the_field( 'home_hero_button_link' ); ?>"><?php the_field( 'home_hero_button_text' ); ?></a>
             </div>
         </div>
+        
+        <a href="#home-timeline" class="arrow-wrap show-for-small-only">
+            <span class="scroll-arrow"></span>
+        </a>
+        
     </section>
 
 <?php endif; ?>
@@ -67,6 +72,10 @@ if ( get_field( 'home_hero_image' ) ) :
         </div>
         
     </div>
+
+    <a href="#home-timeline" class="arrow-wrap hide-for-small-only">
+        <span class="scroll-arrow"></span>
+    </a>
     
 </section>
 
