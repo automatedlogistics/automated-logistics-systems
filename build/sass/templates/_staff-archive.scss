@@ -4,6 +4,11 @@
         .post-thumbnail-container {
             display: block;
             text-align: center;
+            box-shadow: none;
+            transition: box-shadow ease;
+            &:hover {
+                box-shadow: none;
+            }
         }    
     }
     
