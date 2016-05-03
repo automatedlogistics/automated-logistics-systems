@@ -24,9 +24,6 @@ jQuery( function( $ ) {
                 $( item ).find( 'ul.nested > li > a' ).unbind( 'click' );
 
             } );
-
-            // Automatically open the first one
-            $( '#employment-accordion' ).foundation( 'down', $( '#employment-accordion > li:first-of-type > :not( a )' ) );
             
         }
         
