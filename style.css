@@ -4346,15 +4346,24 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       color: #8a8a8a; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
-.home #home-hero .row, .home .home-footer-hero .row {
-  max-width: 100%; }
+.home #home-hero, .home .home-footer-hero {
+  background-color: #fefefe; }
+  .home #home-hero .row, .home .home-footer-hero .row {
+    max-width: 100%; }
 
 .home #home-hero .hero-copy h1 {
   color: #fefefe; }
 
 .home #home-hero .hero-copy, .home .home-footer-hero .hero-copy {
-  margin-top: 4em;
   text-shadow: -0.5px -0.5px 0 #0a0a0a, 0.5px -0.5px 0 #0a0a0a, -0.5px 0.5px 0 #0a0a0a, 0.5px 0.5px 0 #0a0a0a; }
+  .home #home-hero .hero-copy:before, .home .home-footer-hero .hero-copy:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; }
+  .home #home-hero .hero-copy .vertical-align, .home .home-footer-hero .hero-copy .vertical-align {
+    display: inline-block;
+    vertical-align: middle; }
   .home #home-hero .hero-copy p, .home .home-footer-hero .hero-copy p {
     font-size: 2em;
     font-weight: 700; }

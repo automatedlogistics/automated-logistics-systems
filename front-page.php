@@ -170,15 +170,48 @@ if ( get_field( 'home_hero_image' ) ) :
 
         ?>
 
-            <section id="home-footer-hero-<?php echo $index; ?>" class="home-footer-hero hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
-                <div class="row collapse">
-                    <div class="small-12 medium-6 <?php echo ( ( $index % 2 == 1 ) ? 'medium-offset-6 animate-on-scroll slide-in-right ' : 'animate-on-scroll slide-in-left ' ); ?>columns text-center">
-                        <div class="hero-copy">
-                            <?php echo apply_filters( 'the_content', get_sub_field( 'hero_text' ) ); ?>
+            <section id="home-footer-hero-<?php echo $index; ?>" class="home-footer-hero hero-image" style="background-image: url( '<?php echo ( ( $index % 2 == 1 ) ? $hero_image[0] : '' ); ?>' ); height: <?php echo $hero_image[2]; ?>px;">
+                    
+                    <?php if ( $index % 2 == 0 ) : ?>
+                
+                    <div class="row collapse">
+                    
+                        <div class="small-12 medium-6 columns animate-on-scroll scale-in-up text-center">
+                            <div class="hero-copy" style="height: <?php echo $hero_image[2]; ?>px">
+                                <div class="vertical-align">
+                                    <?php echo wp_get_attachment_image( get_sub_field( 'hero_image' ), 'timeline-image' ); ?>
+                                </div>
+                            </div>
                         </div>
-                        <a class="secondary <?php echo ( ( $button_size !== '' ) ? $button_size . ' ' : '' ); ?>button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo html_entity_decode( get_sub_field( 'button_text' ) ); ?></a>
+
+                        <div class="small-12 medium-6 animate-on-scroll slide-in-right columns text-center">
+                            <div class="hero-copy" style="height: <?php echo $hero_image[2]; ?>px">
+                                <div class="vertical-align">
+                                    <?php echo apply_filters( 'the_content', get_sub_field( 'hero_text' ) ); ?>
+                                    <a class="secondary <?php echo ( ( $button_size !== '' ) ? $button_size . ' ' : '' ); ?>button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo html_entity_decode( get_sub_field( 'button_text' ) ); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
-                </div>
+                
+                    <?php else : ?>
+                
+                    <div class="row collapse animate-on-scroll slide-in-left">
+
+                        <div class="small-12 medium-6 columns text-center">
+                            <div class="hero-copy" style="height: <?php echo $hero_image[2]; ?>px">
+                                <div class="vertical-align">
+                                    <?php echo apply_filters( 'the_content', get_sub_field( 'hero_text' ) ); ?>
+                                    <a class="secondary <?php echo ( ( $button_size !== '' ) ? $button_size . ' ' : '' ); ?>button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo html_entity_decode( get_sub_field( 'button_text' ) ); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                    <?php endif; ?>
+                
             </section>
 
         <?php 
