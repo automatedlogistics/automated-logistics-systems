@@ -14,8 +14,10 @@ jQuery( function( $ ) {
         
         if ( $( element ).data( 'inOrOut' ) == 'in' ) {
             Foundation.Motion.animateIn( element, $( element ).data( 'animation' ) );
+            $( element ).find( '.queued-animation' ).addClass( 'mui-enter-active' );
         }
         if ( $( element ).data( 'inOrOut' ) == 'out' ) {
+            $( element ).find( '.queued-animation' ).addClass( 'mui-enter-active' );
             Foundation.Motion.animateOut( element, $( element ).data( 'animation' ) );
         }
         

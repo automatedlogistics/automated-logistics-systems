@@ -142,6 +142,16 @@ $dot-width: 16px;
             }
 
             .row {
+                
+                &.animate-on-scroll {
+                    
+                    img.queued-animation {
+                        
+                        width: 125%;
+                        
+                    }
+                    
+                }
 
                 margin-bottom: 3em;
 

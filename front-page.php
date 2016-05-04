@@ -92,7 +92,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
                                 if ( get_sub_field( 'image' ) ) :
 
-                                    echo wp_get_attachment_image( get_sub_field( 'image' ), 'timeline-image' );
+                                    echo wp_get_attachment_image( get_sub_field( 'image' ), 'timeline-image', false, array( 'class' => 'queued-animation scale-in-up mui-enter' ) );
 
                                 endif;
 
@@ -120,7 +120,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
                                 if ( get_sub_field( 'image' ) ) :
 
-                                    echo wp_get_attachment_image( get_sub_field( 'image' ), 'timeline-image' );
+                                    echo wp_get_attachment_image( get_sub_field( 'image' ), 'timeline-image', false, array( 'class' => 'queued-animation scale-in-up mui-enter' ) );
 
                                 endif;
 

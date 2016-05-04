@@ -4411,6 +4411,8 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       background: #b32025; }
     .home #home-timeline .container .row {
       margin-bottom: 3em; }
+      .home #home-timeline .container .row.animate-on-scroll img.queued-animation {
+        width: 125%; }
       .home #home-timeline .container .row .text-left {
         padding-left: 2em; }
       @media screen and (min-width: 40em) {

@@ -48,7 +48,7 @@ $als_fonts = array(
 add_action( 'after_setup_theme', function () {
     
     // Image sizes
-    add_image_size( 'timeline-image', 600, false );
+    add_image_size( 'timeline-image', 500, false );
     
     add_image_size( 'hero-image', false, 400 );
 
