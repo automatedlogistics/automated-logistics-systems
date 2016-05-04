@@ -320,6 +320,12 @@ add_action( 'widgets_init', function () {
         'description' => __( 'This is the sidebar that shows on 404 Pages.', THEME_ID ),
     ) );
     
+    register_sidebar( array(
+        'name' => __( 'Shipper/Carrier Sidebar', THEME_ID ),
+        'id' => 'shipper-carrier-sidebar',
+        'description' => __( 'This is the sidebar that shows on the Shipper and Carrier Pages' ),
+    ) );
+    
     // Footer
     $footer_columns = get_theme_mod( 'als_footer_columns', 4 );
     for ( $index = 0; $index < $footer_columns; $index++ ) {

@@ -30,74 +30,81 @@ global $wp_query;
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'services' ) ); ?>>
     
-    <div class="row">
-        <div class="small-12 columns">
-            <?php als_custom_breadcrumbs(); ?>
-        </div>
-    </div>
+    <?php $content_class = ( is_active_sidebar( 'shipper-carrier-sidebar' ) ) ? ' medium-9 ' : ' '; ?>
     
     <div class="row">
-        <div class="small-12 columns">
+        
+        <div class="small-12<?php echo $content_class; ?>columns">
+            
+            <?php als_custom_breadcrumbs(); ?>
 
             <div class="page-copy">
                 <?php the_content(); ?>
             </div>
-            
-        </div>
+    
+            <?php 
 
-    </div>
-    
-    <?php 
-    
-    $args = array(
-        'post_type' => 'als_service',
-        'posts_per_page' => -1,
-        'post_status' => 'publish',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'als_service_type',
-                'field' => 'slug',
-                'terms' => 'shipper',
-            ),
-        ),
-    );
-    
-    global $post;
-    $services = new WP_Query( $args );
-    
-    if ( $services->have_posts() ) : ?>
-    
-        <div class="row">
-            
-            <div class="services-list small-12 medium-9 medium-centered">
-                
-                <?php while ( $services->have_posts() ) : $services->the_post(); ?>
+            $args = array(
+                'post_type' => 'als_service',
+                'posts_per_page' => -1,
+                'post_status' => 'publish',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'als_service_type',
+                        'field' => 'slug',
+                        'terms' => 'shipper',
+                    ),
+                ),
+            );
 
-                    <?php get_template_part( 'partials/als_service', 'loop-single' ); ?>
+            global $post;
+            $services = new WP_Query( $args );
 
-                <?php endwhile; ?>
-                
+            if ( $services->have_posts() ) : ?>
+
+                <div class="row">
+
+                    <div class="services-list small-12 medium-9 medium-centered">
+
+                        <?php while ( $services->have_posts() ) : $services->the_post(); ?>
+
+                            <?php get_template_part( 'partials/als_service', 'loop-single' ); ?>
+
+                        <?php endwhile; ?>
+
+                    </div>
+
+                </div>
+
+            <?php 
+            wp_reset_postdata();
+
+            else :  ?>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <?php _e( 'No Shipper Services Found', THEME_ID ); ?>
+                </div>
             </div>
     
+            <?php endif; ?>
+    
+            <div class="row">
+                <div id="after-content-text" class="small-12 columns text-center">
+                    <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
+                </div>
+            </div>   
+
         </div>
-    
-    <?php 
-    wp_reset_postdata();
-    
-    else : ?>
-    
-    <div class="row">
-        <div class="small-12 columns">
-            <?php _e( 'No Shipper Services Found', THEME_ID ); ?>
+        
+        <?php if ( is_active_sidebar( 'shipper-carrier-sidebar' ) ) : ?>
+        
+        <div class="small-12 medium-3 columns">
+            <?php dynamic_sidebar( 'shipper-carrier-sidebar' ); ?>
         </div>
-    </div>
-    
-    <?php endif; ?>
-    
-    <div class="row">
-        <div id="after-content-text" class="small-12 columns text-center">
-            <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
-        </div>
+        
+        <?php endif; ?>
+
     </div>
     
 </section>
