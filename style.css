@@ -4036,6 +4036,9 @@ a img.aligncenter {
 .is-accordion-submenu-parent[aria-expanded='true'] > a::after {
   display: none; }
 
+ul[data-accordion-menu] > li:focus, ul[data-accordion-menu] > li > a:focus {
+  outline: none; }
+
 ul[data-accordion-menu] > li:not(.menu-text) > a {
   background-color: #e6e6e6;
   font-family: "Oswald", sans-serif;

@@ -45,6 +45,12 @@
 
 ul[data-accordion-menu] {
     
+    & > li {
+        &:focus, & > a:focus {
+            outline: none;
+        }
+    }
+    
     & > li:not( .menu-text ) {
         
         & > a {
