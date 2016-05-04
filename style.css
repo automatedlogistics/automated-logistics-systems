@@ -4296,7 +4296,8 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   .off-canvas > .menu > li a {
     color: #fff !important; }
   .off-canvas > .menu > li ul li {
-    background-color: #004877; }
+    background-color: #004877;
+    padding-left: 1.25rem; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 #site-footer .footer-widgets, #site-footer .footer-connect {
