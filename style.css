@@ -4471,10 +4471,6 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   .connect .social-icon:hover {
     color: #8a8a8a; }
 
-.connect input[type="submit"] {
-  width: 33%;
-  margin: 0 0 0 auto; }
-
 /* Override Foundation's _settings.scss here, or store your own variables */
 .services .services-list {
   margin-top: 1em; }
