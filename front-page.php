@@ -197,9 +197,9 @@ if ( get_field( 'home_hero_image' ) ) :
                 
                     <?php else : ?>
                 
-                    <div class="row collapse animate-on-scroll slide-in-left">
+                    <div class="row collapse">
 
-                        <div class="small-12 medium-6 columns text-center">
+                        <div class="small-12 medium-6 columns text-center animate-on-scroll slide-in-left">
                             <div class="hero-copy" style="height: <?php echo $hero_image[2]; ?>px">
                                 <div class="vertical-align">
                                     <?php echo apply_filters( 'the_content', get_sub_field( 'hero_text' ) ); ?>
