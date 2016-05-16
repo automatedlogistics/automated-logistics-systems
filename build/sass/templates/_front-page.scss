@@ -8,6 +8,8 @@ $dot-width: 16px;
     
     #home-hero, .home-footer-hero {
         
+        background-color: $white;
+        
         .row {
             max-width: 100%;
         }
@@ -21,7 +23,18 @@ $dot-width: 16px;
     }
         
     #home-hero .hero-copy, .home-footer-hero .hero-copy {
-        margin-top: 4em;
+        
+        &:before {
+            content: ' ';
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+        
+        .vertical-align {
+            display: inline-block;
+            vertical-align: middle;
+        }
 
         text-shadow:
                 -0.5px -0.5px 0 $black,  
