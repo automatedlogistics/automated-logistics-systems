@@ -321,9 +321,15 @@ add_action( 'widgets_init', function () {
     ) );
     
     register_sidebar( array(
-        'name' => __( 'Shipper/Carrier Sidebar', THEME_ID ),
-        'id' => 'shipper-carrier-sidebar',
-        'description' => __( 'This is the sidebar that shows on the Shipper and Carrier Pages' ),
+        'name' => __( 'Shippers Sidebar', THEME_ID ),
+        'id' => 'shipper-sidebar',
+        'description' => __( 'This is the sidebar that shows on the Shipper Page' ),
+    ) );
+    
+    register_sidebar( array(
+        'name' => __( 'Carriers Sidebar', THEME_ID ),
+        'id' => 'carrier-sidebar',
+        'description' => __( 'This is the sidebar that shows on the Carrier Page' ),
     ) );
     
     // Footer

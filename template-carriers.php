@@ -30,7 +30,7 @@ global $wp_query;
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'services' ) ); ?>>
     
-    <?php $content_class = ( is_active_sidebar( 'shipper-carrier-sidebar' ) ) ? ' medium-9 ' : ' '; ?>
+    <?php $content_class = ( is_active_sidebar( 'carrier-sidebar' ) ) ? ' medium-9 ' : ' '; ?>
     
     <div class="row">
         
@@ -97,10 +97,10 @@ global $wp_query;
 
         </div>
         
-        <?php if ( is_active_sidebar( 'shipper-carrier-sidebar' ) ) : ?>
+        <?php if ( is_active_sidebar( 'carrier-sidebar' ) ) : ?>
         
         <div class="small-12 medium-3 columns">
-            <?php dynamic_sidebar( 'shipper-carrier-sidebar' ); ?>
+            <?php dynamic_sidebar( 'carrier-sidebar' ); ?>
         </div>
         
         <?php endif; ?>
