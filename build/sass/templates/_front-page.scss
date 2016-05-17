@@ -94,7 +94,7 @@ $dot-width: 16px;
         
     }
     
-    @media #{$small-only} {
+    @media #{$small-only}, (-webkit-device-pixel-ratio: 3), #{$medium-only} and (orientation: portrait) {
         
         .home-footer-hero .hero-copy, .home-footer-hero.hero-image {
             height: auto !important;
