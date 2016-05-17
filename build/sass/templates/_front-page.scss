@@ -31,9 +31,19 @@ $dot-width: 16px;
             height: 100%;
         }
         
+        &.text:before {
+            height: auto;
+        }
+        
         .vertical-align {
             display: inline-block;
             vertical-align: middle;
+        }
+        
+        &.text {
+            .vertical-align {
+                display: table-cell;
+            }
         }
 
         text-shadow:

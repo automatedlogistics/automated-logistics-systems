@@ -185,7 +185,7 @@ if ( get_field( 'home_hero_image' ) ) :
                         </div>
 
                         <div class="small-12 medium-6 animate-on-scroll slide-in-right columns text-center">
-                            <div class="hero-copy" style="height: <?php echo $hero_image[2]; ?>px">
+                            <div class="hero-copy text" style="height: <?php echo $hero_image[2]; ?>px">
                                 <div class="vertical-align">
                                     <?php echo apply_filters( 'the_content', get_sub_field( 'hero_text' ) ); ?>
                                     <a class="secondary <?php echo ( ( $button_size !== '' ) ? $button_size . ' ' : '' ); ?>button with-arc" href="<?php echo get_sub_field( 'button_link' ); ?>"><?php echo html_entity_decode( get_sub_field( 'button_text' ) ); ?></a>

@@ -4361,9 +4361,13 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     display: inline-block;
     vertical-align: middle;
     height: 100%; }
+  .home #home-hero .hero-copy.text:before, .home .home-footer-hero .hero-copy.text:before {
+    height: auto; }
   .home #home-hero .hero-copy .vertical-align, .home .home-footer-hero .hero-copy .vertical-align {
     display: inline-block;
     vertical-align: middle; }
+  .home #home-hero .hero-copy.text .vertical-align, .home .home-footer-hero .hero-copy.text .vertical-align {
+    display: table-cell; }
   .home #home-hero .hero-copy p, .home .home-footer-hero .hero-copy p {
     font-size: 2em;
     font-weight: 700; }
