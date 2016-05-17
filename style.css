@@ -4392,7 +4392,9 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     font-size: 2.75em; }
 
 @media screen and (min-width: 0em) and (max-width: 39.9375em) {
-  .home .home-footer-hero .hero-copy {
+  .home .home-footer-hero .hero-copy, .home .home-footer-hero.hero-image {
+    height: auto !important; }
+  .home .home-footer-hero .hero-copy.text {
     margin-top: 1em; } }
 
 .home #mini-nav {

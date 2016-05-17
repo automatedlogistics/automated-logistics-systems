@@ -100,7 +100,11 @@ $dot-width: 16px;
     
     @media #{$small-only} {
         
-        .home-footer-hero .hero-copy {
+        .home-footer-hero .hero-copy, .home-footer-hero.hero-image {
+            height: auto !important;
+        }
+        
+        .home-footer-hero .hero-copy.text {
             margin-top: 1em;
         }
         
