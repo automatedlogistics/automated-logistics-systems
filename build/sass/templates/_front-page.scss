@@ -41,6 +41,7 @@ $dot-width: 16px;
         }
         
         &.text {
+            display: table;
             .vertical-align {
                 display: table-cell;
             }
