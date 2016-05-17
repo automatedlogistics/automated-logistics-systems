@@ -4348,8 +4348,6 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 /* Override Foundation's _settings.scss here, or store your own variables */
 .home #home-hero, .home .home-footer-hero {
   background-color: #005790; }
-  .home #home-hero .row, .home .home-footer-hero .row {
-    max-width: 100%; }
 
 .home #home-hero .hero-copy h1 {
   color: #fefefe; }
