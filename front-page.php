@@ -17,9 +17,11 @@ if ( get_field( 'home_hero_image' ) ) :
         <div class="row collapse">
             <div class="small-12 medium-6 medium-offset-6 columns text-center animate-on-scroll slide-in-right">
                 <div class="hero-copy">
-                    <h1><?php the_field( 'home_hero_header' ); ?></h1>
+                    <div class="vertical-align">
+                        <h1><?php the_field( 'home_hero_header' ); ?></h1>
+                        <a class="secondary large button with-arc" href="<?php the_field( 'home_hero_button_link' ); ?>"><?php the_field( 'home_hero_button_text' ); ?></a>
+                    </div>
                 </div>
-                <a class="secondary large button with-arc" href="<?php the_field( 'home_hero_button_link' ); ?>"><?php the_field( 'home_hero_button_text' ); ?></a>
             </div>
         </div>
     </section>

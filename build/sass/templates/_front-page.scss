@@ -17,6 +17,16 @@ $dot-width: 16px;
             color: $white;
         }
     }
+    
+    #home-hero {
+        
+        & > .row, & > .row > .animate-on-scroll, & > .row > .animate-on-scroll > .hero-copy {
+            
+            height: 100%;
+            
+        }
+        
+    }
         
     #home-hero .hero-copy, .home-footer-hero .hero-copy {
         
@@ -96,7 +106,7 @@ $dot-width: 16px;
     
     @media #{$small-only}, (-webkit-device-pixel-ratio: 3), #{$medium-only} and (orientation: portrait) {
         
-        .home-footer-hero .hero-copy, .home-footer-hero.hero-image {
+        .home-footer-hero .hero-copy, .home-footer-hero.hero-image, #home-hero .hero-copy {
             height: auto !important;
         }
         
