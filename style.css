@@ -4145,7 +4145,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   font-weight: 600;
   text-transform: uppercase;
   position: relative; }
-  @media screen and (min-width: 40em) and (max-width: 63.9375em) and (-webkit-device-pixel-ratio: 3), screen and (min-width: 40em) and (max-width: 63.9375em) and (orientation: portrait) {
+  @media (max-width: 733px) and (orientation: landscape), screen and (min-width: 40em) and (max-width: 63.9375em) and (orientation: portrait) {
     .top-bar .show-for-small-only {
       display: inline-block !important; }
     .top-bar .hide-for-small-only {
@@ -4397,7 +4397,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   .home #home-hero .hero-copy h6, .home .home-footer-hero .hero-copy h6 {
     font-size: 2.75em; }
 
-@media screen and (min-width: 0em) and (max-width: 39.9375em), (-webkit-device-pixel-ratio: 3), screen and (min-width: 40em) and (max-width: 63.9375em) and (orientation: portrait) {
+@media screen and (min-width: 0em) and (max-width: 39.9375em), (max-width: 733px) and (orientation: landscape), screen and (min-width: 40em) and (max-width: 63.9375em) and (orientation: portrait) {
   .home .home-footer-hero .hero-copy, .home .home-footer-hero.hero-image {
     height: auto !important; }
   .home #home-hero .hero-copy {
@@ -4414,7 +4414,8 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     color: #fefefe;
     text-transform: uppercase; }
   .home #mini-nav a {
-    color: #fefefe; }
+    color: #fefefe;
+    display: inline-block; }
     .home #mini-nav a:hover {
       color: #dadada; }
   .home #mini-nav .als-icon-stack .als-icon-stack-2x {

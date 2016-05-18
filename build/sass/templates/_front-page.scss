@@ -104,7 +104,7 @@ $dot-width: 16px;
         
     }
     
-    @media #{$small-only}, (-webkit-device-pixel-ratio: 3), #{$medium-only} and (orientation: portrait) {
+    @media #{$small-only}, (max-width: 733px) and (orientation: landscape), #{$medium-only} and (orientation: portrait) {
         
         .home-footer-hero .hero-copy, .home-footer-hero.hero-image {
             height: auto !important;
@@ -135,6 +135,7 @@ $dot-width: 16px;
         
         a {
             color: $white;
+            display: inline-block;
             
             &:hover {
                 color: scale-color( $white, $lightness: -14% );
