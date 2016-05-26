@@ -359,11 +359,15 @@ add_action( 'wp_head', '_als_favicon' );
 add_action( 'admin_head', '_als_favicon' );
 function _als_favicon() {
 
-    if ( ! file_exists( get_stylesheet_directory() . '/assets/images/favicon.ico' ) ) {
+    if ( ! file_exists( get_stylesheet_directory() . '/images/favicon.ico' ) ) {
         return;
     }
 ?>
-<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() . '/assets/images/favicon.ico'; ?>" />
+<!--[if lte IE 10]>
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon.ico'; ?>" />
+<![endif]-->
+<link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon16x16.png'; ?>" />
+<link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon32x32.png'; ?>" />
 <?php
 }
 
