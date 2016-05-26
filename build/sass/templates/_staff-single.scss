@@ -13,9 +13,28 @@
                 font-size: 150px;
             }
             
+            border: none;
+            box-shadow: none;
+            transition: box-shadow ease;
+            
+            img {
+                width: 100%;
+            }
+            
+            &:hover {
+                box-shadow: none;
+            }
+            
+            @media #{$medium-up} {
+                width: 100%;
+            }
+            
         }
         
         .staff-meta-information {
+            
+            position: relative;
+            word-wrap: break-word;
             
             .staff-meta-icon {
                 color: $primary-color;
@@ -59,8 +78,15 @@
             
             @media #{$medium-up} {
                 
-                .find-me-on {
-                    display: inline-block;
+                .staff-media-accounts {
+                    
+                    position: absolute;
+                    bottom: 0;
+                
+                    .find-me-on {
+                        display: inline-block;
+                    }
+                    
                 }
                 
                 .social-icon {

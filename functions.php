@@ -52,6 +52,8 @@ add_action( 'after_setup_theme', function () {
     
     add_image_size( 'hero-image', false, 400 );
     
+    add_image_size( 'thumbnail-tall', 200, false );
+    
     add_image_size( 'staff-badge', 55, 55 );
 
     // Add theme support

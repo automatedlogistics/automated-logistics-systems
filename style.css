@@ -4598,42 +4598,53 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 .single-als_staff .als_staff .thumbnail {
   width: 150px;
   text-align: center;
-  margin-right: 0; }
+  margin-right: 0;
+  border: none;
+  box-shadow: none;
+  -webkit-transition: box-shadow ease;
+          transition: box-shadow ease; }
   .single-als_staff .als_staff .thumbnail .fa {
     color: #005790;
     font-size: 150px; }
+  .single-als_staff .als_staff .thumbnail img {
+    width: 100%; }
+  .single-als_staff .als_staff .thumbnail:hover {
+    box-shadow: none; }
+  @media screen and (min-width: 40em) {
+    .single-als_staff .als_staff .thumbnail {
+      width: 100%; } }
 
-.single-als_staff .als_staff .staff-meta-information .staff-meta-icon {
-  color: #005790; }
-
-.single-als_staff .als_staff .staff-meta-information a {
-  color: #005790; }
-  .single-als_staff .als_staff .staff-meta-information a:hover {
-    color: #00416c; }
-
-.single-als_staff .als_staff .staff-meta-information .find-me-on {
-  margin-top: 1em; }
-
-.single-als_staff .als_staff .staff-meta-information .social-icon {
-  font-size: 1.1875rem; }
-
-.single-als_staff .als_staff .staff-meta-information .badges {
-  text-align: right; }
-  .single-als_staff .als_staff .staff-meta-information .badges .badge-container {
-    width: 55px;
-    text-align: center;
-    display: inline-block; }
-
-@media screen and (min-width: 0em) and (max-width: 39.9375em) {
-  .single-als_staff .als_staff .staff-meta-information .badges {
-    margin-top: 1em;
-    text-align: center; } }
-
-@media screen and (min-width: 40em) {
+.single-als_staff .als_staff .staff-meta-information {
+  position: relative;
+  word-wrap: break-word; }
+  .single-als_staff .als_staff .staff-meta-information .staff-meta-icon {
+    color: #005790; }
+  .single-als_staff .als_staff .staff-meta-information a {
+    color: #005790; }
+    .single-als_staff .als_staff .staff-meta-information a:hover {
+      color: #00416c; }
   .single-als_staff .als_staff .staff-meta-information .find-me-on {
-    display: inline-block; }
+    margin-top: 1em; }
   .single-als_staff .als_staff .staff-meta-information .social-icon {
-    font-size: 1.75rem; } }
+    font-size: 1.1875rem; }
+  .single-als_staff .als_staff .staff-meta-information .badges {
+    text-align: right; }
+    .single-als_staff .als_staff .staff-meta-information .badges .badge-container {
+      width: 55px;
+      text-align: center;
+      display: inline-block; }
+  @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+    .single-als_staff .als_staff .staff-meta-information .badges {
+      margin-top: 1em;
+      text-align: center; } }
+  @media screen and (min-width: 40em) {
+    .single-als_staff .als_staff .staff-meta-information .staff-media-accounts {
+      position: absolute;
+      bottom: 0; }
+      .single-als_staff .als_staff .staff-meta-information .staff-media-accounts .find-me-on {
+        display: inline-block; }
+    .single-als_staff .als_staff .staff-meta-information .social-icon {
+      font-size: 1.75rem; } }
 
 .single-als_staff .als_staff .body-copy {
   margin-top: 1em; }

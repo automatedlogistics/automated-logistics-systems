@@ -40,7 +40,7 @@ the_post();
 
                     <?php if ( has_post_thumbnail() ) : ?>
                         <div class="thumbnail alignleft post-thumbnail-container">
-                            <?php the_post_thumbnail( 'thumbnail' ); ?>
+                            <?php the_post_thumbnail( 'thumbnail-tall' ); ?>
                         </div>
                     <?php else: ?>
                         <div class="thumbnail alignleft post-thumbnail-container">
@@ -73,46 +73,57 @@ the_post();
                         <span class="fa fa-volume-control-phone fa-fw staff-meta-icon"></span> <?php echo get_phone_number_link( get_field( 'staff_phone' ), get_field( 'staff_extension' ) ); ?><br />
                     <?php endif; ?>
                     
-                    <h3 class="find-me-on"><?php _e( 'Find me on:', THEME_ID ); ?></h3>
+                    <div class="staff-media-accounts">
 
-                    <?php 
+                        <?php 
 
-                    $contact = array(
-                        'staff_facebook' => array(
-                            'label' => 'Facebook',
-                            'icon' => 'facebook-square',
-                        ),
-                        'staff_twitter' => array(
-                            'label' => 'Twitter',
-                            'icon' => 'twitter-square',
-                        ),
-                        'staff_pinterest' => array(
-                            'label' => 'Pinterest',
-                            'icon' => 'pinterest-square',
-                        ),
-                        'staff_linkedin' => array(
-                            'label' => 'LinkedIn',
-                            'icon' => 'linkedin-square',
-                        ),
-                        'staff_instagram' => array(
-                            'label' => 'Instagram',
-                            'icon' => 'instagram',
-                        )
-                    );
+                        $contact = array(
+                            'staff_facebook' => array(
+                                'label' => 'Facebook',
+                                'icon' => 'facebook-square',
+                            ),
+                            'staff_twitter' => array(
+                                'label' => 'Twitter',
+                                'icon' => 'twitter-square',
+                            ),
+                            'staff_pinterest' => array(
+                                'label' => 'Pinterest',
+                                'icon' => 'pinterest-square',
+                            ),
+                            'staff_linkedin' => array(
+                                'label' => 'LinkedIn',
+                                'icon' => 'linkedin-square',
+                            ),
+                            'staff_instagram' => array(
+                                'label' => 'Instagram',
+                                'icon' => 'instagram',
+                            )
+                        );
 
-                    foreach ( $contact as $key => $social ) {
+                        $shown_find_me = false;
+                        foreach ( $contact as $key => $social ) {
 
-                        if ( get_field( $key ) ) : ?>
+                            if ( get_field( $key ) ) : ?>
 
-                            <a class="social-icon" href="<?php the_field( $key ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with %s on %s', THEME_ID ), get_the_title(), $social['label'] ); ?>">
-                                <span class="fa fa-fw fa-<?php echo $social['icon']; ?>"></span>
-                            </a>
+                                <?php if ( ! $shown_find_me ) : ?>
 
-                        <?php endif;
+                                <h3 class="find-me-on"><?php _e( 'Find me on:', THEME_ID ); ?></h3>
 
-                    }
+                                <?php $shown_find_me = true;
 
-                    ?>
+                                endif; ?>
+
+                                <a class="social-icon" href="<?php the_field( $key ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with %s on %s', THEME_ID ), get_the_title(), $social['label'] ); ?>">
+                                    <span class="fa fa-fw fa-<?php echo $social['icon']; ?>"></span>
+                                </a>
+
+                            <?php endif;
+
+                        }
+
+                        ?>
+                        
+                    </div>
                     
                 </div>
                 
