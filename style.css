@@ -4511,12 +4511,23 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 
 #staff-index article.als_staff .post-thumbnail-container {
   display: block;
+  width: 150px;
   text-align: center;
   box-shadow: none;
   -webkit-transition: box-shadow ease;
           transition: box-shadow ease; }
+  #staff-index article.als_staff .post-thumbnail-container .fa {
+    color: #005790;
+    font-size: 150px; }
   #staff-index article.als_staff .post-thumbnail-container:hover {
     box-shadow: none; }
+
+.single-als_staff .als_staff .thumbnail {
+  width: 150px;
+  text-align: center; }
+  .single-als_staff .als_staff .thumbnail .fa {
+    color: #005790;
+    font-size: 150px; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .als-testimonial {

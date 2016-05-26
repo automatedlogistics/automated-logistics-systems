@@ -1,25 +1,18 @@
-#staff-index {
+.single-als_staff {
     
-    article.als_staff {
+    .als_staff {
         
-        .post-thumbnail-container {
+        .thumbnail {
             
-            display: block;
             width: 150px; // Width of Thumbnail-size images. This will help for our placeholder
             text-align: center;
-            box-shadow: none;
-            transition: box-shadow ease;
             
             .fa {
                 color: $primary-color;
                 font-size: 150px;
             }
             
-            &:hover {
-                box-shadow: none;
-            }
-            
-        }   
+        }
         
     }
     

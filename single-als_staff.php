@@ -35,6 +35,10 @@ the_post();
                             <?php the_post_thumbnail( 'thumbnail' ); ?>
                         </div>
                     </a>
+                <?php else: ?>
+                    <div class="thumbnail alignleft post-thumbnail-container">
+                        <span class="fa fa-user"></span>
+                    </div>
                 <?php endif; ?>
 
                 <h1 class="post-title">

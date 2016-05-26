@@ -26,6 +26,10 @@ global $post;
         <div class="thumbnail post-thumbnail-container">
             <?php the_post_thumbnail( 'thumbnail' ); ?>
         </div>
+    <?php else : ?>
+        <div class="thumbnail post-thumbnail-container">
+            <span class="fa fa-user"></span>
+        </div>
     <?php endif; ?>
     
     <h4 class="post-title">
