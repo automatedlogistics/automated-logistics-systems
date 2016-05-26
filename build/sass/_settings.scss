@@ -42,6 +42,12 @@ $offcanvas-background: $topbar-background;
 $titlebar-icon-color: $topbar-link-color;
 $titlebar-icon-color-hover: darken( $topbar-link-color, 20% );
 
+$tooltip-background-color: $primary-color;
+$tooltip-color: $white;
+$has-tip-font-weight: 700;
+$has-tip-border-bottom: none;
+$tooltip-font-size: 0.85em;
+
 $header-font-family: 'Oswald', sans-serif;
 $body-font-family: 'Quattrocento Sans', sans-serif;
 

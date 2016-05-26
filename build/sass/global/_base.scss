@@ -100,6 +100,12 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 
 }
 
+.has-tip {
+    border-bottom: none;
+    font-family: $header-font-family;
+    font-weight: 700;
+}
+
 input[type="submit"] {
     
     // Secondary, tiny, expanded button with the with-arc styling

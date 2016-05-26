@@ -35,7 +35,7 @@ define( 'THEME_ID', 'als_theme' );
  * Fonts for the theme. Must be hosted font (Google fonts for example).
  */
 $als_fonts = array(
-    'Font Awesome' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
+    'Font Awesome' => '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
     'Oswald' => '//fonts.googleapis.com/css?family=Oswald:400,700',
     'Quattrocento Sans' => '//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic',
 );
@@ -51,6 +51,8 @@ add_action( 'after_setup_theme', function () {
     add_image_size( 'timeline-image', 500, false );
     
     add_image_size( 'hero-image', false, 400 );
+    
+    add_image_size( 'staff-badge', 55, 55 );
 
     // Add theme support
     require_once __DIR__ . '/includes/theme-support.php';

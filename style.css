@@ -2872,6 +2872,74 @@ table.hover tr:hover {
 table.hover tr:nth-of-type(even):hover {
   background-color: #ececec; }
 
+.has-tip {
+  border-bottom: dotted 1px #8a8a8a;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  cursor: help; }
+
+.tooltip {
+  background-color: #005790;
+  color: #fefefe;
+  font-size: 0.85em;
+  padding: 0.75rem;
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 0.6495rem);
+  max-width: 10rem !important;
+  border-radius: 0; }
+  .tooltip::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 0.75rem;
+    border-color: transparent transparent #005790;
+    border-bottom-style: solid;
+    bottom: 100%;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
+  .tooltip.top::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 0.75rem;
+    border-color: #005790 transparent transparent;
+    border-top-style: solid;
+    top: 100%;
+    bottom: auto; }
+  .tooltip.left::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 0.75rem;
+    border-color: transparent transparent transparent #005790;
+    border-left-style: solid;
+    bottom: auto;
+    left: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); }
+  .tooltip.right::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 0.75rem;
+    border-color: transparent #005790 transparent transparent;
+    border-right-style: solid;
+    bottom: auto;
+    left: auto;
+    right: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); }
+
 .slide-in-down.mui-enter {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
@@ -3733,6 +3801,11 @@ img[class*=" wp-image-"] {
       .widget .menu li a {
         padding: 0; }
 
+.has-tip {
+  border-bottom: none;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700; }
+
 input[type="submit"] {
   display: inline-block;
   text-align: center;
@@ -4522,12 +4595,62 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   #staff-index article.als_staff .post-thumbnail-container:hover {
     box-shadow: none; }
 
+.single-als_staff .page-content {
+  padding-bottom: 15px; }
+
+.single-als_staff .name-banner {
+  background-color: #005790;
+  padding: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 1em; }
+  .single-als_staff .name-banner h1, .single-als_staff .name-banner h2, .single-als_staff .name-banner h3, .single-als_staff .name-banner h4, .single-als_staff .name-banner h5, .single-als_staff .name-banner h6 {
+    color: #fefefe; }
+
 .single-als_staff .als_staff .thumbnail {
   width: 150px;
-  text-align: center; }
+  text-align: center;
+  margin-right: 0; }
   .single-als_staff .als_staff .thumbnail .fa {
     color: #005790;
     font-size: 150px; }
+
+.single-als_staff .als_staff .staff-meta-information .staff-meta-icon {
+  color: #005790; }
+
+.single-als_staff .als_staff .staff-meta-information a {
+  color: #005790; }
+  .single-als_staff .als_staff .staff-meta-information a:hover {
+    color: #00416c; }
+
+.single-als_staff .als_staff .staff-meta-information .find-me-on {
+  margin-top: 1em; }
+
+.single-als_staff .als_staff .staff-meta-information .social-icon {
+  font-size: 1.1875rem; }
+
+.single-als_staff .als_staff .staff-meta-information .badges {
+  text-align: right; }
+  .single-als_staff .als_staff .staff-meta-information .badges .badge-container {
+    width: 55px;
+    text-align: center;
+    display: inline-block; }
+
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .single-als_staff .als_staff .staff-meta-information .badges {
+    margin-top: 1em;
+    text-align: center; } }
+
+@media screen and (min-width: 40em) {
+  .single-als_staff .als_staff .staff-meta-information .find-me-on {
+    display: inline-block; }
+  .single-als_staff .als_staff .staff-meta-information .social-icon {
+    font-size: 1.75rem; } }
+
+.single-als_staff .als_staff .body-copy {
+  margin-top: 1em; }
+  .single-als_staff .als_staff .body-copy h3 {
+    padding-bottom: 0.5em;
+    border-bottom: 0.1em solid #b32025; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .als-testimonial {

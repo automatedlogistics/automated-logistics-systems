@@ -1,15 +1,99 @@
 .single-als_staff {
     
+    .page-content {
+        padding-bottom: 15px; // We've got to do some silly things for a full-width banner
+    }
+    
+    .name-banner {
+        background-color: $primary-color;
+        padding: 15px; 
+        padding-bottom: 10px;
+        margin-bottom: 1em;
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: $white;
+        }
+        
+    }
+    
     .als_staff {
         
         .thumbnail {
             
             width: 150px; // Width of Thumbnail-size images. This will help for our placeholder
             text-align: center;
+            margin-right: 0;
             
             .fa {
                 color: $primary-color;
                 font-size: 150px;
+            }
+            
+        }
+        
+        .staff-meta-information {
+            
+            .staff-meta-icon {
+                color: $primary-color;
+            }
+            
+            a {
+                color: $primary-color;
+                &:hover {
+                    color: scale-color( $primary-color, $lightness: -25% );
+                }
+            }
+            
+            .find-me-on {
+                margin-top: 1em;
+            }
+            
+            .social-icon {
+                 font-size: rem-calc( map-get( map-get( $header-sizes, small ), h3 ) );
+            }
+            
+            .badges {
+                
+                text-align: right;
+                
+                .badge-container {
+                    width: 55px;
+                    text-align: center;
+                    display: inline-block;
+                }
+                
+            }
+            
+            @media #{$small-only} {
+                
+                .badges {
+                    margin-top: 1em;
+                    text-align: center;
+                }
+                
+            }
+            
+            @media #{$medium-up} {
+                
+                .find-me-on {
+                    display: inline-block;
+                }
+                
+                .social-icon {
+                    font-size: rem-calc( map-get( map-get( $header-sizes, medium ), h3 ) );
+                }
+                
+            }
+            
+        }
+        
+        .body-copy {
+            
+            margin-top: 1em;
+            
+            h3 {
+                padding-bottom: 0.5em;
+                border-bottom: 0.1em solid $tertiary-color;
             }
             
         }
