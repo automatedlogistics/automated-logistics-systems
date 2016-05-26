@@ -16,7 +16,7 @@ get_header();
 the_post();
 ?>
 
-<section class="page-content">
+<section id="post-<?php the_ID(); ?>" class="page-content">
     
     <div class="row">
         <div class="small-12 columns">
@@ -24,26 +24,15 @@ the_post();
         </div>
     </div>
     
-</section>
-
-    
-<div class="name-banner">
     <div class="row">
-        <div class="small-12 columns">
+        <article <?php post_class( array( 'small-12', 'columns' ) ); ?>>
+            
             <h1 class="post-title">
                 <?php the_title(); ?>
                 <?php if ( get_field( 'staff_nickname' ) ) : ?>
                     - "<?php the_field( 'staff_nickname' ); ?>"
                 <?php endif; ?>
             </h1>
-        </div>
-    </div>
-</div>
-
-<section id="post-<?php the_ID(); ?>">
-    
-    <div class="row">
-        <article <?php post_class( array( 'small-12', 'columns' ) ); ?>>
             
             <div class="row staff-meta-information">
                 

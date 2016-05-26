@@ -4595,17 +4595,6 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   #staff-index article.als_staff .post-thumbnail-container:hover {
     box-shadow: none; }
 
-.single-als_staff .page-content {
-  padding-bottom: 15px; }
-
-.single-als_staff .name-banner {
-  background-color: #005790;
-  padding: 15px;
-  padding-bottom: 10px;
-  margin-bottom: 1em; }
-  .single-als_staff .name-banner h1, .single-als_staff .name-banner h2, .single-als_staff .name-banner h3, .single-als_staff .name-banner h4, .single-als_staff .name-banner h5, .single-als_staff .name-banner h6 {
-    color: #fefefe; }
-
 .single-als_staff .als_staff .thumbnail {
   width: 150px;
   text-align: center;
