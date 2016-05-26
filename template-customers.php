@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Shippers Page
+ * Template Name: Customers Page
  *
  * @since 0.1.0
  * @package automated-logistics-systems
@@ -30,7 +30,7 @@ global $wp_query;
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'services' ) ); ?>>
     
-    <?php $content_class = ( is_active_sidebar( 'shipper-sidebar' ) ) ? ' medium-9 ' : ' '; ?>
+    <?php $content_class = ( is_active_sidebar( 'customer-sidebar' ) ) ? ' medium-9 ' : ' '; ?>
     
     <div class="row">
         
@@ -50,10 +50,10 @@ global $wp_query;
 
         </div>
         
-        <?php if ( is_active_sidebar( 'shipper-sidebar' ) ) : ?>
+        <?php if ( is_active_sidebar( 'customer-sidebar' ) ) : ?>
         
         <div class="small-12 medium-3 columns">
-            <?php dynamic_sidebar( 'shipper-sidebar' ); ?>
+            <?php dynamic_sidebar( 'customer-sidebar' ); ?>
         </div>
         
         <?php endif; ?>

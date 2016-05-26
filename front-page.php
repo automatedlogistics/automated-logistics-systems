@@ -36,12 +36,12 @@ if ( get_field( 'home_hero_image' ) ) :
             <div class="row">
                 
                 <div class="small-12 medium-4 columns text-center animate-on-scroll scale-in-up">
-                    <a href="/shippers/">
+                    <a href="/customers/">
                         <span class="als-icon-stack als-icon-4x">
                             <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
-                            <span class="als-icon als-icon-stack als-icon-inverse als-icon-shippers"></span>
+                            <span class="als-icon als-icon-stack als-icon-inverse als-icon-customers"></span>
                         </span><br />
-                        <h6>Shippers</h6>
+                        <h6>Customers</h6>
                     </a>
                 </div>
                 

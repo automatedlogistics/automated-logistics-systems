@@ -321,9 +321,9 @@ add_action( 'widgets_init', function () {
     ) );
     
     register_sidebar( array(
-        'name' => __( 'Shippers Sidebar', THEME_ID ),
-        'id' => 'shipper-sidebar',
-        'description' => __( 'This is the sidebar that shows on the Shipper Page' ),
+        'name' => __( 'Customers Sidebar', THEME_ID ),
+        'id' => 'customer-sidebar',
+        'description' => __( 'This is the sidebar that shows on the Customer Page' ),
     ) );
     
     register_sidebar( array(
