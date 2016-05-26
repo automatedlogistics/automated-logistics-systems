@@ -98,14 +98,24 @@ the_post();
             
             <ul id="employment-accordion" class="vertical menu" data-accordion-menu data-multi-open="false">
                 
-                <?php while ( $job_openings->have_posts() ) : $job_openings->the_post(); ?>
+                <?php while ( $job_openings->have_posts() ) : $job_openings->the_post(); 
+                
+                $posting = get_field( 'linkedin_posting' );
+                
+                // Ensure URL is properly formatted
+                $has_http = preg_match_all( '/(http)?(s)?(:)?(\/\/)/', $posting, $matches );
+                if ( $has_http == 0 ) {
+                    $posting = '//' . $posting;
+                }
+                
+                ?>
                 
                 <li>
                     <a href="#"><?php the_title(); ?></a>
                     <ul class="menu vertical nested">
                         <li>
                             <?php the_content(); ?>
-                            <a class="secondary button tiny with-arc" href="/connect">Apply Now</a>
+                            <a class="secondary button tiny with-arc" href="<?php echo $posting; ?>" target="_blank">Apply Now</a>
                         </li>
                     </ul>
                 </li>
