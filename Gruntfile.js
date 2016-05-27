@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                 tasks: ['sass:admin', 'autoprefixer:admin', 'notify:sass_admin']
             },
             js: {
-                files: ['build/js/**/*.js', '!build/js/admin/**/*.js', '!build/js/customizer/**/*.js'],
+                files: ['build/js/**/*.js', '!build/js/admin/**/*.js', '!build/js/customizer/**/*.js', '!build/js/tinymce/**/*.js'],
                 tasks: ['uglify:front', 'notify:js']
             },
             js_admin: {
@@ -109,6 +109,11 @@ module.exports = function (grunt) {
                         'build/js/admin/**/*.js',
                     ]
                 }
+            },
+            tinymce: {
+                files: {
+                    
+                }  
             },
             customizer: {
                 files: {

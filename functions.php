@@ -890,3 +890,69 @@ function als_login_logo_url_title() {
     return get_bloginfo( 'name' ) . ' - Home';
 
 }
+
+/**
+ * Add Button Shortcode to TinyMCE
+ *
+ * @since 1.0
+ * 
+ */
+add_action( 'admin_init', 'add_als_button_tinymce_filters' );
+function add_als_button_tinymce_filters() {
+    
+    if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+        
+        add_filter( 'mce_buttons', function( $buttons ) {
+            array_push( $buttons, 'als_button_shortcode' );
+            return $buttons;
+        } );
+        
+        // Attach script to the button rather than enqueueing it
+        add_filter( 'mce_external_plugins', function( $plugin_array ) {
+            $plugin_array['als_button_shortcode_script'] = get_stylesheet_directory_uri() . '/build/js/tinymce/button-shortcode.js';
+            return $plugin_array;
+        } );
+        
+    }
+    
+}
+
+/**
+ * Add Button Shortcode
+ *
+ * @since 1.0
+ *
+ */
+add_shortcode( 'als_button', 'add_als_button_shortcode' );
+function add_als_button_shortcode( $atts, $content ) {
+    
+    $atts = shortcode_atts(
+        array( // a few default values
+            'url' => '#',
+            'color' => 'secondary',
+            'size' => 'small',
+            'with_arc' => 'true',
+            'expand' => 'false',
+            'new_tab' => 'false',
+        ),
+        $atts,
+        'als_button'
+    );
+    
+    ob_start(); 
+    
+    if ( ( strpos( $atts['url'], '#' ) !== 0 ) && ( strpos( $atts['url'], 'http' ) !== 0 ) && ( strpos( $atts['url'], '/' ) !== 0 ) ) :
+        $atts['url'] = '//' . $atts['url'];
+    endif;
+    ?>
+
+    <a href="<?php echo $atts['url']; ?>" class="<?php echo $atts['color'] . ' ' . $atts['size'] . ' button' . ( strtolower( $atts['with_arc'] == 'true' ) ? ' with-arc' : '' ) . ( strtolower( $atts['expand'] == 'true' ) ? ' expand' : '' ); ?>" target="<?php echo ( strtolower( $atts['new_tab'] ) == 'true' ? '_blank' : '_self' ); ?>"><?php echo $content; ?></a>
+
+    <?php
+    
+    $output = ob_get_contents();
+    ob_end_clean();
+    
+    return html_entity_decode( $output );
+    
+}
