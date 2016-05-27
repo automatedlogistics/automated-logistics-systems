@@ -62,12 +62,20 @@ jQuery( function( $ ) {
             var onEndTransitionFn = function( event ) {
                 $( videoOverlay ).hasClass( 'close' );
             };
+            
+            Foundation.Motion.animateIn( $( '#mini-nav .row' ), 'fade-in' );
+            $( '#mini-nav' ).addClass( 'mui-enter-active' );
 
             videoPath.animate( { 'path' : videoPathConfig.from }, 400, mina.linear, onEndTransitionFn );
         }
         else {
             $( videoOverlay ).addClass( 'open' );
             $( videoOverlay ).removeClass( 'close' );
+
+            $( '#mini-nav' ).css( 'height', $( '#mini-nav' )[0].clientHeight + 'px' );
+            Foundation.Motion.animateOut( $( '#mini-nav .row' ), 'fade-out' );
+            $( '#mini-nav' ).addClass( 'mui-enter-active' );
+            
             videoPath.animate( { 'path' : videoPathConfig.to }, 400, mina.linear );
             
             $( videoOverlay ).find( '.video-field' ).focus();

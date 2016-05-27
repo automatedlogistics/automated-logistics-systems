@@ -114,7 +114,7 @@ if ( ! isset( $_SESSION ) ) {
                         <?php echo wp_oembed_get( get_field( 'home_video_overlay' ) ); ?>
                         <div class="row page-icons">
 
-                            <div class="small-4 columns text-center animate-on-scroll scale-in-up">
+                            <div class="small-4 columns text-center">
                                 <a href="/customers/">
                                     <span class="als-icon-stack als-icon-4x">
                                         <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
@@ -124,7 +124,7 @@ if ( ! isset( $_SESSION ) ) {
                                 </a>
                             </div>
 
-                            <div class="small-4 columns text-center animate-on-scroll scale-in-up">
+                            <div class="small-4 columns text-center">
                                 <a href="/carriers/">
                                     <span class="als-icon-stack als-icon-4x">
                                         <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
@@ -134,7 +134,7 @@ if ( ! isset( $_SESSION ) ) {
                                 </a>
                             </div>
 
-                            <div class="small-4 columns text-center animate-on-scroll scale-in-up">
+                            <div class="small-4 columns text-center">
                                 <a href="/careers/">
                                     <span class="als-icon-stack als-icon-4x">
                                         <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
