@@ -4647,6 +4647,8 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 .single-als_staff .als_staff .staff-meta-information {
   position: relative;
   word-wrap: break-word; }
+  .single-als_staff .als_staff .staff-meta-information .staff-meta-block {
+    margin-bottom: 3em; }
   .single-als_staff .als_staff .staff-meta-information .staff-meta-icon {
     color: #005790; }
   .single-als_staff .als_staff .staff-meta-information a {

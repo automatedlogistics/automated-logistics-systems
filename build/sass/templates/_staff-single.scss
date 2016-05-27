@@ -36,6 +36,10 @@
             position: relative;
             word-wrap: break-word;
             
+            .staff-meta-block {
+                margin-bottom: 3em; // Ensure Find me text doesn't overlap
+            }
+            
             .staff-meta-icon {
                 color: $primary-color;
             }

@@ -51,27 +51,31 @@ the_post();
                 </div>
                 
                 <div class="small-6 medium-4 columns">
+                    
+                    <div class="staff-meta-block">
                 
-                    <?php if ( $hired_date = get_field( 'staff_hired_date' ) ) : 
-                    
-                    $hired_date = new DateTime( $hired_date );
-                    $hired_date = $hired_date->format( 'F, Y' );
-                    
-                    ?>
-                        <span class="fa fa-calendar fa-fw staff-meta-icon"></span> <?php echo sprintf( __( '%s &mdash; Present', THEME_ID ), $hired_date ); ?><br />
-                    <?php endif; ?>
+                        <?php if ( $hired_date = get_field( 'staff_hired_date' ) ) : 
 
-                    <?php if ( get_field( 'staff_position_title' ) ) : ?>
-                        <span class="fa fa-user fa-fw staff-meta-icon"></span> <?php the_field( 'staff_position_title' ); ?><br />
-                    <?php endif; ?>
+                        $hired_date = new DateTime( $hired_date );
+                        $hired_date = $hired_date->format( 'F, Y' );
 
-                    <span class="fa fa-envelope fa-fw staff-meta-icon"></span> <a href="mailto:<?php the_field( 'staff_email' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with %s via Email', THEME_ID ), get_the_title() ); ?>">
-                        <?php the_field( 'staff_email' ); ?>
-                    </a><br />
+                        ?>
+                            <span class="fa fa-calendar fa-fw staff-meta-icon"></span> <?php echo sprintf( __( '%s &mdash; Present', THEME_ID ), $hired_date ); ?><br />
+                        <?php endif; ?>
 
-                    <?php if ( get_field( 'staff_phone' ) ) : ?>
-                        <span class="fa fa-volume-control-phone fa-fw staff-meta-icon"></span> <?php echo get_phone_number_link( get_field( 'staff_phone' ), get_field( 'staff_extension' ) ); ?><br />
-                    <?php endif; ?>
+                        <?php if ( get_field( 'staff_position_title' ) ) : ?>
+                            <span class="fa fa-user fa-fw staff-meta-icon"></span> <?php the_field( 'staff_position_title' ); ?><br />
+                        <?php endif; ?>
+
+                        <span class="fa fa-envelope fa-fw staff-meta-icon"></span> <a href="mailto:<?php the_field( 'staff_email' ); ?>" target="_blank" title="<?php echo sprintf( __( 'Connect with %s via Email', THEME_ID ), get_the_title() ); ?>">
+                            <?php the_field( 'staff_email' ); ?>
+                        </a><br />
+
+                        <?php if ( get_field( 'staff_phone' ) ) : ?>
+                            <span class="fa fa-volume-control-phone fa-fw staff-meta-icon"></span> <?php echo get_phone_number_link( get_field( 'staff_phone' ), get_field( 'staff_extension' ) ); ?><br />
+                        <?php endif; ?>
+                        
+                    </div>
                     
                     <div class="staff-media-accounts">
 
@@ -153,9 +157,13 @@ the_post();
             
             <div class="row body-copy">
                 
+                <?php if ( get_field( 'staff_professional_bio' ) || get_field( 'staff_personal_bio' ) ) : ?>
+                
                 <div class="small-12 medium-2 columns">
                     <h3><?php _e( 'About Me:', THEME_ID ); ?></h3>
                 </div>
+                
+                <?php endif; ?>
                 
                 <div class="small-12 medium-10 columns">
                 
