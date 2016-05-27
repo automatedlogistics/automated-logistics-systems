@@ -76,6 +76,14 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     
 }
 
+@media #{$small-only} {
+    
+    body:not(.home) .hero-image {
+        height: 200px !important;
+    }
+    
+}
+
 .widget {
     
     list-style-type: none;

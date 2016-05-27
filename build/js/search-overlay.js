@@ -1,6 +1,8 @@
 jQuery( function( $ ) {
     
-    var overlay = document.querySelector( 'div.overlay' ),
+    // Snap SVG doesn't seem to like me defining anything within a function. So we're going to do things nasty.
+    var searchOverlay = $( '#search-overlay' )[0],
+        videoOverlay = $( '#home-video-overlay' )[0],
         transEndEventNames = {
             'WebkitTransition': 'webkitTransitionEnd',
             'MozTransition': 'transitionend',
@@ -9,49 +11,104 @@ jQuery( function( $ ) {
             'transition': 'transitionend'
         },
         transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-        support = { transitions : Modernizr.csstransitions };
-        s = Snap( overlay.querySelector( 'svg' ) ), 
-        path = s.select( 'path' ),
-        pathConfig = {
-            from : path.attr( 'd' ),
-            to : overlay.getAttribute( 'data-path-to' )
+        support = { transitions : Modernizr.csstransitions },
+        searchSVG = Snap( searchOverlay.querySelector( 'svg' ) ),
+        searchPath = searchSVG.select( 'path' ),
+        searchPathConfig = {
+            from : searchPath.attr( 'd' ),
+            to : searchOverlay.getAttribute( 'data-path-to' )
         };
+    
+    // Only exists on the Home Page
+    if ( videoOverlay !== undefined ) {
+        
+        var videoSVG = Snap( videoOverlay.querySelector( 'svg' ) ), 
+            videoPath = videoSVG.select( 'path' ),
+            videoPathConfig = {
+                from : videoPath.attr( 'd' ),
+                to : videoOverlay.getAttribute( 'data-path-to' )
+            };
+        
+    }
 
-    function toggleOverlay() {
+    function toggleSearchOverlay() {
 
-        if ( $( overlay ).hasClass( 'open' ) ) {
-            $( overlay ).removeClass( 'open' );
-            $( overlay ).addClass( 'close' );
+        if ( $( searchOverlay ).hasClass( 'open' ) ) {
+            $( searchOverlay ).removeClass( 'open' );
+            $( searchOverlay ).addClass( 'close' );
 
             var onEndTransitionFn = function( event ) {
-                $( overlay ).hasClass( 'close' );
+                $( searchOverlay ).hasClass( 'close' );
             };
 
-            path.animate( { 'path' : pathConfig.from }, 400, mina.linear, onEndTransitionFn );
+            searchPath.animate( { 'path' : searchPathConfig.from }, 400, mina.linear, onEndTransitionFn );
         }
         else {
-            $( overlay ).addClass( 'open' );
-            $( overlay ).removeClass( 'close' );
-            path.animate( { 'path' : pathConfig.to }, 400, mina.linear );
+            $( searchOverlay ).addClass( 'open' );
+            $( searchOverlay ).removeClass( 'close' );
+            searchPath.animate( { 'path' : searchPathConfig.to }, 400, mina.linear );
             
-            $( overlay ).find( '.search-field' ).focus();
+            $( searchOverlay ).find( '.search-field' ).focus();
+        }
+
+    }
+    
+    function toggleVideoOverlay() {
+
+        if ( $( videoOverlay ).hasClass( 'open' ) ) {
+            $( videoOverlay ).removeClass( 'open' );
+            $( videoOverlay ).addClass( 'close' );
+
+            var onEndTransitionFn = function( event ) {
+                $( videoOverlay ).hasClass( 'close' );
+            };
+
+            videoPath.animate( { 'path' : videoPathConfig.from }, 400, mina.linear, onEndTransitionFn );
+        }
+        else {
+            $( videoOverlay ).addClass( 'open' );
+            $( videoOverlay ).removeClass( 'close' );
+            videoPath.animate( { 'path' : videoPathConfig.to }, 400, mina.linear );
+            
+            $( videoOverlay ).find( '.video-field' ).focus();
         }
 
     }
     
     $( 'a#trigger-search-overlay' ).on( 'click', function( event ) {
         event.preventDefault();
-        toggleOverlay();
+        toggleSearchOverlay();
+    } );
+    
+    $( 'section#home-hero a.button' ).on( 'click', function( event ) {
+        event.preventDefault();
+        toggleVideoOverlay();
     } );
     
     $( 'div.overlay .overlay-close' ).on( 'click', function( event ) {
         event.preventDefault();
-        toggleOverlay();
+        
+        if ( $( searchOverlay ).hasClass( 'open' ) ) {
+            toggleSearchOverlay();
+        }
+
+        if ( $( videoOverlay ).hasClass( 'open' ) ) {
+            toggleVideoOverlay();
+        }
+        
     } );
     
     $( document ).on( 'keyup', function( event ) {
-        if ( ( event.keyCode == 27 ) && ( $( overlay ).hasClass( 'open' ) ) ) {
-            toggleOverlay();
+        if ( event.keyCode == 27 ) { 
+            
+            if ( $( searchOverlay ).hasClass( 'open' ) ) {
+                toggleSearchOverlay();
+            }
+            
+            if ( $( videoOverlay ).hasClass( 'open' ) ) {
+                toggleVideoOverlay();
+            }
+            
         }
     } );
     

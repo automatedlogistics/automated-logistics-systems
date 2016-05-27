@@ -19,7 +19,7 @@ if ( get_field( 'home_hero_image' ) ) :
                 <div class="hero-copy">
                     <div class="vertical-align">
                         <h1><?php the_field( 'home_hero_header' ); ?></h1>
-                        <a class="secondary large button with-arc" href="<?php the_field( 'home_hero_button_link' ); ?>"><?php the_field( 'home_hero_button_text' ); ?></a>
+                        <a class="secondary large button with-arc" href="#"><?php the_field( 'home_hero_button_text' ); ?></a>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
 <?php endif; ?>
 
-<section id="mini-nav">
+<section id="mini-nav" class="page-icons">
     
     <div class="row">
         

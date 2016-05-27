@@ -3790,6 +3790,10 @@ img[class*=" wp-image-"] {
   background-position: 50% 50%;
   background-repeat: no-repeat; }
 
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  body:not(.home) .hero-image {
+    height: 200px !important; } }
+
 .widget {
   list-style-type: none; }
   .widget .menu {
@@ -4304,8 +4308,9 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     overflow: hidden;
     border: none;
     color: #fefefe; }
-  .overlay form {
+  .overlay form, .overlay .overlay-contents {
     width: 50%;
+    pointer-events: none;
     margin: 0 auto;
     height: 60%;
     -webkit-transform: translateY(-50%);
@@ -4313,10 +4318,10 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     display: block;
     -webkit-transition: color 0.2s;
     transition: color 0.2s; }
-    .overlay form, .overlay form * {
+    .overlay form, .overlay .overlay-contents {
       position: relative;
       top: 45%; }
-    .overlay form input[type="search"] {
+    .overlay form input[type="search"], .overlay .overlay-contents input[type="search"] {
       display: block;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -4325,8 +4330,23 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       border-bottom: 1px solid #fefefe;
       box-shadow: none;
       color: #fefefe; }
-    .overlay form ::-webkit-input-placeholder {
+    .overlay form ::-webkit-input-placeholder, .overlay .overlay-contents ::-webkit-input-placeholder {
       color: #fefefe; }
+  .overlay form * {
+    position: relative;
+    top: 45%; }
+  .overlay .overlay-contents {
+    text-align: center;
+    position: relative; }
+    .overlay .overlay-contents iframe {
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 75%;
+      height: 75%; }
+    .overlay .overlay-contents .page-icons {
+      background: transparent;
+      border-top: none; }
   .overlay .overlay-path {
     fill: #005790;
     fill: rgba(0, 87, 144, 0.9); }
@@ -4334,21 +4354,23 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     visibility: visible;
     -webkit-transition: none;
     transition: none; }
+    .overlay.open form, .overlay.open .overlay-contents {
+      pointer-events: all; }
   .overlay svg {
     position: absolute;
     top: 0;
     left: 0; }
-  .overlay form, .overlay .overlay-close {
+  .overlay form, .overlay .overlay-contents, .overlay .overlay-close {
     opacity: 0;
     -webkit-transition: opacity 0.4s 0.4s;
     transition: opacity 0.4s 0.4s;
     -webkit-transition-delay: 0s;
     transition-delay: 0s; }
-  .overlay.open form, .overlay.open .overlay-close {
+  .overlay.open form, .overlay.open .overlay-contents, .overlay.open .overlay-close {
     opacity: 1;
     -webkit-transition-delay: 0.4s;
     transition-delay: 0.4s; }
-  .overlay.close form, .overlay.close .overlay-close {
+  .overlay.close form, .overlay.close .overlay-contents, .overlay.close .overlay-close {
     -webkit-transition-delay: 0s;
     transition-delay: 0s; }
 
@@ -4358,6 +4380,14 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     font-size: 34px; }
   .overlay form {
     min-height: 34px; } }
+
+@media screen and (min-width: 0em) and (max-width: 39.9375em) {
+  .overlay .overlay-contents {
+    width: 100%;
+    margin-top: 10%; }
+    .overlay .overlay-contents .page-icons {
+      width: 90%;
+      margin-left: 0; } }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .off-canvas-wrapper {
@@ -4471,29 +4501,29 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     font-size: 2.75em; }
 
 @media screen and (min-width: 0em) and (max-width: 39.9375em), screen and (max-width: 733px) and (orientation: landscape), screen and (min-width: 40em) and (max-width: 63.9375em) and (orientation: portrait) {
-  .home .home-footer-hero .hero-copy, .home .home-footer-hero.hero-image {
+  .home #home-hero, .home .home-footer-hero .hero-copy, .home .home-footer-hero.hero-image {
     height: auto !important; }
-  .home #home-hero .hero-copy {
-    height: 400px; }
+  .home #home-hero {
+    padding-bottom: 1em; }
   .home .home-footer-hero .hero-copy.text {
     margin-top: 1em; } }
 
-.home #mini-nav {
+.home .page-icons {
   background-color: #005790;
   border-top: 3px solid #b32025;
   padding-top: 1em;
   padding-bottom: 1em; }
-  .home #mini-nav h1, .home #mini-nav h2, .home #mini-nav h3, .home #mini-nav h4, .home #mini-nav h5, .home #mini-nav h6 {
+  .home .page-icons h1, .home .page-icons h2, .home .page-icons h3, .home .page-icons h4, .home .page-icons h5, .home .page-icons h6 {
     color: #fefefe;
     text-transform: uppercase; }
-  .home #mini-nav a {
+  .home .page-icons a {
     color: #fefefe;
     display: inline-block; }
-    .home #mini-nav a:hover {
+    .home .page-icons a:hover {
       color: #dadada; }
-  .home #mini-nav .als-icon-stack .als-icon-stack-2x {
+  .home .page-icons .als-icon-stack .als-icon-stack-2x {
     font-size: 1.5em; }
-  .home #mini-nav .als-icon-stack .als-icon-inverse {
+  .home .page-icons .als-icon-stack .als-icon-inverse {
     color: #005790 !important; }
 
 .home #home-timeline {

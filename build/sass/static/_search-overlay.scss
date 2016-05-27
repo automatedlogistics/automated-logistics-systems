@@ -34,9 +34,10 @@
         color: $white;
     }
 
-    form {
+    form, .overlay-contents {
 
         width: 50%;
+        pointer-events: none;
         margin: 0 auto;
         height: 60%;
         -webkit-transform: translateY(-50%);
@@ -45,7 +46,7 @@
         -webkit-transition: color 0.2s;
         transition: color 0.2s;
 
-        &, * {
+        & {
             position: relative;
             top: 45%;
         }
@@ -66,6 +67,31 @@
         }
 
     }
+    
+    form * {
+        position: relative;
+        top: 45%;
+    }
+    
+    .overlay-contents {
+        
+        text-align: center;
+        position: relative;
+        
+        iframe {
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 75%;
+            height: 75%;
+        }
+        
+        .page-icons {
+            background: transparent;
+            border-top: none;
+        }
+        
+    }
 
     .overlay-path {
         fill: $primary-color;
@@ -76,6 +102,11 @@
         visibility: visible;
         -webkit-transition: none;
         transition: none;
+        
+        form, .overlay-contents {
+            pointer-events: all;
+        }
+        
     }
 
     svg {
@@ -84,7 +115,7 @@
         left: 0;
     }
 
-    form, .overlay-close {
+    form, .overlay-contents, .overlay-close {
         opacity: 0;
         -webkit-transition: opacity 0.4s 0.4s;
         transition: opacity 0.4s 0.4s;
@@ -92,13 +123,13 @@
         transition-delay: 0s;
     }
 
-    &.open form, &.open .overlay-close {
+    &.open form, , &.open .overlay-contents, &.open .overlay-close {
         opacity: 1;
         -webkit-transition-delay: 0.4s;
         transition-delay: 0.4s;
     }
 
-    &.close form, &.close .overlay-close {
+    &.close form, &.close .overlay-contents, &.close .overlay-close {
         -webkit-transition-delay: 0s;
         transition-delay: 0s;
     }
@@ -113,4 +144,24 @@
     .overlay form {
         min-height: 34px;
     }
+}
+
+@media #{$small-only} {
+    
+    .overlay {
+        
+        .overlay-contents {
+            
+            width: 100%;
+            margin-top: 10%;
+            
+            .page-icons {
+                width: 90%;
+                margin-left: 0;
+            }
+            
+        }
+        
+    }
+    
 }
