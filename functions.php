@@ -324,18 +324,6 @@ add_action( 'widgets_init', function () {
         'description' => __( 'This is the sidebar that shows on 404 Pages.', THEME_ID ),
     ) );
     
-    register_sidebar( array(
-        'name' => __( 'Customers Sidebar', THEME_ID ),
-        'id' => 'customer-sidebar',
-        'description' => __( 'This is the sidebar that shows on the Customer Page' ),
-    ) );
-    
-    register_sidebar( array(
-        'name' => __( 'Carriers Sidebar', THEME_ID ),
-        'id' => 'carrier-sidebar',
-        'description' => __( 'This is the sidebar that shows on the Carrier Page' ),
-    ) );
-    
     // Footer
     $footer_columns = get_theme_mod( 'als_footer_columns', 4 );
     for ( $index = 0; $index < $footer_columns; $index++ ) {
@@ -946,7 +934,7 @@ function add_als_button_shortcode( $atts, $content ) {
     endif;
     ?>
 
-    <a href="<?php echo $atts['url']; ?>" class="<?php echo $atts['color'] . ' ' . $atts['size'] . ' button' . ( strtolower( $atts['with_arc'] == 'true' ) ? ' with-arc' : '' ) . ( strtolower( $atts['expand'] == 'true' ) ? ' expand' : '' ); ?>" target="<?php echo ( strtolower( $atts['new_tab'] ) == 'true' ? '_blank' : '_self' ); ?>"><?php echo $content; ?></a>
+    <a href="<?php echo $atts['url']; ?>" class="<?php echo $atts['color'] . ' ' . $atts['size'] . ' button' . ( strtolower( $atts['with_arc'] == 'true' ) ? ' with-arc' : '' ) . ( strtolower( $atts['expand'] == 'true' ) ? ' expanded' : '' ); ?>" target="<?php echo ( strtolower( $atts['new_tab'] ) == 'true' ? '_blank' : '_self' ); ?>"><?php echo $content; ?></a>
 
     <?php
     

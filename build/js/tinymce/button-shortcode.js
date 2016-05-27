@@ -75,7 +75,8 @@ jQuery( function( $ ) {
                                     { text: 'ALS Blue', value: 'primary' },
                                     { text: 'ALS Yellow', value: 'secondary' },
                                     { text: 'ALS Red', value: 'tertiary' },
-                                ]
+                                ],
+                                value: 'secondary',
                             },
                             {
                                 type: 'listbox',

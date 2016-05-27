@@ -3810,6 +3810,12 @@ img[class*=" wp-image-"] {
   font-family: "Oswald", sans-serif;
   font-weight: 700; }
 
+.sidebar-cta {
+  padding: 1em;
+  background-color: #f4f4f4; }
+  .sidebar-cta a.button {
+    margin-bottom: 0; }
+
 input[type="submit"] {
   display: inline-block;
   text-align: center;

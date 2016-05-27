@@ -114,6 +114,17 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
     font-weight: 700;
 }
 
+.sidebar-cta {
+    
+    padding: 1em;
+    background-color: scale-color( $medium-gray, $lightness: 80% );
+    
+    a.button {
+        margin-bottom: 0;
+    }
+    
+}
+
 input[type="submit"] {
     
     // Secondary, tiny, expanded button with the with-arc styling

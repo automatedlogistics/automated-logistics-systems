@@ -30,7 +30,7 @@ global $wp_query;
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'services' ) ); ?>>
     
-    <?php $content_class = ( is_active_sidebar( 'customer-sidebar' ) ) ? ' medium-9 ' : ' '; ?>
+    <?php $content_class = ( get_field( 'customers_carriers_cta' ) || get_field( 'customers_carriers_phone_number' ) ) ? ' medium-9 ' : ' '; ?>
     
     <div class="row">
         
@@ -50,10 +50,18 @@ global $wp_query;
 
         </div>
         
-        <?php if ( is_active_sidebar( 'customer-sidebar' ) ) : ?>
+        <?php if ( get_field( 'customers_carriers_cta' ) || get_field( 'customers_carriers_phone_number' ) ) : ?>
         
-        <div class="small-12 medium-3 columns">
-            <?php dynamic_sidebar( 'customer-sidebar' ); ?>
+        <div class="small-12 medium-3 columns sidebar-cta">
+            
+            <?php if ( get_field( 'customers_carriers_cta' ) ) : 
+                echo apply_filters( 'the_content', get_field( 'customers_carriers_cta' ) );
+            endif;
+            
+            if ( get_field( 'customers_carriers_phone_number' ) ) : 
+                echo sprintf( __( 'Call us today %s', THEME_ID ), get_phone_number_link( get_field( 'customers_carriers_phone_number' ) ) );
+            endif; ?>
+            
         </div>
         
         <?php endif; ?>
