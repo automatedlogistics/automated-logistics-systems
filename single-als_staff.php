@@ -73,6 +73,8 @@ the_post();
 
                         <?php if ( get_field( 'staff_phone' ) ) : ?>
                             <span class="fa fa-volume-control-phone fa-fw staff-meta-icon"></span> <?php echo get_phone_number_link( get_field( 'staff_phone' ), get_field( 'staff_extension' ) ); ?><br />
+                        <?php else : ?>
+                            <span class="fa fa-volume-control-phone fa-fw staff-meta-icon"></span> <?php echo get_phone_number_link( get_theme_mod( 'als_phone_number', '1-800-551-9399' ) ); ?><br />
                         <?php endif; ?>
                         
                     </div>
