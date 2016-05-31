@@ -30,7 +30,7 @@ global $wp_query;
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'carriers' ) ); ?>>
     
-    <?php $content_class = ( get_field( 'customers_carriers_cta' ) || get_field( 'customers_carriers_phone_number' ) ) ? ' medium-9 ' : ' '; ?>
+    <?php $content_class = ( have_rows( 'customers_carriers_ctas' ) || get_field( 'customers_carriers_phone_number' ) ) ? ' medium-9 ' : ' '; ?>
     
     <div class="row">
         
@@ -97,17 +97,33 @@ global $wp_query;
 
         </div>
         
-        <?php if ( get_field( 'customers_carriers_cta' ) || get_field( 'customers_carriers_phone_number' ) ) : ?>
+        <?php if ( have_rows( 'customers_carriers_ctas' ) || get_field( 'customers_carriers_phone_number' ) ) : ?>
         
         <div class="small-12 medium-3 columns sidebar-cta">
             
-            <?php if ( get_field( 'customers_carriers_cta' ) ) : 
-                echo apply_filters( 'the_content', get_field( 'customers_carriers_cta' ) );
+            <?php if ( have_rows( 'customers_carriers_ctas' ) ) : 
+            
+                while ( have_rows( 'customers_carriers_ctas' ) ) : the_row(); ?>
+            
+                    <div class="cta-block">
+            
+                        <?php echo apply_filters( 'the_content', get_sub_field( 'call_to_action' ) ); ?>
+                        
+                    </div>
+            
+                <?php endwhile;
+            
             endif;
             
-            if ( get_field( 'customers_carriers_phone_number' ) ) : 
-                echo sprintf( __( 'Call us today %s', THEME_ID ), get_phone_number_link( get_field( 'customers_carriers_phone_number' ) ) );
-            endif; ?>
+            if ( get_field( 'customers_carriers_phone_number' ) ) : ?>
+            
+                <div class="cta-block">
+            
+                    <?php echo sprintf( __( 'Call us today %s', THEME_ID ), get_phone_number_link( get_field( 'customers_carriers_phone_number' ) ) ); ?>
+                    
+                </div>
+                    
+            <?php endif; ?>
             
         </div>
         

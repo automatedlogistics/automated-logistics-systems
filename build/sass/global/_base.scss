@@ -116,8 +116,13 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 
 .sidebar-cta {
     
-    padding: 1em;
-    background-color: scale-color( $medium-gray, $lightness: 80% );
+    .cta-block {
+    
+        padding: 1em;
+        background-color: scale-color( $medium-gray, $lightness: 80% );
+        margin-bottom: 1em;
+        
+    }
     
     a.button {
         margin-bottom: 0;

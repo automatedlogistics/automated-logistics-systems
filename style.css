@@ -3810,11 +3810,13 @@ img[class*=" wp-image-"] {
   font-family: "Oswald", sans-serif;
   font-weight: 700; }
 
-.sidebar-cta {
+.sidebar-cta .cta-block {
   padding: 1em;
-  background-color: #f4f4f4; }
-  .sidebar-cta a.button {
-    margin-bottom: 0; }
+  background-color: #f4f4f4;
+  margin-bottom: 1em; }
+
+.sidebar-cta a.button {
+  margin-bottom: 0; }
 
 input[type="submit"] {
   display: inline-block;
