@@ -62,11 +62,11 @@ global $wp_query;
             $executive_args = $base_args;
             $executive_args['meta_value'] = 'executive';
             
-            $lead_args = $base_args;
-            $lead_args['meta_value'] = 'operations';
+            $operations_args = $base_args;
+            $operations_args['meta_value'] = 'operations';
             
-            $staff_args = $base_args;
-            $staff_args['meta_value'] = 'sales';
+            $sales_args = $base_args;
+            $sales_args['meta_value'] = 'sales';
 
             $output_loop = array(
                 array(
@@ -74,11 +74,11 @@ global $wp_query;
                     'label' => __( 'Executive Team', THEME_ID ),
                 ),
                 array(
-                    'query' => new WP_Query( $lead_args ),
+                    'query' => new WP_Query( $operations_args ),
                     'label' => __( 'Operations', THEME_ID ),
                 ),
                 array(
-                    'query' => new WP_Query( $staff_args ),
+                    'query' => new WP_Query( $sales_args ),
                     'label' => __( 'Sales', THEME_ID ),
                 ),
             );
