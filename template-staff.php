@@ -56,17 +56,17 @@ global $wp_query;
                 'posts_per_page' => -1, // This seems to be an instnace where pagination would be undesirable.
                 'orderby' => 'als_last_word', // Custom Ordering function
                 'order' => 'ASC',
-                'meta_key' => 'staff_executive_lead',
+                'meta_key' => 'staff_department',
             );
             
             $executive_args = $base_args;
             $executive_args['meta_value'] = 'executive';
             
             $lead_args = $base_args;
-            $lead_args['meta_value'] = 'lead';
+            $lead_args['meta_value'] = 'operations';
             
             $staff_args = $base_args;
-            $staff_args['meta_value'] = 'staff';
+            $staff_args['meta_value'] = 'sales';
 
             $output_loop = array(
                 array(
@@ -75,11 +75,11 @@ global $wp_query;
                 ),
                 array(
                     'query' => new WP_Query( $lead_args ),
-                    'label' => __( 'Lead Representatives', THEME_ID ),
+                    'label' => __( 'Operations', THEME_ID ),
                 ),
                 array(
                     'query' => new WP_Query( $staff_args ),
-                    'label' => __( 'Staff', THEME_ID ),
+                    'label' => __( 'Sales', THEME_ID ),
                 ),
             );
             
