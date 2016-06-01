@@ -1,13 +1,13 @@
 .connect {
     
     .google-map {
-        width: auto;
-        min-height: 300px;
+        width: 100%;
+        min-height: 350px;
     }
     
     .social-icon {
             
-        color: $medium-gray;
+        color: $anchor-color;
         font-size: 2.5em;
         line-height: 1;
         transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
@@ -18,10 +18,24 @@
 
         &:hover {
 
-            color: $dark-gray;
+            color: $anchor-color-hover;
 
         }
 
+    }
+    
+    .sidebar-cta {
+        
+        .cta-block {
+            
+            p:last-of-type {
+                
+                margin-bottom: 0;
+                
+            }
+            
+        }
+        
     }
     
 }

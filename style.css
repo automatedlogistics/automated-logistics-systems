@@ -4588,11 +4588,11 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   margin-right: 3em; }
 
 .connect .google-map {
-  width: auto;
-  min-height: 300px; }
+  width: 100%;
+  min-height: 350px; }
 
 .connect .social-icon {
-  color: #cacaca;
+  color: #d1aa10;
   font-size: 2.5em;
   line-height: 1;
   -webkit-transition: all 0.25s ease-in-out, all 0.25s ease-in-out;
@@ -4606,7 +4606,10 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   -webkit-transition-delay: initial, initial;
           transition-delay: initial, initial; }
   .connect .social-icon:hover {
-    color: #8a8a8a; }
+    color: #9d7f0c; }
+
+.connect .sidebar-cta .cta-block p:last-of-type {
+  margin-bottom: 0; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .services .services-list {
