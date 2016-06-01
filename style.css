@@ -4098,12 +4098,12 @@ a img.aligncenter {
     width: 0;
     height: 0;
     border: inset 6px;
-    border-color: #b32025 transparent transparent;
-    border-top-style: solid;
+    border-color: transparent transparent transparent #b32025;
+    border-left-style: solid;
     position: absolute;
     top: 50%;
-    margin-top: -3px;
-    left: 1rem; }
+    margin-top: -6px;
+    left: 1.25rem; }
   .is-accordion-submenu-parent > a::after {
     display: none; }
 
@@ -4113,10 +4113,10 @@ a img.aligncenter {
   width: 0;
   height: 0;
   border: inset 6px;
-  border-color: transparent transparent transparent #b32025;
-  border-left-style: solid;
-  margin-top: -6px;
-  left: 1.25rem; }
+  border-color: #b32025 transparent transparent;
+  border-top-style: solid;
+  margin-top: -3px;
+  left: 1rem; }
 
 .is-accordion-submenu-parent[aria-expanded='true'] > a::after {
   display: none; }
