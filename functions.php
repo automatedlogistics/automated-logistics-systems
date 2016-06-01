@@ -979,10 +979,56 @@ function als_staff_columns_register( $columns ) {
         'department' => __( 'Department', THEME_ID ),
         'position_title' => __( 'Position/Title', THEME_ID ),
         'author' => __( 'Author', THEME_ID ),
-        'date' => __( 'Date' ),
+        'date' => __( 'Date', THEME_ID ),
     );
 
     return $columns;
+    
+}
+
+/**
+ * Make Columns for Staff Sortable
+ *
+ * @since 1.0
+ *
+ */
+add_filter( 'manage_edit-als_staff_sortable_columns', 'als_staff_columns_sortable' );
+function als_staff_columns_sortable( $columns ) {
+    
+    $columns['department'] = 'department';
+    $columns['position_title'] = 'position_title';
+
+    return $columns;
+    
+}
+
+/**
+ * Tell Staff Columns how to Sort
+ *
+ * @since 1.0
+ *
+ */
+add_action( 'pre_get_posts', 'als_staff_columns_orderby' );
+function als_staff_columns_orderby( $query ) {
+    
+    if ( ! is_admin() )
+        return;
+
+    $orderby = $query->get( 'orderby' );
+    
+    if ( $query->get( 'post_type' ) == 'als_staff' ) {
+
+        if ( 'department' == $orderby ) {
+            $query->set( 'meta_key', 'staff_department' );
+            $query->set( 'orderby', 'meta_value' );
+        }
+
+        if ( 'position_title' == $orderby ) {
+            $query->set( 'meta_key', 'staff_position_title' );
+            $query->set( 'orderby', 'meta_value' );
+        }
+        
+    }
     
 }
 
