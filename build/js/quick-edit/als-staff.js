@@ -43,7 +43,7 @@
 
         };
         
-        $( '#bulk_edit' ).live( 'click', function() {
+        $( '#bulk_edit' ).live( 'click', function( event ) {
             
             // define the bulk edit row
             var $bulk_row = $( '#bulk-edit' );
@@ -57,7 +57,7 @@
             } );
             
             // get the data
-            var $department = $bulk_row.find( 'input[name="department"]' ).val();
+            var $department = $bulk_row.find( 'input[name="department"]:checked' ).val();
             var $position_title = $bulk_row.find( 'input[name="position_title"]' ).val();
 
             // save the data
@@ -67,7 +67,8 @@
                 async: false,
                 cache: false,
                 data: {
-                    action: 'save_bulk_edit_book', // this is the name of our WP AJAX function that we'll set up next
+                    action: 'save_bulk_edit_als_staff', // this is the name of our WP AJAX function that we'll set up next
+                    security: $( 'input[name="als_staff_edit_nonce_field"]' ).val(), // Our Nonce
                     post_ids: $post_ids, // and these are the 2 parameters we're passing to our function
                     department: $department,
                     position_title: $position_title

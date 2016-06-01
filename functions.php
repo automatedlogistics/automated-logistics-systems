@@ -1152,16 +1152,22 @@ function als_staff_save_quick_edit_data( $post_id ) {
  * @since 1.0
  *
  */
-add_action( 'wp_ajax_save_bulk_edit_book', 'als_staff_save_bulk_edit_data' );
+add_action( 'wp_ajax_save_bulk_edit_als_staff', 'als_staff_save_bulk_edit_data' );
 function als_staff_save_bulk_edit_data() {
     
-    $post_ids = ( ! empty( $_POST[ 'post_ids' ] ) ) ? $_POST[ 'post_ids' ] : array();
-    $department = ( ! empty( $_POST[ 'department' ] ) ) ? $_POST[ 'department' ] : '';
-    $position_title = ( ! empty( $_POST[ 'position_title' ] ) ) ? $_POST[ 'position_title' ] : '';
+    check_ajax_referer( 'als_staff_edit_nonce', 'security', true );
+    
+    $post_ids = ( ! empty( $_POST['post_ids'] ) ) ? $_POST['post_ids'] : array();
+    $department = ( ! empty( $_POST['department'] ) ) ? $_POST['department'] : '';
+    $position_title = ( ! empty( $_POST['position_title'] ) ) ? $_POST['position_title'] : '';
     
     if ( ! empty( $post_ids ) && is_array( $post_ids ) ) {
 
         foreach( $post_ids as $post_id ) {
+            
+            if ( ! current_user_can( 'edit_post', $post_id ) ) {
+                continue;
+            }
 
             if ( $department !== '' ) {
                 update_field( 'staff_department', $department, $post_id );
@@ -1175,6 +1181,6 @@ function als_staff_save_bulk_edit_data() {
 
     }
 
-    die();
+    wp_die();
     
 }
