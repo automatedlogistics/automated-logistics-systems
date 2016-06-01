@@ -123,6 +123,12 @@ function als_pages_first( $a, $b ) {
     
 }
 
+/**
+ * usort Executives first ahead of everyone else
+ * @param  WP_POST $a WP Post Type Object
+ * @param  WP_POST $b WP Post Type Object
+ * @return bool Success/Failure
+ */
 function als_execs_first( $a, $b ) {
     
     if ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'president' ) !== false ) 
