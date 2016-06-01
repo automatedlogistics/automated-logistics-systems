@@ -22,12 +22,16 @@ module.exports = function (grunt) {
                 tasks: ['sass:admin', 'autoprefixer:admin', 'notify:sass_admin']
             },
             js: {
-                files: ['build/js/**/*.js', '!build/js/admin/**/*.js', '!build/js/customizer/**/*.js', '!build/js/tinymce/**/*.js'],
+                files: ['build/js/**/*.js', '!build/js/admin/**/*.js', '!build/js/customizer/**/*.js', '!build/js/tinymce/**/*.js', '!build/js/quick-edit/**/*.js'],
                 tasks: ['uglify:front', 'notify:js']
             },
             js_admin: {
                 files: ['build/js/admin/**/*.js'],
                 tasks: ['uglify:admin', 'notify:js_admin']
+            },
+            js_quick_edit: {
+                files: ['build/js/quick-edit/**/*.js'],
+                tasks: ['uglify:quick_edit', 'notify:js_quick_edit']
             },
             js_customizer: {
                 files: ['build/js/customizer/**/*.js']  ,
@@ -115,6 +119,13 @@ module.exports = function (grunt) {
                     
                 }  
             },
+            quick_edit: {
+                files: {
+                    'quick-edit.js': [
+                        'build/js/quick-edit/**/*.js',
+                    ]
+                }  
+            },
             customizer: {
                 files: {
                     'customizer-controls.js': [
@@ -139,6 +150,12 @@ module.exports = function (grunt) {
                     title: '<%= pkg.name %>',
                     message: 'JS Admin Complete'
                 }
+            },
+            js_quick_edit: {
+                options: {
+                    title: '<%= pkg.name %>',
+                    message: 'JS Quick Edit Complete'
+                }  
             },
             js_customizer: {
                 options: {

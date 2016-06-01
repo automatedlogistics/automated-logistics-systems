@@ -282,6 +282,15 @@ add_action( 'init', function () {
     
     wp_localize_script( THEME_ID, THEME_ID . '_data', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ) ) );
     
+    // Quick Edit Screen
+    wp_register_script(
+        THEME_ID . '-quick-edit',
+        get_template_directory_uri() . '/quick-edit.js',
+        array( 'jquery' ),
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        true
+    );
+    
     // Customizer Controls
     wp_register_script(
         THEME_ID . '-customizer-controls',
@@ -368,7 +377,7 @@ function _als_favicon() {
  *
  * @since 0.1.0
  */
-add_action( 'wp_enqueue_scripts', function () {
+add_action( 'wp_enqueue_scripts', function() {
 
     global $als_fonts;
 
@@ -385,6 +394,16 @@ add_action( 'wp_enqueue_scripts', function () {
         }
     }
 
+} );
+
+add_action( 'admin_enqueue_scripts', function( $hook ) {
+    
+    if ( $hook == 'edit.php' ) {
+        
+        wp_enqueue_script( THEME_ID . '-quick-edit' );
+        
+    }
+    
 } );
 
 /**
@@ -942,5 +961,174 @@ function add_als_button_shortcode( $atts, $content ) {
     ob_end_clean();
     
     return html_entity_decode( $output );
+    
+}
+
+/**
+ * Register Columns for Staff
+ *
+ * @since 1.0
+ *
+ */
+add_filter( 'manage_edit-als_staff_columns', 'als_staff_columns_register' ) ;
+function als_staff_columns_register( $columns ) {
+
+    $columns = array(
+        'cb' => '<input type="checkbox" />',
+        'title' => __( 'Name', THEME_ID ),
+        'department' => __( 'Department', THEME_ID ),
+        'position_title' => __( 'Position/Title', THEME_ID ),
+        'author' => __( 'Author', THEME_ID ),
+        'date' => __( 'Date' ),
+    );
+
+    return $columns;
+    
+}
+
+/**
+ * Populate Columns for Staff
+ *
+ * @since 1.0
+ *
+ */
+add_action( 'manage_als_staff_posts_custom_column', 'als_staff_columns_data', 10, 2 );
+function als_staff_columns_data( $column, $post_id ) {
+    
+    switch ( $column ) {
+        case 'department' :
+            $department = get_field_object( 'staff_department', $post_id );
+            $department = $department['choices'][ get_field( 'staff_department', $post_id ) ];
+            echo $department;
+            break;
+        case 'position_title' : 
+            the_field( 'staff_position_title', $post_id );
+            break;
+    }
+    
+}
+
+/**
+ * Quick and Bulk Edit Fields for Staff
+ *
+ * @since 1.0
+ *
+ */
+add_action( 'bulk_edit_custom_box', 'als_staff_quick_edit_fields', 10, 2 );
+add_action( 'quick_edit_custom_box', 'als_staff_quick_edit_fields', 10, 2 );
+function als_staff_quick_edit_fields( $column_name, $post_type ) {
+    
+    static $print_nonce = true;
+    if ( $print_nonce ) {
+
+        $print_nonce = false;
+        wp_nonce_field( 'als_staff_edit_nonce', 'als_staff_edit_nonce_field' );
+
+    }
+
+    ?>
+
+    <fieldset class="inline-edit-als_staff">
+        <div class="inline-edit-col column-<?php echo $column_name; ?>">
+            <label class="inline-edit-group">
+                <?php 
+    
+                    switch ( $column_name ) {
+                        case 'department' : 
+                            
+                            // get_field_object() requires a Post ID, which is kind of useless
+                            // The data it returns isn't very Post-specific, so it seems like an unncessary parameter
+                            $random_post = get_posts( array(
+                                'post_type' => 'als_staff',
+                                'posts_per_page' => 1,
+                            ) );
+                            
+                            $post_id = $random_post[0]->ID;
+                            
+                            $departments = get_field_object( 'staff_department', $post_id );
+                            $departments = $departments['choices'];
+                
+                        ?>
+                        <span class="title"><?php _e( 'Department:', THEME_ID ); ?></span><br />
+                        <?php 
+                            foreach ( $departments as $key => $value ) : ?>
+                                <label for="department-<?php echo $key; ?>">
+                                    <input id="department-<?php echo $key; ?>" type="radio" value="<?php echo $key; ?>" name="department" /> <?php echo $value; ?>
+                                </label>
+                            <?php endforeach;
+                        break;
+                        case 'position_title' : ?>
+                        <span class="title"><?php _e( 'Position/Title', THEME_ID ); ?></span><input name="position_title" value="<?php the_field( 'staff_position_title', get_the_ID() ); ?>" />
+                        <?php break;
+                    }
+
+                ?>
+            </label>
+        </div>
+    </fieldset>
+
+    <?php
+    
+}
+
+/**
+ * Save Data for Staff after Quick Editing
+ *
+ * @since 1.0
+ *
+ */
+add_action( 'save_post_als_staff', 'als_staff_save_quick_edit_data' );
+function als_staff_save_quick_edit_data( $post_id ) {
+    
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+    
+    $_POST += array( 'als_staff_edit_nonce_field' => '' );
+    
+    if ( ! wp_verify_nonce( $_POST[ 'als_staff_edit_nonce_field' ], 'als_staff_edit_nonce' ) ) {
+        return;
+    }
+
+    if ( isset( $_REQUEST['department'] ) ) {
+        update_field( 'staff_department', $_REQUEST['department'], $post_id );
+    }
+    
+    if ( isset( $_REQUEST['position_title'] ) ) {
+        update_field( 'staff_position_title', $_REQUEST['position_title'], $post_id );
+    }
+    
+}
+
+/**
+ * Save Data for Staff after Bulk Editing
+ *
+ * @since 1.0
+ *
+ */
+add_action( 'wp_ajax_save_bulk_edit_book', 'als_staff_save_bulk_edit_data' );
+function als_staff_save_bulk_edit_data() {
+    
+    $post_ids = ( ! empty( $_POST[ 'post_ids' ] ) ) ? $_POST[ 'post_ids' ] : array();
+    $department = ( ! empty( $_POST[ 'department' ] ) ) ? $_POST[ 'department' ] : '';
+    $position_title = ( ! empty( $_POST[ 'position_title' ] ) ) ? $_POST[ 'position_title' ] : '';
+    
+    if ( ! empty( $post_ids ) && is_array( $post_ids ) ) {
+
+        foreach( $post_ids as $post_id ) {
+
+            if ( $department !== '' ) {
+                update_field( 'staff_department', $department, $post_id );
+            }
+
+            if ( $position_title !== '' ) {
+                update_field( 'staff_position_title', $position_title, $post_id );
+            }
+
+        }
+
+    }
+
+    die();
     
 }
