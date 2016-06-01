@@ -97,6 +97,8 @@ global $wp_query;
                     <div class="small-12 columns">
                     <h2><?php echo $section['label']; ?></h2>
                 <?php endif;
+                
+                usort( $section['query']->posts, 'als_execs_first' );
 
                 if ( $section['query']->have_posts() ) : 
 
