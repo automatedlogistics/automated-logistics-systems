@@ -102,31 +102,31 @@ global $wp_query;
 
                 if ( $section['query']->have_posts() ) : 
 
-                        while ( $section['query']->have_posts() ) :
-                            $section['query']->the_post(); 
-                
-                            if ( $column_counter == 1 ) : ?>
-                                <div class="small-12 columns">
-                            <?php 
-                            elseif ( $column_counter == 0 ) : // If we're a new section, let's set it back to 1 for the rest of the loop
-                                $column_counter = 1;
-                            endif; ?>
-                            
-                            <article <?php post_class( "small-12 $column_class columns" ); ?>>
-                                <?php get_template_part( 'partials/als_staff', 'loop-single' ); ?>
-                            </article>
-                                    
-                            <?php
-                            
-                            if ( $column_counter == $columns ) : ?>
-                                </div>
-                            <?php 
-                                $column_counter = 1;
-                            else : 
-                                $column_counter++;
-                            endif;
-                                                      
-                        endwhile;
+                    while ( $section['query']->have_posts() ) :
+                        $section['query']->the_post(); 
+
+                        if ( $column_counter == 1 ) : ?>
+                            <div class="small-12 columns">
+                        <?php 
+                        elseif ( $column_counter == 0 ) : // If we're a new section, let's set it back to 1 for the rest of the loop
+                            $column_counter = 1;
+                        endif; ?>
+
+                        <article <?php post_class( "small-12 $column_class columns" ); ?>>
+                            <?php get_template_part( 'partials/als_staff', 'loop-single' ); ?>
+                        </article>
+
+                        <?php
+
+                        if ( $column_counter == $columns ) : ?>
+                            </div>
+                        <?php 
+                            $column_counter = 1;
+                        else : 
+                            $column_counter++;
+                        endif;
+
+                    endwhile;
 
                 wp_reset_postdata();
 
@@ -136,9 +136,7 @@ global $wp_query;
                 
             } ?>
         
-        </div> <?php // Close Main Content Column ?>
-        
-    </div>
+    </div><?php // Close Main Content Column ?>
     
     <div class="row">
         <div id="after-content-text" class="small-12 columns text-center">
