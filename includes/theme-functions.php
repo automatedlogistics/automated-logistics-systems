@@ -138,6 +138,14 @@ function als_execs_first( $a, $b ) {
     $b_last = explode( ' ', $b->post_title );
     $b_last = $b_last[ count( $b_last ) - 1 ];
     
+    if ( ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'president' ) !== false ) 
+        && ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'vice' ) === false ) )
+    &&
+        ( ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'president' ) !== false ) 
+        && ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'vice' ) === false ) ) ) : 
+        return strcmp( $a_last, $b_last );
+    endif;
+    
     if ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'president' ) !== false ) 
         && ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'vice' ) === false ) ) : 
         return -1;
@@ -161,12 +169,22 @@ function als_execs_first( $a, $b ) {
         return 1;
     endif;
     
+    if ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'director' ) !== false ) 
+        && ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'director' ) !== false ) ) : 
+        return strcmp( $a_last, $b_last );
+    endif;
+    
     if ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'director' ) !== false ) : 
         return -1;
     endif;
     
     if ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'director' ) !== false ) : 
         return 1;
+    endif;
+    
+    if ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'lead' ) !== false ) 
+        && ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'lead' ) !== false ) ) : 
+        return strcmp( $a_last, $b_last );
     endif;
     
     if ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'lead' ) !== false ) : 
