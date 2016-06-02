@@ -104,6 +104,9 @@ module.exports = function (grunt) {
                         // Theme scripts
                         'build/js/**/*.js',
                         '!build/js/admin/**/*.js',
+                        '!build/js/customizer/**/*.js',
+                        '!build/js/tinymce/**/*.js',
+                        '!build/js/quick-edit/**/*.js',
                     ]
                 }
             },
