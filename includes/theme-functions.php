@@ -130,6 +130,13 @@ function als_pages_first( $a, $b ) {
  * @return bool Success/Failure
  */
 function als_execs_first( $a, $b ) {
+     
+    // Even though everything is in alphabetical order by last name already, we still need to return something for usort() in special cases
+    $a_last = explode( ' ', $a->post_title );
+    $a_last = $a_last[ count( $a_last ) - 1 ];
+    
+    $b_last = explode( ' ', $b->post_title );
+    $b_last = $b_last[ count( $b_last ) - 1 ];
     
     if ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'president' ) !== false ) 
         && ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'vice' ) === false ) ) : 
@@ -139,6 +146,11 @@ function als_execs_first( $a, $b ) {
     if ( ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'president' ) !== false ) 
         && ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'vice' ) === false ) ) : 
         return 1;
+    endif;
+    
+    if ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'vice' ) !== false ) 
+        && ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'vice' ) !== false ) ) : 
+        return strcmp( $a_last, $b_last );
     endif;
     
     if ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'vice' ) !== false ) : 
@@ -164,13 +176,6 @@ function als_execs_first( $a, $b ) {
     if ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'lead' ) !== false ) : 
         return 1;
     endif;
-     
-    // Even though everything is in alphabetical order by last name already, we still need to return something for usort()
-    $a_last = explode( ' ', $a->post_title );
-    $a_last = $a_last[ count( $a_last ) - 1 ];
-    
-    $b_last = explode( ' ', $b->post_title );
-    $b_last = $b_last[ count( $b_last ) - 1 ];
     
     return strcmp( $a_last, $b_last );
     
