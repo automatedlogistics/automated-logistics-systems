@@ -195,6 +195,19 @@ function als_execs_first( $a, $b ) {
         return 1;
     endif;
     
+    if ( ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'intern' ) !== false ) 
+        && ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'intern' ) !== false ) ) : 
+        return strcmp( $a_last, $b_last );
+    endif;
+    
+    if ( strpos( strtolower( get_field( 'staff_position_title', $a->ID ) ), 'intern' ) !== false ) : 
+        return 1;
+    endif;
+    
+    if ( strpos( strtolower( get_field( 'staff_position_title', $b->ID ) ), 'intern' ) !== false ) : 
+        return -1;
+    endif;
+    
     return strcmp( $a_last, $b_last );
     
 }
