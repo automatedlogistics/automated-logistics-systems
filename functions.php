@@ -369,6 +369,11 @@ function _als_favicon() {
 <![endif]-->
 <link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon16x16.png'; ?>" />
 <link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon32x32.png'; ?>" />
+<link rel="apple-touch-icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon152x152.png'; ?>">
+
+<link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon196x196.png'; ?>" />
+<meta name="theme-color" content="#005790">
+
 <?php
 }
 
