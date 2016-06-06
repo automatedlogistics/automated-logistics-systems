@@ -640,7 +640,7 @@ function register_cpt_als_staff() {
         'not_found_in_trash' => _x( 'No Staff found in Trash', THEME_ID ),
         'parent_item_colon' => _x( 'Parent Staff:', THEME_ID ),
         'menu_name' => _x( 'Staff', THEME_ID ),
-        'featured_image'        => _x( 'Staff Image', THEME_ID ),
+        'featured_image'        => _x( 'Staff Image (170px * 213px)', THEME_ID ),
         'remove_featured_image' => _x( 'Remove Staff Image', THEME_ID ),
         'set_featured_image'    => _x( 'Set Staff Image', THEME_ID ),
         'use_featured_image'    => _x( 'Use as Staff Image', THEME_ID ),
