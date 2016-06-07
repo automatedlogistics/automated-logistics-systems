@@ -81,6 +81,10 @@ $hr-border: 3px solid $tertiary-color;
 
 $accordionmenu-arrow-color: $tertiary-color;
 
+// Global sizing for Timeline sections
+$divider-width: 0.25em;
+$dot-width: 1em;
+
 // Media query ranges
 $small-range: (0em, 40em);
 $medium-range: (40.063em, 64em);
