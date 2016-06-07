@@ -42,53 +42,6 @@ global $wp_query;
                 <?php the_content(); ?>
             </div>
     
-            <?php 
-
-            $args = array(
-                'post_type' => 'als_service',
-                'posts_per_page' => -1,
-                'post_status' => 'publish',
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'als_service_type',
-                        'field' => 'slug',
-                        'terms' => 'carrier',
-                    ),
-                ),
-            );
-
-            global $post;
-            $services = new WP_Query( $args );
-
-            if ( $services->have_posts() ) : ?>
-
-                <div class="row">
-
-                    <div class="services-list small-12 medium-9 medium-centered">
-
-                        <?php while ( $services->have_posts() ) : $services->the_post(); ?>
-
-                            <?php get_template_part( 'partials/als_service', 'loop-single' ); ?>
-
-                        <?php endwhile; ?>
-
-                    </div>
-
-                </div>
-
-            <?php 
-            wp_reset_postdata();
-
-            else :  ?>
-
-            <div class="row">
-                <div class="small-12 columns">
-                    <?php _e( 'No Carrier Services Found', THEME_ID ); ?>
-                </div>
-            </div>
-    
-            <?php endif; ?>
-    
             <div class="row">
                 <div id="after-content-text" class="small-12 columns text-center">
                     <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
