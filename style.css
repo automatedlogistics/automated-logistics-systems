@@ -4669,18 +4669,6 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 .connect .sidebar-cta .cta-block .connect-phone-fax {
   padding-top: 1em; }
 
-/* Override Foundation's _settings.scss here, or store your own variables */
-.services .services-list {
-  margin-top: 1em; }
-  .services .services-list .media-object.stack-for-small {
-    background-color: #e6e6e6;
-    padding: 1.5em; }
-    @media screen and (min-width: 0em) and (max-width: 39.9375em) {
-      .services .services-list .media-object.stack-for-small .media-object-section.image-wrapper {
-        text-align: center; }
-      .services .services-list .media-object.stack-for-small .media-object-section img {
-        width: auto; } }
-
 .about .sidebar-cta div.cta-block {
   margin-bottom: 2em; }
 
@@ -4755,6 +4743,50 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   .single-als_staff .als_staff .body-copy h3 {
     padding-bottom: 0.5em;
     border-bottom: 0.1em solid #b32025; }
+
+.als_service .product-expert {
+  text-align: center; }
+  .als_service .product-expert .product-expert-image {
+    border: solid 4px #005790;
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+    box-shadow: 0.25em 0.25em 0.75em #8a8a8a; }
+    .als_service .product-expert .product-expert-image:hover, .als_service .product-expert .product-expert-image:focus {
+      box-shadow: 0.25em 0.25em 0.75em #8a8a8a; }
+
+.als_service .product-content .container {
+  position: relative; }
+  .als_service .product-content .container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 0.25em;
+    margin-left: -0.125em;
+    background: #b32025; }
+  .als_service .product-content .container:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.25em;
+    margin-left: -0.125em;
+    background: #b32025; }
+  .als_service .product-content .container .row {
+    padding-left: 2em;
+    margin-bottom: 1em; }
+    .als_service .product-content .container .row .timeline-dot {
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      margin-left: -2.5em;
+      margin-top: 0.25em;
+      border-radius: 100%;
+      background-color: #b32025; }
+    .als_service .product-content .container .row:first-of-type *, .als_service .product-content .container .row:last-of-type * {
+      margin-top: -0.25em; }
+    .als_service .product-content .container .row:last-of-type {
+      padding-bottom: 2em; }
 
 /* Override Foundation's _settings.scss here, or store your own variables */
 .als-testimonial {

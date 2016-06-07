@@ -356,7 +356,7 @@ function als_custom_breadcrumbs() {
                 if ( get_post_type() == 'als_service' ) {
                     
                     $post_type = get_post_type_object( get_post_type() );
-                    echo $before . '<a href="' . $home_link . '/services/">' . $post_type->labels->name . '</a>' . $after;
+                    echo $before . '<a href="' . $home_link . '/customers/">Customers</a>' . $after;
 
                     if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
                     

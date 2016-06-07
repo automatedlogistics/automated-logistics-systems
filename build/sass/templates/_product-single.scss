@@ -1,0 +1,84 @@
+.als_service {
+    
+    .product-expert {
+        
+        text-align: center;
+        
+        .product-expert-image {
+            
+            border: solid 4px $primary-color;
+            transform: rotate( -5deg );
+            box-shadow: 0.25em 0.25em 0.75em $dark-gray;
+            
+            &:hover, &:focus {
+                box-shadow: 0.25em 0.25em 0.75em $dark-gray;
+            }
+            
+        }
+        
+    }
+
+    .product-content {
+
+        .container {
+
+            position: relative;
+
+            &:before {
+
+                content: '';
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: $divider-width;
+                margin-left: -( $divider-width / 2 ); // Properly centers in accordance to width
+                background: $tertiary-color;
+
+            }
+            
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: $divider-width;
+                margin-left: -( $divider-width / 2 ); // Properly centers in accordance to width
+                background: $tertiary-color;
+            }
+            
+            .row {
+                
+                padding-left: 2em;
+                margin-bottom: 1em;
+
+                .timeline-dot {
+
+                    position: absolute;           
+                    width: $dot-width;
+                    height: $dot-width;
+                    margin-left: -2em - ( $dot-width / 2 ); // Properly centers in accordance to width
+                    margin-top: ( $dot-width / 4 ); // Adjust top-alignment slightly
+                    border-radius: 100%;
+                    background-color: $tertiary-color;
+
+                }
+
+                &:first-of-type, &:last-of-type {
+
+                    * {
+                        margin-top: -( $dot-width / 4 ); // Hide end of line
+                    }
+
+                }
+                
+                &:last-of-type {
+                    padding-bottom: 2em;
+                }
+                
+            }
+
+        }
+
+    }
+
+}
