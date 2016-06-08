@@ -4713,7 +4713,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       border: none;
       font-style: italic;
       padding: 0;
-      margin-bottom: 0; }
+      margin-bottom: 0.5em; }
       .als-testimonial .testimonial-content blockquote, .als-testimonial .testimonial-content blockquote * {
         color: #0a0a0a;
         line-height: 1.35; }
