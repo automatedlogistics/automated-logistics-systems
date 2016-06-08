@@ -41,9 +41,21 @@ the_post();
             </div>
         </div>
         
-        <div class="small-12 medium-3 columns">
+        <div class="small-12 medium-3 columns sidebar-cta">
             
             <?php 
+            
+            if ( have_rows( 'about_content_blocks' ) ) : 
+            
+                while ( have_rows( 'about_content_blocks' ) ) : the_row(); ?>
+            
+                    <div class="cta-block">
+                        <?php echo apply_filters( 'the_content', get_sub_field( 'block' ) ); ?>
+                    </div>
+            
+                <?php endwhile;
+            
+            endif;
             
             $args = array(
                 'post_type' => 'als_testimonial',
