@@ -1,0 +1,24 @@
+.customers {
+    
+    .products-services-list {
+        
+        .sub-list {
+            
+            list-style: none;
+            margin-top: 0.5em;
+            
+            > ul {
+                
+                margin-left: 0;
+                
+                & > li {
+                    margin-left: $list-side-margin;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}

@@ -4744,6 +4744,14 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     padding-bottom: 0.5em;
     border-bottom: 0.1em solid #b32025; }
 
+.customers .products-services-list .sub-list {
+  list-style: none;
+  margin-top: 0.5em; }
+  .customers .products-services-list .sub-list > ul {
+    margin-left: 0; }
+    .customers .products-services-list .sub-list > ul > li {
+      margin-left: 1.25rem; }
+
 .als_service .product-expert {
   text-align: center; }
   .als_service .product-expert .product-expert-image {

@@ -28,7 +28,7 @@ global $wp_query;
 
 <?php endif; ?>
 
-<section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'services' ) ); ?>>
+<section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content', 'customers' ) ); ?>>
     
     <?php $content_class = ( have_rows( 'customers_carriers_ctas' ) || get_field( 'customers_carriers_phone_number' ) ) ? ' medium-9 ' : ' '; ?>
     

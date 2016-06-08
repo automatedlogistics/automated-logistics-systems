@@ -125,6 +125,31 @@ function als_pages_first( $a, $b ) {
 }
 
 /**
+ * usort To Separate Products/Services into Sub-Sections
+ * @param  WP_POST $a WP Post Type Object
+ * @param  WP_POST $b WP Post Type Object
+ * @return bool Success/Failure
+ */
+function als_services_sort( $a, $b ) {
+    
+    $a_terms = wp_get_post_terms( $a->ID, 'als_service_type' );
+    $b_terms = wp_get_post_terms( $b->ID, 'als_service_type' );
+    
+    foreach ( $a_terms as $term ) :
+        if ( $term->slug == 'services' || $term->slug == 'products' ) continue;
+        $a_term = $term->slug;
+    endforeach;
+    
+    foreach ( $b_terms as $term ) :
+        if ( $term->slug == 'services' || $term->slug == 'products' ) continue;
+        $b_term = $term->slug;
+    endforeach;
+    
+    return strcmp( $a_term, $b_term );
+    
+}
+
+/**
  * usort Executives first ahead of everyone else
  * @param  WP_POST $a WP Post Type Object
  * @param  WP_POST $b WP Post Type Object

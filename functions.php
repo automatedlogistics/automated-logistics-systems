@@ -987,6 +987,149 @@ function add_als_button_shortcode( $atts, $content ) {
 }
 
 /**
+ * Add Products/Services List Shortcode
+ *
+ * @since 1.1
+ *
+ */
+add_shortcode( 'als_products_services_list', 'add_products_services_list_shortcode' );
+function add_products_services_list_shortcode( $atts, $content ) {
+    
+    $base_args = array(
+        'post_type' => 'als_service',
+        'post_status' => 'publish',
+        'posts_per_page' => -1, // This seems to be an instnace where pagination would be undesirable.
+        'orderby' => 'post_title',
+        'order' => 'ASC',
+        'tax_query' => array(
+            'relation' => 'AND',
+            array(
+                'taxonomy' => 'als_service_type',
+                'field' => 'term_id',
+            ),
+            array(
+                'taxonomy' => 'als_service_type',
+                'field' => 'term_id',
+                'operator' => 'NOT IN',
+            ),
+        ),
+    );
+
+    // We need the Term IDs later anyway, so we will just query using them for everything
+    $product_term = get_term_by( 'slug', 'products', 'als_service_type' );                
+    $service_term = get_term_by( 'slug', 'services', 'als_service_type' );
+
+    $product_children = get_terms( array(
+        'taxonomy' => 'als_service_type',
+        'child_of' => $product_term->term_id,
+        'orderby' => 'name',
+    ) );
+
+    $service_children = get_terms( array(
+        'taxonomy' => 'als_service_type',
+        'child_of' => $service_term->term_id,
+        'orderby' => 'name',
+    ) );
+
+    $exclude_product_children = array();
+    foreach ( $product_children as $term ) {
+
+        $exclude_product_children[] = $term->term_id;
+
+    }
+
+    $exclude_service_children = array();
+    foreach ( $service_children as $term ) {
+
+        $exclude_service_children[] = $term->term_id;
+
+    }
+
+    $product_args = $base_args;
+    $product_args['tax_query'][0]['terms'] = $product_term->term_id; // Query for non-organized Products
+    $product_args['tax_query'][1]['terms'] = $exclude_product_children; // Exclude organized for now
+
+    $service_args = $base_args;
+    $service_args['tax_query'][0]['terms'] = $service_term->term_id;
+    $service_args['tax_query'][1]['terms'] = $exclude_service_children;
+
+    $output_loop = array( 
+        array(
+            'main_query' => new WP_Query( $product_args ),
+            'label' => __( 'Products', THEME_ID ),
+            'children' => $product_children,
+        ),
+        array(
+            'main_query' => new WP_Query( $service_args ),
+            'label' => __( 'Services', THEME_ID ),
+            'children' => $service_children,
+        ),
+    );
+    
+    ob_start();
+
+    foreach ( $output_loop as $section ) : ?>
+
+        <h3><?php echo $section['label']; ?></h3>
+
+        <ul class="products-services-list">
+
+        <?php if ( $section['main_query']->have_posts() ) : 
+
+            while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
+
+                <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+
+            <?php endwhile; ?>
+
+        <?php endif;
+
+        foreach ( $section['children'] as $term ) : ?>
+
+            <li class="sub-list">
+                <ul>
+
+                    <h4><?php echo $term->name; ?></h4>
+
+                    <?php
+
+                    $term_args = $base_args;
+                    $term_args['tax_query'][0]['terms'] = $term->term_id;
+                    $term_args['tax_query'][1]['terms'] = array();
+
+                    $term_query = new WP_Query( $term_args );
+
+                    if ( $term_query->have_posts() ) :
+
+                        while( $term_query->have_posts() ) : $term_query->the_post(); ?>
+
+                            <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+
+                        <?php endwhile;
+
+                    endif;
+
+                    ?>
+
+                </ul>
+            </li>
+
+        <?php endforeach; ?>
+
+        </ul>
+
+    <?php endforeach;
+    
+    $output = ob_get_contents();
+    ob_end_clean();
+
+    wp_reset_postdata();
+    
+    return $output;
+    
+}
+
+/**
  * Register Columns for Staff
  *
  * @since 1.0
