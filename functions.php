@@ -518,23 +518,23 @@ function remove_wp_smilies_from_feed( $query ) {
 add_action( 'init', 'register_cpt_als_service' );
 function register_cpt_als_service() {
     $labels = array(
-        'name' => _x( 'Products', THEME_ID ),
-        'all_items' => __( 'All Products', THEME_ID ),
-        'singular_name' => _x( 'Product', THEME_ID ),
-        'add_new' => _x( 'Add New Product', THEME_ID ),
-        'add_new_item' => _x( 'Add New Product', THEME_ID ),
-        'edit_item' => _x( 'Edit Product', THEME_ID ),
-        'new_item' => _x( 'New Product', THEME_ID ),
-        'view_item' => _x( 'View Product', THEME_ID ),
-        'search_items' => _x( 'Search Products', THEME_ID ),
-        'not_found' => _x( 'No Products found', THEME_ID ),
-        'not_found_in_trash' => _x( 'No Products found in Trash', THEME_ID ),
+        'name' => _x( 'Products/Services', THEME_ID ),
+        'all_items' => __( 'All Products/Services', THEME_ID ),
+        'singular_name' => _x( 'Product/Service', THEME_ID ),
+        'add_new' => _x( 'Add New Product/Service', THEME_ID ),
+        'add_new_item' => _x( 'Add New Product/Service', THEME_ID ),
+        'edit_item' => _x( 'Edit Product/Service', THEME_ID ),
+        'new_item' => _x( 'New Product/Service', THEME_ID ),
+        'view_item' => _x( 'View Product/Service', THEME_ID ),
+        'search_items' => _x( 'Search Products/Services', THEME_ID ),
+        'not_found' => _x( 'No Products/Services found', THEME_ID ),
+        'not_found_in_trash' => _x( 'No Products/Services found in Trash', THEME_ID ),
         'parent_item_colon' => _x( 'Parent Product:', THEME_ID ),
-        'menu_name' => _x( 'Products', THEME_ID ),
-        'featured_image'        => _x( 'Product Image', THEME_ID ),
-        'remove_featured_image' => _x( 'Remove Product Image', THEME_ID ),
-        'set_featured_image'    => _x( 'Set Product Image', THEME_ID ),
-        'use_featured_image'    => _x( 'Use as Product Image', THEME_ID ),
+        'menu_name' => _x( 'Products/Services', THEME_ID ),
+        'featured_image'        => _x( 'Product/Service Header Image', THEME_ID ),
+        'remove_featured_image' => _x( 'Remove Product/Service Header Image', THEME_ID ),
+        'set_featured_image'    => _x( 'Set Product/Service Header Image', THEME_ID ),
+        'use_featured_image'    => _x( 'Use as Product/Service Header Image', THEME_ID ),
     );
     $args = array(
         'labels' => $labels,
@@ -549,11 +549,11 @@ function register_cpt_als_service() {
         'show_in_nav_menus' => true,
         'publicly_queryable' => true,
         'exclude_from_search' => false,
-        'has_archive' => true,
+        'has_archive' => false,
         'query_var' => true,
         'can_export' => true,
         'rewrite' => array(
-            'slug' => 'product',
+            'slug' => 'product-service',
             'with_front' => false,
             'feeds' => false,
             'pages' => true
@@ -584,29 +584,29 @@ function register_cpt_als_service() {
 }
 
 /**
- * Creates the Product Type Category
+ * Creates the Product/Service Type Category
  *
  * @since 0.1.0
  */
 add_action( 'init', 'register_taxonomy_als_service_type' );
 function register_taxonomy_als_service_type() {
     $labels = array(
-        'name' => _x( 'Product Type', THEME_ID ),
-        'singular_name' => _x( 'Product Type', THEME_ID ),
-        'search_items' => __( 'Search Product Types', THEME_ID ),
-        'popular_items' => __( 'Popular Product Types', THEME_ID ),
-        'all_items' => __( 'All Product Types', THEME_ID ),
-        'parent_item' => __( 'Parent Product Type', THEME_ID ),
-        'parent_item_colon' => __( 'Parent Product Type:', THEME_ID ),
-        'edit_item' => __( 'Edit Product Type', THEME_ID ),
-        'update_item' => __( 'Update Product Type', THEME_ID ),
-        'add_new_item' => __( 'Add New Product Type', THEME_ID ),
-        'new_item_name' => __( 'New Product Type Name', THEME_ID ),
-        'separate_items_with_commas' => __( 'Separate Product Types with commas', THEME_ID ),
-        'add_or_remove_items' => __( 'Add or remove Product Type', THEME_ID ),
-        'choose_from_most_used' => __( 'Choose from the most used Product Types', THEME_ID ),
-        'not_found' => __( 'No Product Types found.', THEME_ID ),
-        'menu_name' => __( 'Product Type', THEME_ID ),
+        'name' => _x( 'Product/Service Type', THEME_ID ),
+        'singular_name' => _x( 'Product/Service Type', THEME_ID ),
+        'search_items' => __( 'Search Product/Service Types', THEME_ID ),
+        'popular_items' => __( 'Popular Product/Service Types', THEME_ID ),
+        'all_items' => __( 'All Product/Service Types', THEME_ID ),
+        'parent_item' => __( 'Parent Product/Service Type', THEME_ID ),
+        'parent_item_colon' => __( 'Parent Product/Service Type:', THEME_ID ),
+        'edit_item' => __( 'Edit Product/Service Type', THEME_ID ),
+        'update_item' => __( 'Update Product/Service Type', THEME_ID ),
+        'add_new_item' => __( 'Add New Product/Service Type', THEME_ID ),
+        'new_item_name' => __( 'New Product/Service Type Name', THEME_ID ),
+        'separate_items_with_commas' => __( 'Separate Product/Service Types with commas', THEME_ID ),
+        'add_or_remove_items' => __( 'Add or remove Product/Service Type', THEME_ID ),
+        'choose_from_most_used' => __( 'Choose from the most used Product/Service Types', THEME_ID ),
+        'not_found' => __( 'No Product/Service Types found.', THEME_ID ),
+        'menu_name' => __( 'Product/Service Type', THEME_ID ),
     );
     $args = array(
         'hierarchical' => true,
@@ -614,7 +614,7 @@ function register_taxonomy_als_service_type() {
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => array( 'slug' => 'service-type' ),
+        'rewrite' => array( 'slug' => 'product-service-type' ),
     );
     register_taxonomy( 'als_service_type', 'als_service', $args );
 }
