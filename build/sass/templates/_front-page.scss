@@ -232,7 +232,7 @@
                 &:before {
 
                     left: 0%;
-                    margin-left: ( $dot-width / 2 );
+                    margin-left: ( $dot-width / 1.25 );
 
                 }
 
@@ -241,13 +241,13 @@
                     .timeline-dot {
 
                         left: 0%;
-                        margin-left: ( $divider-width / 2 );
+                        margin-left: $divider-width * 1.85;
 
                     }
 
                     .text-left, .text-right {
 
-                        padding-left: 2em;
+                        padding-left: 1.8em;
                         text-align: left;
 
                     }
