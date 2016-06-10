@@ -63,7 +63,8 @@ function acf_get_excerpt( $key ) {
         $text = str_replace( ']]>', ']]>&gt;', $text );
         $excerpt_length = apply_filters( 'excerpt_length', 55 );
         $excerpt_more = apply_filters( 'excerpt_more', '...' );
-        $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+        $text = wp_trim_words( $text, $excerpt_length ); // Always show $excerpt_more
+        $text = $text . $excerpt_more;
         $text = apply_filters( 'the_content', $text );
         
     }
