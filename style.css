@@ -3518,7 +3518,8 @@ img[class*=" wp-image-"] {
   transition: box-shadow 200ms ease-out;
   border-radius: 0;
   margin-bottom: 1rem;
-  border: none; }
+  border: none;
+  box-shadow: none; }
   img[class*=" wp-image-"]:hover, img[class*=" wp-image-"]:focus {
     box-shadow: 0 0 6px 1px rgba(33, 153, 232, 0.5); }
   img[class*=" wp-image-"]:hover, img[class*=" wp-image-"]:focus {

@@ -60,6 +60,7 @@ img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" but
 
     @include thumbnail;
     border: none;
+    box-shadow: none;
     
     &:hover, &:focus {
         box-shadow: none;
