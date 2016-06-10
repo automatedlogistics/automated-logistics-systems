@@ -59,6 +59,11 @@ section {
 img[class*=" wp-image-"] { // Catch-all to grab images added via "Add Media" button
 
     @include thumbnail;
+    border: none;
+    
+    &:hover, &:focus {
+        box-shadow: none;
+    }
 
 }
 
