@@ -1,0 +1,67 @@
+#countdown-overlay {
+    
+    background: initial;
+    @include background-opacity( $primary-color, 0.9 );
+    background: transparent;
+    visibility: hidden;
+    
+    @media #{$medium-up} {
+        .overlay-contents {
+            height: 75%;
+        }
+    }
+    
+    @media #{$small-only} {
+        
+        .overlay-contents {
+            width: 75%;    
+        }
+        
+        form {
+            display: none;
+        }
+        
+    }
+    
+    .overlay-path {
+        fill: $primary-color;
+        fill: rgba( $primary-color, 0.9 );
+    }
+    
+    .countdown {
+        
+        color: $white;
+        font-size: rem-calc( map-get( map-get( $header-sizes, medium ), h2 ) );
+        
+    }
+    
+    form {
+        
+        transform: translateY( 0 );
+        width: 100%;
+        
+        p {
+            color: $white;
+            font-weight: 700;
+        }
+        
+        textarea {
+            height: 7em;
+        }
+        
+    }
+    
+    .widget_text {
+        
+        color: $white;
+        font-weight: 700;
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: $white;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+        
+    }
+    
+}

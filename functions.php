@@ -333,6 +333,23 @@ add_action( 'widgets_init', function () {
         'description' => __( 'This is the sidebar that shows on 404 Pages.', THEME_ID ),
     ) );
     
+    if ( class_exists( 'ALS_Countdown' ) ) {
+        
+        // Overlay Sidebars
+        register_sidebar( array(
+            'name' => __( 'Countdown Left', THEME_ID ),
+            'id' => 'als-countdown-left',
+            'description' => __( 'Countdown Left', THEME_ID ),
+        ) );
+        
+        register_sidebar( array(
+            'name' => __( 'Countdown Right', THEME_ID ),
+            'id' => 'als-countdown-right',
+            'description' => __( 'Countdown Left', THEME_ID ),
+        ) );
+        
+    }
+    
     // Footer
     $footer_columns = get_theme_mod( 'als_footer_columns', 4 );
     for ( $index = 0; $index < $footer_columns; $index++ ) {
