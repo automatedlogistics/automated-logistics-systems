@@ -116,7 +116,7 @@ if ( ! isset( $_SESSION ) ) {
 
                             <div class="small-4 columns text-center">
                                 <a href="/customers/">
-                                    <span class="als-icon-stack als-icon-4x">
+                                    <span class="als-icon-stack als-icon-3x">
                                         <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
                                         <span class="als-icon als-icon-stack als-icon-inverse als-icon-customers"></span>
                                     </span><br />
@@ -126,7 +126,7 @@ if ( ! isset( $_SESSION ) ) {
 
                             <div class="small-4 columns text-center">
                                 <a href="/carriers/">
-                                    <span class="als-icon-stack als-icon-4x">
+                                    <span class="als-icon-stack als-icon-3x">
                                         <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
                                         <span class="als-icon als-icon-stack als-icon-inverse als-icon-carriers"></span>
                                     </span><br />
@@ -136,7 +136,7 @@ if ( ! isset( $_SESSION ) ) {
 
                             <div class="small-4 columns text-center">
                                 <a href="/careers/">
-                                    <span class="als-icon-stack als-icon-4x">
+                                    <span class="als-icon-stack als-icon-3x">
                                         <span class="als-icon als-icon-stack-2x als-icon-circle"></span>
                                         <span class="als-icon als-icon-stack als-icon-inverse als-icon-careers"></span>
                                     </span><br />
@@ -145,6 +145,13 @@ if ( ! isset( $_SESSION ) ) {
                             </div>
 
                         </div>
+                        
+                        <div class="row columns hide-for-small-only">
+                            <div class="small-12 columns">
+                                <?php echo apply_filters( 'the_content', get_field( 'home_video_content' ) ); ?>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 

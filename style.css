@@ -4299,6 +4299,10 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 .admin-bar .overlay .overlay-close {
   top: 4.5em; }
 
+#home-video-overlay .overlay-contents {
+  height: 75%;
+  width: 75%; }
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -4313,6 +4317,10 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   -webkit-transition: visibility 0s 0.5s;
   transition: visibility 0s 0.5s;
   z-index: 999; }
+  .overlay p, .overlay h1, .overlay h2, .overlay h3, .overlay h4, .overlay h5, .overlay h6 {
+    color: #fefefe; }
+  .overlay p {
+    font-weight: 700; }
   .overlay .overlay-close {
     position: absolute;
     right: 2.75em;
@@ -4354,11 +4362,12 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       top: 0;
       left: 0;
       right: 0;
-      width: 75%;
-      height: 75%; }
+      width: 60%;
+      height: 60%; }
     .overlay .overlay-contents .page-icons {
       background: transparent;
-      border-top: none; }
+      border-top: none;
+      width: 70%; }
   .overlay .overlay-path {
     fill: #005790;
     fill: rgba(0, 87, 144, 0.9); }
@@ -4395,10 +4404,14 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 
 @media screen and (min-width: 0em) and (max-width: 39.9375em) {
   .overlay .overlay-contents {
-    width: 100%;
+    height: 50% !important;
+    width: 100% !important;
     margin-top: 10%; }
+    .overlay .overlay-contents iframe {
+      width: 75%;
+      height: 75%; }
     .overlay .overlay-contents .page-icons {
-      width: 90%;
+      width: 100%;
       margin-left: 0; } }
 
 #countdown-overlay {
