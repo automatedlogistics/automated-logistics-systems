@@ -4666,6 +4666,9 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 .connect .sidebar-cta .cta-block p:last-of-type {
   margin-bottom: 0; }
 
+.connect .sidebar-cta .cta-block .connect-phone-fax {
+  padding-top: 1em; }
+
 /* Override Foundation's _settings.scss here, or store your own variables */
 .services .services-list {
   margin-top: 1em; }
