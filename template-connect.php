@@ -101,11 +101,11 @@ the_post();
                 <?php endif; ?>
 
                 <?php echo apply_filters( 'the_content', get_theme_mod( 'als_address', "3517 Scheele Drive\nJackson, MI 49202" ) ); ?>
-
-                <iframe class="google-map" frameborder="0" scrolling="no" src="//maps.google.com/maps?&q=<?php echo get_theme_mod( 'als_address', urlencode( "3517 Scheele Drive\nJackson, MI 49202" ) ); ?>&output=embed"></iframe>
-
+                
                 <?php echo sprintf( __( 'Phone: %s', THEME_ID ), get_phone_number_link( get_theme_mod( 'als_phone_number', '1-800-551-9399' ) ) ); ?><br />
                 <?php echo sprintf( __( 'Fax: %s', THEME_ID ), get_phone_number_link( get_theme_mod( 'als_fax_number', '1-888-764-6225' ) ) ); ?><br />
+
+                <iframe class="google-map" frameborder="0" scrolling="no" src="//maps.google.com/maps?&q=<?php echo get_theme_mod( 'als_address', urlencode( "3517 Scheele Drive\nJackson, MI 49202" ) ); ?>&output=embed"></iframe>
                 
             </div>
             
