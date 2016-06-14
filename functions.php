@@ -1208,7 +1208,7 @@ function als_staff_save_bulk_edit_data() {
 }
 
 /**
- * Google Analyitcs Script
+ * Google Analytics Script
  * 
  * @since 1.0
  * 
@@ -1229,3 +1229,33 @@ add_action( 'wp_footer', function() { ?>
 
 <?php
 } );
+
+/**
+ * Give Editors the Ability to use Flamingo
+ * 
+ * @since 1.0
+ * 
+ */ 
+remove_filter( 'map_meta_cap', 'flamingo_map_meta_cap' );
+add_filter( 'map_meta_cap', 'als_flamingo_map_meta_cap', 9, 4 );
+function als_flamingo_map_meta_cap( $caps, $cap, $user_id, $args ) {
+    
+    $meta_caps = array(
+        'flamingo_edit_contacts' => 'publish_posts',
+        'flamingo_edit_contact' => 'publish_posts',
+        'flamingo_delete_contact' => 'publish_posts',
+        'flamingo_edit_inbound_messages' => 'publish_posts',
+        'flamingo_delete_inbound_message' => 'publish_posts',
+        'flamingo_delete_inbound_messages' => 'publish_posts',
+        'flamingo_spam_inbound_message' => 'publish_posts',
+        'flamingo_unspam_inbound_message' => 'publish_posts'
+    );
+
+    $caps = array_diff( $caps, array_keys( $meta_caps ) );
+
+    if ( isset( $meta_caps[$cap] ) )
+    $caps[] = $meta_caps[$cap];
+
+    return $caps;
+    
+}
