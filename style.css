@@ -4744,8 +4744,31 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     padding-bottom: 0.5em;
     border-bottom: 0.1em solid #b32025; }
 
-.customers .products-services-list .sub-list {
-  margin-top: 1em; }
+.customers .products-services-list {
+  text-align: center; }
+  .customers .products-services-list .item {
+    display: table; }
+    .customers .products-services-list .item .content {
+      display: table-cell;
+      vertical-align: middle; }
+    .customers .products-services-list .item:hover {
+      background-color: #e6e6e6; }
+  .customers .products-services-list h1, .customers .products-services-list h2, .customers .products-services-list h3, .customers .products-services-list h4, .customers .products-services-list h5, .customers .products-services-list h6 {
+    text-align: left; }
+  .customers .products-services-list a {
+    display: block; }
+    .customers .products-services-list a img {
+      padding: 1em;
+      display: block;
+      margin: 0 auto; }
+    .customers .products-services-list a h1, .customers .products-services-list a h2, .customers .products-services-list a h3, .customers .products-services-list a h4, .customers .products-services-list a h5, .customers .products-services-list a h6 {
+      text-align: center;
+      color: #d1aa10; }
+    .customers .products-services-list a:hover h1, .customers .products-services-list a:hover h2, .customers .products-services-list a:hover h3, .customers .products-services-list a:hover h4, .customers .products-services-list a:hover h5, .customers .products-services-list a:hover h6 {
+      color: #9d7f0c;
+      text-decoration: underline; }
+  .customers .products-services-list .sub-list {
+    margin-top: 1em; }
 
 .als_service .product-expert {
   text-align: center; }

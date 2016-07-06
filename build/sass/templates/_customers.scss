@@ -1,13 +1,68 @@
 .customers {
-    
+
     .products-services-list {
-        
-        .sub-list {
+
+        text-align: center;
+
+        .item {
             
-            margin-top: 1em;
+            display: table;
             
+            .content {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            &:hover {
+
+                background-color: $light-gray;
+
+            }
+
         }
-        
+
+        h1, h2, h3, h4, h5, h6 {
+
+            text-align: left;
+
+        }
+
+        a {
+
+            display: block;
+
+            img {
+                padding: 1em;
+                display: block;
+                margin: 0 auto;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+
+                text-align: center;
+                color: $anchor-color;
+
+            }
+
+            &:hover {
+
+                h1, h2, h3, h4, h5, h6 {
+
+                    color: $anchor-color-hover;
+                    text-decoration: underline;
+
+                }
+
+            }
+
+        }
+
+        .sub-list {
+
+            margin-top: 1em;
+
+        }
+
     }
-    
+
 }

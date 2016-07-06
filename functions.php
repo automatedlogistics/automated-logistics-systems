@@ -1070,7 +1070,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
     foreach ( $output_loop as $section ) : ?>
 
-        <div class="small-12 columns products-services-list">
+        <div class="small-12 columns products-services-list" data-equalizer data-equalize-by-row="true">
 
             <h3><?php echo $section['label']; ?></h3>
 
@@ -1078,7 +1078,11 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
                 while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
 
-                    <div class="small-12 medium-4 columns"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></div>
+                    <div class="small-12 medium-4 columns item" data-equalizer-watch>
+                        <div class="content">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x150" /><h5><?php the_title(); ?></h5></a>
+                        </div>
+                    </div>
 
                 <?php endwhile; ?>
 
@@ -1104,7 +1108,11 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
                             while( $term_query->have_posts() ) : $term_query->the_post(); ?>
 
-                                <div class="small-12 medium-4 columns"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></div>
+                                <div class="small-12 medium-4 columns item" data-equalizer-watch>
+                                    <div class="content">
+                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x150" /><h5><?php the_title(); ?></h5></a>
+                                    </div>
+                                </div>
 
                             <?php endwhile;
 
