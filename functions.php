@@ -1070,53 +1070,55 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
     foreach ( $output_loop as $section ) : ?>
 
-        <h3><?php echo $section['label']; ?></h3>
+        <div class="small-12 columns products-services-list">
 
-        <ul class="products-services-list">
+            <h3><?php echo $section['label']; ?></h3>
 
-        <?php if ( $section['main_query']->have_posts() ) : 
+            <?php if ( $section['main_query']->have_posts() ) : 
 
-            while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
+                while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
 
-                <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                    <div class="small-12 medium-4 columns"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></div>
 
-            <?php endwhile; ?>
+                <?php endwhile; ?>
 
-        <?php endif;
+            <?php endif;
 
-        foreach ( $section['children'] as $term ) : ?>
+            foreach ( $section['children'] as $term ) : ?>
 
-            <li class="sub-list">
-                <ul>
+                <div class="small-12 columns sub-list">
+                    
+                    <div class="row">
 
-                    <h4><?php echo $term->name; ?></h4>
+                        <h4><?php echo $term->name; ?></h4>
 
-                    <?php
+                        <?php
 
-                    $term_args = $base_args;
-                    $term_args['tax_query'][0]['terms'] = $term->term_id;
-                    $term_args['tax_query'][1]['terms'] = array();
+                        $term_args = $base_args;
+                        $term_args['tax_query'][0]['terms'] = $term->term_id;
+                        $term_args['tax_query'][1]['terms'] = array();
 
-                    $term_query = new WP_Query( $term_args );
+                        $term_query = new WP_Query( $term_args );
 
-                    if ( $term_query->have_posts() ) :
+                        if ( $term_query->have_posts() ) :
 
-                        while( $term_query->have_posts() ) : $term_query->the_post(); ?>
+                            while( $term_query->have_posts() ) : $term_query->the_post(); ?>
 
-                            <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                                <div class="small-12 medium-4 columns"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></div>
 
-                        <?php endwhile;
+                            <?php endwhile;
 
-                    endif;
+                        endif;
 
-                    ?>
+                        ?>
+                    
+                    </div>
+                        
+                </div>
 
-                </ul>
-            </li>
+            <?php endforeach; ?>
 
-        <?php endforeach; ?>
-
-        </ul>
+        </div>
 
     <?php endforeach;
     
