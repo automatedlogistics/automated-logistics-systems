@@ -1080,7 +1080,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
                     <div class="small-12 medium-4 columns item" data-equalizer-watch>
                         <div class="content">
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x150" /><h5><?php the_title(); ?></h5></a>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
                         </div>
                     </div>
 
@@ -1110,7 +1110,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
                                 <div class="small-12 medium-4 columns item" data-equalizer-watch>
                                     <div class="content">
-                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x150" /><h5><?php the_title(); ?></h5></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
                                     </div>
                                 </div>
 

@@ -5,9 +5,20 @@
         text-align: center;
 
         .item {
-            
+
             display: table;
-            
+            border-top: 1px solid $medium-gray;
+            transition: ease all 300ms;
+
+            &:nth-of-type(-n+3) {
+                border-top: none;
+            }
+
+            &:nth-of-type(3n-1) {
+                border-left: 1px solid $medium-gray;
+                border-right: 1px solid $medium-gray;
+            }
+
             .content {
                 display: table-cell;
                 vertical-align: middle;
@@ -15,7 +26,19 @@
 
             &:hover {
 
-                background-color: $light-gray;
+                background-color: $primary-color;
+
+                &:nth-of-type(3n-1) {
+                    border-left: 1px solid $white;
+                    border-right: 1px solid $white;
+                }
+                
+                h1, h2, h3, h4, h5, h6 {
+
+                    color: $white;
+                    text-decoration: underline;
+
+                }
 
             }
 
@@ -32,9 +55,8 @@
             display: block;
 
             img {
-                padding: 1em;
                 display: block;
-                margin: 0 auto;
+                width: 100%;
             }
 
             h1, h2, h3, h4, h5, h6 {
@@ -44,15 +66,20 @@
 
             }
 
-            &:hover {
+            @each $breakpoint, $gutter in $grid-column-responsive-gutter {
+                $padding: rem-calc($gutter) / 2;
 
-                h1, h2, h3, h4, h5, h6 {
+                @include breakpoint($breakpoint) {
 
-                    color: $anchor-color-hover;
-                    text-decoration: underline;
+                    img {
+                        margin: $padding auto $padding auto;
+                    }
+
+                    h1, h2, h3, h4, h5, h6 {
+                        margin-bottom: $padding;
+                    }
 
                 }
-
             }
 
         }
