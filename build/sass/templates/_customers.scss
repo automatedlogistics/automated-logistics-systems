@@ -7,17 +7,7 @@
         .item {
 
             display: table;
-            border-top: 1px solid $medium-gray;
             transition: ease all 300ms;
-
-            &:nth-of-type(-n+3) {
-                border-top: none;
-            }
-
-            &:nth-of-type(3n-1) {
-                border-left: 1px solid $medium-gray;
-                border-right: 1px solid $medium-gray;
-            }
 
             .content {
                 display: table-cell;
@@ -27,11 +17,6 @@
             &:hover {
 
                 background-color: $primary-color;
-
-                &:nth-of-type(3n-1) {
-                    border-left: 1px solid $white;
-                    border-right: 1px solid $white;
-                }
                 
                 h1, h2, h3, h4, h5, h6 {
 

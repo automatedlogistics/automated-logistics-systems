@@ -4748,22 +4748,13 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
   text-align: center; }
   .customers .products-services-list .item {
     display: table;
-    border-top: 1px solid #cacaca;
     -webkit-transition: ease all 300ms;
             transition: ease all 300ms; }
-    .customers .products-services-list .item:nth-of-type(-n+3) {
-      border-top: none; }
-    .customers .products-services-list .item:nth-of-type(3n-1) {
-      border-left: 1px solid #cacaca;
-      border-right: 1px solid #cacaca; }
     .customers .products-services-list .item .content {
       display: table-cell;
       vertical-align: middle; }
     .customers .products-services-list .item:hover {
       background-color: #005790; }
-      .customers .products-services-list .item:hover:nth-of-type(3n-1) {
-        border-left: 1px solid #fefefe;
-        border-right: 1px solid #fefefe; }
       .customers .products-services-list .item:hover h1, .customers .products-services-list .item:hover h2, .customers .products-services-list .item:hover h3, .customers .products-services-list .item:hover h4, .customers .products-services-list .item:hover h5, .customers .products-services-list .item:hover h6 {
         color: #fefefe;
         text-decoration: underline; }
