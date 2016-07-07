@@ -4,10 +4,11 @@
 
         text-align: center;
 
-        .item {
+        .queued-item {
 
             display: table;
             padding: 0;
+            visibility: hidden;
             transition: ease all 300ms;
 
             .content {

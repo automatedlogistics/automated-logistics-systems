@@ -4746,17 +4746,18 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 
 .customers .products-services-list {
   text-align: center; }
-  .customers .products-services-list .item {
+  .customers .products-services-list .queued-item {
     display: table;
     padding: 0;
+    visibility: hidden;
     -webkit-transition: ease all 300ms;
             transition: ease all 300ms; }
-    .customers .products-services-list .item .content {
+    .customers .products-services-list .queued-item .content {
       display: table-cell;
       vertical-align: middle; }
-    .customers .products-services-list .item:hover {
+    .customers .products-services-list .queued-item:hover {
       background-color: #005790; }
-      .customers .products-services-list .item:hover h1, .customers .products-services-list .item:hover h2, .customers .products-services-list .item:hover h3, .customers .products-services-list .item:hover h4, .customers .products-services-list .item:hover h5, .customers .products-services-list .item:hover h6 {
+      .customers .products-services-list .queued-item:hover h1, .customers .products-services-list .queued-item:hover h2, .customers .products-services-list .queued-item:hover h3, .customers .products-services-list .queued-item:hover h4, .customers .products-services-list .queued-item:hover h5, .customers .products-services-list .queued-item:hover h6 {
         color: #fefefe;
         text-decoration: underline; }
   .customers .products-services-list h1, .customers .products-services-list h2, .customers .products-services-list h3, .customers .products-services-list h4, .customers .products-services-list h5, .customers .products-services-list h6 {

@@ -995,6 +995,16 @@ function add_als_button_shortcode( $atts, $content ) {
 add_shortcode( 'als_products_services_list', 'add_products_services_list_shortcode' );
 function add_products_services_list_shortcode( $atts, $content ) {
     
+    $atts = shortcode_atts(
+        array(
+            'columns' => 3,
+        ),
+        $atts,
+        'als_products_services_list'
+    );
+    
+    $column_class = 'medium-' . 12 / $atts['columns'];
+    
     $base_args = array(
         'post_type' => 'als_service',
         'post_status' => 'publish',
@@ -1072,20 +1082,24 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
         <div class="small-12 columns products-services-list" data-equalizer data-equalize-by-row="true">
 
-            <h3><?php echo $section['label']; ?></h3>
+            <h3 class="animate-on-scroll scale-in-up"><?php echo $section['label']; ?></h3>
 
-            <?php if ( $section['main_query']->have_posts() ) : 
+            <?php if ( $section['main_query']->have_posts() ) : ?>
+    
+                <div class="queue-on-scroll scale-in-up">
 
-                while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
+                <?php while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
 
-                    <div class="small-12 medium-4 columns item" data-equalizer-watch>
+                    <div class="small-12 <?php echo $column_class; ?> columns queued-item" data-equalizer-watch>
                         <div class="content">
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
                         </div>
                     </div>
 
                 <?php endwhile; ?>
-
+            
+                </div>
+            
             <?php endif;
 
             foreach ( $section['children'] as $term ) : ?>
@@ -1094,7 +1108,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
                     
                     <div class="row">
 
-                        <h4><?php echo $term->name; ?></h4>
+                        <h4 class="animate-on-scroll scale-in-up"><?php echo $term->name; ?></h4>
 
                         <?php
 
@@ -1104,21 +1118,23 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
                         $term_query = new WP_Query( $term_args );
 
-                        if ( $term_query->have_posts() ) :
+                        if ( $term_query->have_posts() ) : ?>
+    
+                            <div class="queue-on-scroll scale-in-up">
 
-                            while( $term_query->have_posts() ) : $term_query->the_post(); ?>
+                            <?php while( $term_query->have_posts() ) : $term_query->the_post(); ?>
 
-                                <div class="small-12 medium-4 columns item" data-equalizer-watch>
+                                <div class="small-12 <?php echo $column_class; ?> columns queued-item" data-equalizer-watch>
                                     <div class="content">
                                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
                                     </div>
                                 </div>
 
-                            <?php endwhile;
+                            <?php endwhile; ?>
 
-                        endif;
+                            </div>
 
-                        ?>
+                        <?php endif; ?>
                     
                     </div>
                         
