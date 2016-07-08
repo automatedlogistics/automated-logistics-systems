@@ -6,15 +6,9 @@
 
         .queued-item {
 
-            display: table;
             padding: 0;
             visibility: hidden;
             transition: ease all 300ms;
-
-            .content {
-                display: table-cell;
-                vertical-align: middle;
-            }
 
             &:hover {
 

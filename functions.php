@@ -1091,9 +1091,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
                 <?php while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
 
                     <div class="small-12 <?php echo $column_class; ?> columns queued-item" data-equalizer-watch>
-                        <div class="content">
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
-                        </div>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
                     </div>
 
                 <?php endwhile; ?>
@@ -1125,9 +1123,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
                             <?php while( $term_query->have_posts() ) : $term_query->the_post(); ?>
 
                                 <div class="small-12 <?php echo $column_class; ?> columns queued-item" data-equalizer-watch>
-                                    <div class="content">
-                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
-                                    </div>
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
                                 </div>
 
                             <?php endwhile; ?>
