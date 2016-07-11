@@ -1475,6 +1475,12 @@ function als_flamingo_map_meta_cap( $caps, $cap, $user_id, $args ) {
     
 }
 
+/**
+ * Show a 404 to Users who guess the in-progress Product/Services URLs
+ * 
+ * @since 1.1
+ * 
+ */ 
 add_filter( 'template_include', 'als_product_service_404' );
 function als_product_service_404( $template ) {
     
