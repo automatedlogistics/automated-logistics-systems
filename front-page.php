@@ -15,7 +15,14 @@ if ( get_field( 'home_hero_image' ) ) :
 
     <section id="home-hero" class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
         <div class="row collapse">
-            <div class="small-12 medium-6 medium-offset-6 columns text-center animate-on-scroll slide-in-right">
+            <div class="small-12 medium-6 columns text-center animate-on-scroll slide-in-right">
+                <div class="hero-copy">
+                    <div class="vertical-align">
+                        <?php echo wp_oembed_get( get_field( 'home_hero_video' ) ); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="small-12 medium-6 columns text-center animate-on-scroll slide-in-right">
                 <div class="hero-copy">
                     <div class="vertical-align">
                         <h1><?php the_field( 'home_hero_header' ); ?></h1>
