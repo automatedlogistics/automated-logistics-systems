@@ -1088,11 +1088,15 @@ function add_products_services_list_shortcode( $atts, $content ) {
     
                 <div class="queue-on-scroll scale-in-up">
 
-                <?php while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
+                <?php while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); 
+    
+                    $product_toggle = get_field( 'product_in_progress' );
+        
+                    if ( ! is_array( $product_toggle ) ) $product_toggle = array( $product_toggle ); ?>
 
-                    <div class="small-12 <?php echo $column_class; ?> columns queued-item<?php echo ( in_array( 'in_progress', get_field( 'product_in_progress' ) ) ? ' no-link' : '' ); ?>" data-equalizer-watch>
+                    <div class="small-12 <?php echo $column_class; ?> columns queued-item<?php echo ( in_array( 'in_progress', $product_toggle ) ? ' no-link' : '' ); ?>" data-equalizer-watch>
                         
-                        <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                        <?php if ( ! in_array( 'in_progress', $product_toggle ) ) : ?>
                         
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 
@@ -1101,7 +1105,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
                                 <img src="http://placehold.it/150x100" />
                                 <h5><?php the_title(); ?></h5>
                             
-                        <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                        <?php if ( ! in_array( 'in_progress', $product_toggle ) ) : ?>
                                 
                             </a>
                         
@@ -1135,11 +1139,15 @@ function add_products_services_list_shortcode( $atts, $content ) {
     
                             <div class="queue-on-scroll scale-in-up">
 
-                            <?php while( $term_query->have_posts() ) : $term_query->the_post(); ?>
+                            <?php while( $term_query->have_posts() ) : $term_query->the_post(); 
+    
+                                $product_toggle = get_field( 'product_in_progress' );
+        
+                                if ( ! is_array( $product_toggle ) ) $product_toggle = array( $product_toggle ); ?>
 
-                                <div class="small-12 <?php echo $column_class; ?> columns queued-item<?php echo ( in_array( 'in_progress', get_field( 'product_in_progress' ) ) ? ' no-link' : '' ); ?>" data-equalizer-watch>
+                                <div class="small-12 <?php echo $column_class; ?> columns queued-item<?php echo ( in_array( 'in_progress', $product_toggle ) ? ' no-link' : '' ); ?>" data-equalizer-watch>
                                     
-                                    <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                                    <?php if ( ! in_array( 'in_progress', $product_toggle ) ) : ?>
                                     
                                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                             
@@ -1148,7 +1156,7 @@ function add_products_services_list_shortcode( $atts, $content ) {
                                             <img src="http://placehold.it/150x100" />
                                             <h5><?php the_title(); ?></h5>
                                     
-                                    <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                                    <?php if ( ! in_array( 'in_progress', $product_toggle ) ) : ?>
                                             
                                         </a>
                                     
@@ -1463,7 +1471,11 @@ function als_product_service_404( $template ) {
     
     if ( get_post_type() == 'als_service' ) {
         
-        if ( in_array( 'in_progress', get_field( 'product_in_progress' ) ) && ! is_preview() ) {
+        $product_toggle = get_field( 'product_in_progress' );
+        
+        if ( ! is_array( $product_toggle ) ) $product_toggle = array( $product_toggle );
+        
+        if ( in_array( 'in_progress', $product_toggle ) && ! is_preview() ) {
             
             $wp_query->set_404();
             
