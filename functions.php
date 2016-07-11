@@ -55,6 +55,8 @@ add_action( 'after_setup_theme', function () {
     add_image_size( 'thumbnail-tall', 200, false );
     
     add_image_size( 'staff-badge', 55, 55 );
+    
+    add_image_size( 'product-icon', false, 160 );
 
     // Add theme support
     require_once __DIR__ . '/includes/theme-support.php';
@@ -1102,8 +1104,13 @@ function add_products_services_list_shortcode( $atts, $content ) {
                                 
                         <?php endif; ?>
                             
-                                <img src="http://placehold.it/150x100" />
-                                <h5><?php the_title(); ?></h5>
+                                <?php if ( get_field( 'product_icon' ) ) : 
+                                    echo wp_get_attachment_image( get_field( 'product_icon' ), 'product-icon', false ); ?>
+                                <?php else : ?>
+                                    <span class="fa fa-fw fa-10x fa-truck"></span>
+                                <?php endif; ?>
+                                
+                                    <h5><?php the_title(); ?></h5>
                             
                         <?php if ( ! in_array( 'in_progress', $product_toggle ) ) : ?>
                                 
@@ -1153,7 +1160,12 @@ function add_products_services_list_shortcode( $atts, $content ) {
                                             
                                     <?php endif; ?>
                                         
-                                            <img src="http://placehold.it/150x100" />
+                                        <?php if ( get_field( 'product_icon' ) ) : 
+                                            echo wp_get_attachment_image( get_field( 'product_icon' ), 'product-icon', false ); ?>
+                                        <?php else : ?>
+                                            <span class="fa fa-fw fa-10x fa-truck"></span>
+                                        <?php endif; ?>
+                                            
                                             <h5><?php the_title(); ?></h5>
                                     
                                     <?php if ( ! in_array( 'in_progress', $product_toggle ) ) : ?>

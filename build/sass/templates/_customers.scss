@@ -15,10 +15,12 @@
             padding: 0;
             visibility: hidden;
             transition: ease all 300ms;
+            color: desaturate( $primary-color, 60% );
 
             img {
                 display: block;
-                width: 100%;
+                width: auto;
+                height: 10em;
             }
 
             h1, h2, h3, h4, h5, h6 {
@@ -28,16 +30,37 @@
                 margin-bottom: 0;
 
             }
+            
+            .fa-10x {
+                font-size: 10em;
+            }
+            
+            a {
+                
+                .fa {
+                    color: desaturate( $primary-color, 60% );
+                }
+                
+            }
 
             &:hover {
 
                 background-color: $primary-color;
+                color: $white;
 
                 h1, h2, h3, h4, h5, h6 {
 
                     color: $white;
                     text-decoration: underline;
 
+                }
+                
+                a {
+                    
+                    .fa {
+                        color: $white;    
+                    }
+                    
                 }
 
             }
@@ -51,7 +74,7 @@
 
                         padding: $padding;
 
-                        img {
+                        img, .fa {
                             margin: 0 auto $padding auto;
                         }
 
