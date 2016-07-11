@@ -1090,8 +1090,23 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
                 <?php while ( $section['main_query']->have_posts() ) : $section['main_query']->the_post(); ?>
 
-                    <div class="small-12 <?php echo $column_class; ?> columns queued-item" data-equalizer-watch>
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
+                    <div class="small-12 <?php echo $column_class; ?> columns queued-item<?php echo ( in_array( 'in_progress', get_field( 'product_in_progress' ) ) ? ' no-link' : '' ); ?>" data-equalizer-watch>
+                        
+                        <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                        
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                
+                        <?php endif; ?>
+                            
+                                <img src="http://placehold.it/150x100" />
+                                <h5><?php the_title(); ?></h5>
+                            
+                        <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                                
+                            </a>
+                        
+                        <?php endif; ?>
+                        
                     </div>
 
                 <?php endwhile; ?>
@@ -1122,8 +1137,23 @@ function add_products_services_list_shortcode( $atts, $content ) {
 
                             <?php while( $term_query->have_posts() ) : $term_query->the_post(); ?>
 
-                                <div class="small-12 <?php echo $column_class; ?> columns queued-item" data-equalizer-watch>
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="http://placehold.it/150x100" /><h5><?php the_title(); ?></h5></a>
+                                <div class="small-12 <?php echo $column_class; ?> columns queued-item<?php echo ( in_array( 'in_progress', get_field( 'product_in_progress' ) ) ? ' no-link' : '' ); ?>" data-equalizer-watch>
+                                    
+                                    <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                                    
+                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                            
+                                    <?php endif; ?>
+                                        
+                                            <img src="http://placehold.it/150x100" />
+                                            <h5><?php the_title(); ?></h5>
+                                    
+                                    <?php if ( ! in_array( 'in_progress', get_field( 'product_in_progress' ) ) ) : ?>
+                                            
+                                        </a>
+                                    
+                                    <?php endif; ?>
+                                    
                                 </div>
 
                             <?php endwhile; ?>
@@ -1422,5 +1452,27 @@ function als_flamingo_map_meta_cap( $caps, $cap, $user_id, $args ) {
     $caps[] = $meta_caps[$cap];
 
     return $caps;
+    
+}
+
+add_filter( 'template_include', 'als_product_service_404' );
+function als_product_service_404( $template ) {
+    
+    global $wp_query;
+    global $post;
+    
+    if ( get_post_type() == 'als_service' ) {
+        
+        if ( in_array( 'in_progress', get_field( 'product_in_progress' ) ) && ! is_preview() ) {
+            
+            $wp_query->set_404();
+            
+            return get_query_template( '404' );
+            
+        }
+        
+    }
+    
+    return $template;
     
 }

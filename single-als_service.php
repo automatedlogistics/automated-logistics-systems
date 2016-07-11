@@ -1,6 +1,6 @@
 <?php
 /**
- * Single Service template
+ * Single Product/Service template
  *
  * @since 0.1.0
  * @package automated-logistics-systems

@@ -4746,37 +4746,37 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
 
 .customers .products-services-list {
   text-align: center; }
+  .customers .products-services-list h1, .customers .products-services-list h2, .customers .products-services-list h3, .customers .products-services-list h4, .customers .products-services-list h5, .customers .products-services-list h6 {
+    text-align: left; }
   .customers .products-services-list .queued-item {
     padding: 0;
     visibility: hidden;
     -webkit-transition: ease all 300ms;
             transition: ease all 300ms; }
+    .customers .products-services-list .queued-item img {
+      display: block;
+      width: 100%; }
+    .customers .products-services-list .queued-item h1, .customers .products-services-list .queued-item h2, .customers .products-services-list .queued-item h3, .customers .products-services-list .queued-item h4, .customers .products-services-list .queued-item h5, .customers .products-services-list .queued-item h6 {
+      text-align: center;
+      color: #d1aa10;
+      margin-bottom: 0; }
     .customers .products-services-list .queued-item:hover {
       background-color: #005790; }
       .customers .products-services-list .queued-item:hover h1, .customers .products-services-list .queued-item:hover h2, .customers .products-services-list .queued-item:hover h3, .customers .products-services-list .queued-item:hover h4, .customers .products-services-list .queued-item:hover h5, .customers .products-services-list .queued-item:hover h6 {
         color: #fefefe;
         text-decoration: underline; }
-  .customers .products-services-list h1, .customers .products-services-list h2, .customers .products-services-list h3, .customers .products-services-list h4, .customers .products-services-list h5, .customers .products-services-list h6 {
-    text-align: left; }
-  .customers .products-services-list a {
-    display: block; }
-    .customers .products-services-list a img {
-      display: block;
-      width: 100%; }
-    .customers .products-services-list a h1, .customers .products-services-list a h2, .customers .products-services-list a h3, .customers .products-services-list a h4, .customers .products-services-list a h5, .customers .products-services-list a h6 {
-      text-align: center;
-      color: #d1aa10;
-      margin-bottom: 0; }
     @media screen and (min-width: 0em) {
-      .customers .products-services-list a {
+      .customers .products-services-list .queued-item.no-link, .customers .products-services-list .queued-item a {
         padding: 0.625rem; }
-        .customers .products-services-list a img {
+        .customers .products-services-list .queued-item.no-link img, .customers .products-services-list .queued-item a img {
           margin: 0 auto 0.625rem auto; } }
     @media screen and (min-width: 40em) {
-      .customers .products-services-list a {
+      .customers .products-services-list .queued-item.no-link, .customers .products-services-list .queued-item a {
         padding: 0.9375rem; }
-        .customers .products-services-list a img {
+        .customers .products-services-list .queued-item.no-link img, .customers .products-services-list .queued-item a img {
           margin: 0 auto 0.9375rem auto; } }
+    .customers .products-services-list .queued-item a {
+      display: block; }
   .customers .products-services-list .sub-list {
     margin-top: 1em; }
 

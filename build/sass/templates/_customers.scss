@@ -4,36 +4,17 @@
 
         text-align: center;
 
-        .queued-item {
-
-            padding: 0;
-            visibility: hidden;
-            transition: ease all 300ms;
-
-            &:hover {
-
-                background-color: $primary-color;
-                
-                h1, h2, h3, h4, h5, h6 {
-
-                    color: $white;
-                    text-decoration: underline;
-
-                }
-
-            }
-
-        }
-
         h1, h2, h3, h4, h5, h6 {
 
             text-align: left;
 
         }
 
-        a {
+        .queued-item {
 
-            display: block;
+            padding: 0;
+            visibility: hidden;
+            transition: ease all 300ms;
 
             img {
                 display: block;
@@ -48,18 +29,39 @@
 
             }
 
-            @each $breakpoint, $gutter in $grid-column-responsive-gutter {
-                $padding: rem-calc($gutter) / 2;
+            &:hover {
 
-                @include breakpoint($breakpoint) {
-                    
-                    padding: $padding;
+                background-color: $primary-color;
 
-                    img {
-                        margin: 0 auto $padding auto;
-                    }
+                h1, h2, h3, h4, h5, h6 {
+
+                    color: $white;
+                    text-decoration: underline;
 
                 }
+
+            }
+
+            &.no-link, a {
+
+                @each $breakpoint, $gutter in $grid-column-responsive-gutter {
+                    $padding: rem-calc($gutter) / 2;
+
+                    @include breakpoint($breakpoint) {
+
+                        padding: $padding;
+
+                        img {
+                            margin: 0 auto $padding auto;
+                        }
+
+                    }
+                }
+
+            }
+            
+            a {
+                display: block;
             }
 
         }

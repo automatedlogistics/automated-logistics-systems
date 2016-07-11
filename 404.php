@@ -27,8 +27,16 @@ if ( ( get_theme_mod( '404_image' ) ) && ( get_theme_mod( '404_image' ) !== 1 ) 
 <?php endif; ?>
 
 <section id="page-<?php the_ID(); ?>" <?php body_class( array( 'page-content' ) ); ?>>
+    
     <div class="row">
+        
         <div class="small-12 medium-9 columns">
+    
+            <div class="row">
+                <div class="small-12 columns">
+                    <?php als_custom_breadcrumbs(); ?>
+                </div>
+            </div>
             
             <h1 class="page-title"><?php echo __( '404 - Page Not Found', THEME_ID ); ?></h1>
 
