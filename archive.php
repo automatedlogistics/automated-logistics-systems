@@ -21,6 +21,13 @@ $term = $wp_query->get_queried_object();
 ?>
 
 <section id="post-index" class="page-content">
+    
+    <div class="row">
+        <div class="small-12 columns">
+            <?php als_custom_breadcrumbs(); ?>
+        </div>
+    </div>
+    
     <div class="row">
 
         <?php

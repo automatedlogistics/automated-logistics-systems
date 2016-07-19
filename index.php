@@ -22,6 +22,13 @@ usort( $wp_query->posts, 'als_pages_first' );
 ?>
 
 <section id="post-index" class="page-content">
+    
+    <div class="row">
+        <div class="small-12 columns">
+            <?php als_custom_breadcrumbs(); ?>
+        </div>
+    </div>
+    
     <div class="row">
 
         <?php
@@ -46,7 +53,9 @@ usort( $wp_query->posts, 'als_pages_first' );
         ?>
 
         <div class="small-12 medium-9 columns">
-            Nothing found.
+            
+            <?php _e( 'Nothing is here... yet!', THEME_ID );
+            
         </div>
 
         <?php endif; ?>
