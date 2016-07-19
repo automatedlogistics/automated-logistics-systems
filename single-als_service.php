@@ -71,9 +71,13 @@ the_post();
         
         <div class="small-12 medium-8 columns product-content">
             
-            <?php if ( have_rows( 'product_content_blocks' ) ) : ?>
+            <?php if ( have_rows( 'product_content_blocks' ) || get_field( 'product_testimonail' ) ) : ?>
             
                 <div class="container">
+                    
+            <?php endif; ?>
+            
+            <?php if ( have_rows( 'product_content_blocks' ) ) : ?>
             
                     <?php while ( have_rows( 'product_content_blocks' ) ) : the_row(); ?>
                     
@@ -89,9 +93,60 @@ the_post();
                         </div>
 
                     <?php endwhile; ?>
+            
+            <?php endif; ?>
+            
+            <?php if ( $testimonial = get_field( 'product_testimonial' ) ): ?>
+            
+                <div class="row">
+                    
+                    <div class="small-12 columns">
+                        
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="media-object stack-for-small">
+                            
+                            <div class="media-object-section">
+                                <?php echo wp_get_attachment_image( get_post_thumbnail_id( $testimonial->ID ), 'medium' ); ?>
+                            </div>
+                            
+                            <div class="media-object-section">
+                                
+                                <?php 
+                                    $quote = $testimonial->post_content;
+                                    $quote = '"' . $quote . '"';
+                                    $quote = apply_filters( 'the_content', $quote );
+                                ?>
+                                
+                                <span class="testimonial-title"><?php the_field( 'employee_title', $testimonial->ID ); ?></span>
+                                <strong class="testimonial-name"><?php get_the_title( $testimonial->ID );?></strong>
+                                <blockquote class="testimonial-quote"><?php echo $quote; ?></blockquote>
+                                
+                                <?php if ( get_field( 'employee_testimonial', $testimonial->ID ) !== '' ) : 
+                                    $hired_date = new DateTime( get_field( 'employee_hired_date', $testimonial->ID ) );
+                                    $hired_date = $hired_date->format( 'F, Y' );
+                                ?>
+
+                                    <span class="testimonial-hired-date"><?php echo sprintf( __( 'Hired: %s', THEME_ID ), $hired_date ); ?></span>
+                                <?php else : ?>
+                                    <span class="testimonial-company"><?php the_field( 'company_and_title', $testimonial->ID ); ?></span><br />
+                                    <span class="testimonial-location"><?php the_field( 'company_location', $testimonial->ID ); ?></span>
+                                <?php endif; ?>
+                                
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
                     
                 </div>
             
+            <?php endif; ?>
+                    
+            <?php if ( have_rows( 'product_content_blocks' ) || get_field( 'product_testimonail' ) ) : ?>
+
+                </div>
+
             <?php endif; ?>
             
         </div>

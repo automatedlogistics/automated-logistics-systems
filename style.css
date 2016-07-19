@@ -4906,6 +4906,17 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     width: 95%;
     min-height: 500px; }
 
+.single-als_service .product-content blockquote {
+  border: none;
+  font-style: italic;
+  padding: 0;
+  margin-bottom: 0.5em; }
+  .single-als_service .product-content blockquote, .single-als_service .product-content blockquote * {
+    color: #0a0a0a;
+    line-height: 1.35; }
+  .single-als_service .product-content blockquote p:last-of-type {
+    margin-bottom: 0; }
+
 .single-als_service .product-content .container {
   position: relative; }
   .single-als_service .product-content .container:before {
