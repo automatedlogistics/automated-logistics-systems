@@ -1034,13 +1034,15 @@ function add_products_services_list_shortcode( $atts, $content ) {
     $product_children = get_terms( array(
         'taxonomy' => 'als_service_type',
         'child_of' => $product_term->term_id,
-        'orderby' => 'name',
+        'order' => 'DESC',
+        'orderby' => 'count',
     ) );
 
     $service_children = get_terms( array(
         'taxonomy' => 'als_service_type',
         'child_of' => $service_term->term_id,
-        'orderby' => 'name',
+        'order' => 'DESC',
+        'orderby' => 'count',
     ) );
 
     $exclude_product_children = array();
