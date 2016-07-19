@@ -1,4 +1,4 @@
-.als_service {
+.single-als_service {
     
     .product-expert {
         
@@ -12,6 +12,40 @@
             
             &:hover, &:focus {
                 box-shadow: 0.25em 0.25em 0.75em $dark-gray;
+            }
+            
+        }
+        
+    }
+    
+    .video-popover-container {
+        
+        &:hover {
+            cursor: pointer;
+        }
+        
+        & > * {
+            
+            pointer-events: none;
+            width: 100%;
+            
+        }
+        
+    }
+    
+    .video-popover.reveal {
+        
+        &:focus {
+            outline: none;
+        }
+        
+        .video-container {
+            
+            text-align: center;
+            
+            & > * {
+                width: 95%;
+                min-height: 500px;
             }
             
         }

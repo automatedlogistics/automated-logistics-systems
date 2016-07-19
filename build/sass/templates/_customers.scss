@@ -67,7 +67,7 @@
 
             &.no-link, a {
 
-                @each $breakpoint, $gutter in $grid-column-responsive-gutter {
+                @each $breakpoint, $gutter in $grid-column-gutter {
                     $padding: rem-calc($gutter) / 2;
 
                     @include breakpoint($breakpoint) {

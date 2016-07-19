@@ -1,0 +1,96 @@
+javascript:
+  dest:
+    root: "."
+  front:
+    # filename to output
+    filename: "script.js"
+    notification: "Running JavaScript"
+    bowerPaths:  
+      - "build/vendor/js/modernizr.js"
+      - "build/vendor/js/fastclick.js"
+      - "build/vendor/js/placeholder.js"
+      - "build/vendor/js/jquery.cookie.js"
+      - "build/vendor/js/snap.svg-min.js"
+      - "bower_components/foundation-sites/js/foundation.core.js"
+      - "bower_components/foundation-sites/js/foundation.util.keyboard.js"
+      - "bower_components/foundation-sites/js/foundation.util.box.js"
+      - "bower_components/foundation-sites/js/foundation.util.nest.js"
+      - "bower_components/foundation-sites/js/foundation.util.mediaQuery.js"
+      - "bower_components/foundation-sites/js/foundation.util.triggers.js"
+      - "bower_components/foundation-sites/js/foundation.util.motion.js"
+      - "bower_components/foundation-sites/js/foundation.util.timerAndImageLoader.js"
+      - "bower_components/foundation-sites/js/foundation.dropdownMenu.js"
+      - "bower_components/foundation-sites/js/foundation.offcanvas.js"
+      - "bower_components/foundation-sites/js/foundation.reveal.js"
+      - "bower_components/foundation-sites/js/foundation.accordionMenu.js"
+      - "bower_components/foundation-sites/js/foundation.tooltip.js"
+      - "bower_components/foundation-sites/js/foundation.equalizer.js"
+    # Paths to JavaScript libraries, which are combined into one file
+    src:
+      # Paths to your own project code are here
+      # All the files in this list and in the js dir are concatenated into script.js
+      - "build/js/**/*.js"
+      - "!build/js/admin/**/*.js"
+      - "!build/js/customizer/**/*.js"
+      - "!build/js/quick-edit/**/*.js"
+      - "!build/js/tinymce/**/*.js"
+  admin:
+    filename: "admin.js"
+    notification: "Running Admin JavaScript"
+    src:
+      - "build/js/admin/**/*.js"
+  customizer:
+    controls:
+      filename: "customizer-controls.js"
+      notification: "Running Customizer Controls JavaScript"
+      src:
+        - "build/js/customizer/controls/**/*.js"
+    preview:
+      filename: "customizer-preview.js"
+      notification: "Running Customizer Preview JavaScript"
+      src:
+        - "build/js/customizer/preview/**/*.js"
+  quickedit:
+    filename: "quick-edit.js"
+    notification: "Running Quick Edit JavaScript"
+    src:
+      - "build/js/quick-edit/**/*.js"
+
+sass:
+  # Autoprefixer will make sure your CSS works with these browsers
+  compatibility:
+    - "last 2 versions"
+    - "ie >= 9"
+  dest:
+    root: "."
+  front:
+    notification: "Running Sass"
+    bowerPaths:
+      - "bower_components/foundation-sites/scss"
+      - "bower_components/motion-ui/src"
+    src: "build/sass/main.scss"
+  admin:
+    notification: "Running Admin Sass"
+    src: "build/sass/admin/main.scss"
+
+watch:
+  javascript:
+    front:
+      - "build/js/**/*.js"
+      - "!build/js/admin/**/*.js"
+      - "!build/js/customizer/**/*.js"
+      - "!build/js/quick-edit/**/*.js"
+      - "!build/js/tinymce/**/*.js"
+    admin: "build/js/admin/**/*.js"
+    customizer: 
+      controls:
+        - "build/js/customizer/controls/**/*.js"
+      preview:
+        - "build/js/customizer/preview/**/*.js"
+    quickedit:
+        - "build/js/quick-edit/**/*.js"
+  sass: 
+    front: 
+      - "build/sass/**/*.scss"
+      - "!build/sass/admin/**/*.scss"
+    admin: "build/sass/admin/**/*.scss"

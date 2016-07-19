@@ -48,8 +48,24 @@ the_post();
             <?php echo get_field( 'staff_position_title', $expert->ID ); ?><br />
             <a href="mailto:<?php echo get_field( 'staff_email', $expert->ID ); ?>" title="<?php echo sprintf( __( 'Connect with %s via Email', THEME_ID ), get_the_title( $expert->ID ) ); ?>"><?php echo get_field( 'staff_email', $expert->ID ); ?></a><br />
             <?php the_field( 'product_expert_qualifications' ); ?><br />
-
             
+            <?php if ( $url = get_field( 'product_video_url' ) ) : ?>
+
+            <p>
+                
+                <div class="video-popover-container">
+                
+                <?php 
+                    
+                    echo wp_oembed_get( $url );
+                
+                ?>
+                
+                </div>
+                
+            </p>
+        
+            <?php endif; ?>
             
         </div>
         
@@ -82,6 +98,24 @@ the_post();
         
     </div>
 </section>
+
+<?php if ( $url = get_field( 'product_video_url' ) ) : ?>
+
+<div class="reveal large video-popover" data-reveal data-reset-on-close="true">
+    
+    <div class="row">
+        <div class="small-12 columns video-container">
+            <?php echo wp_oembed_get( $url ); ?>
+        </div>
+    </div>
+    
+    <button class="close-button" data-close aria-label="<?php _e( 'Close modal', THEME_ID ); ?>" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+</div>
+            
+<?php endif; ?>
 
 <?php
 get_footer();

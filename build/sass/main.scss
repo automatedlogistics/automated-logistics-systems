@@ -10,7 +10,8 @@ Version: 0.1.0
 @import "../vendor/sass/normalize";
 
 // Motion-UI is a Node Module
-@import "../../node_modules/motion-ui/src/motion-ui";
+@import "motion-ui";
+@import "foundation";
 
 // Dependencies
 @import "settings.scss";
@@ -18,11 +19,11 @@ Version: 0.1.0
 
 // Foundation
 // Here we control all the various Foundation components to use
-@import "../vendor/sass/foundation/foundation";
 @include foundation-global-styles;
 @include foundation-visibility-classes;
 @include foundation-tabs;
 @include foundation-reveal;
+@include foundation-close-button;
 @include foundation-grid;
 @include foundation-button;
 @include foundation-accordion-menu;

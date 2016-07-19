@@ -43,17 +43,7 @@
                     color: $secondary-color;
                 }
 
-                &.is-dropdown-submenu-parent.is-right-arrow {
-
-                    > a:after {
-
-                        border-left-color: $secondary-color !important;
-
-                    }
-
-                }
-
-                &.is-dropdown-submenu-parent.is-down-arrow {
+                &.is-dropdown-submenu-parent {
 
                     > a:after {
 
@@ -62,34 +52,9 @@
                     }
 
                 }
-
             }
-
-            .is-dropdown-submenu-parent.is-right-arrow {
-
-                // Top Level
-                > a:after {
-                    border-left-color: $topbar-link-color;
-                }
-
-                // Top Level:hover
-                &:hover > a:after {
-
-                    @if lightness( darken( $topbar-background, 10% ) ) < 50% {
-
-                        border-left-color: $light-color;
-
-                    }
-                    @else {
-
-                        border-left-color: $dark-color;
-
-                    }
-
-                }
-
-            }
-            .is-dropdown-submenu-parent.is-down-arrow {
+            
+            > .is-dropdown-submenu-parent {
 
                 > a:after {
                     border-top-color: $topbar-link-color;
@@ -105,6 +70,41 @@
                     @else {
 
                         border-top-color: $dark-color;
+
+                    }
+
+                }
+                
+                .is-dropdown-submenu-parent {
+                    
+                    a:after {
+
+                        @if lightness( $body-background ) < 50% {
+
+                            border-right-color: $light-color;
+
+                        }
+                        @else {
+
+                            border-right-color: $dark-color;
+
+                        }
+                        
+                    }
+
+                    // Top Level:hover
+                    &:hover > a:after {
+
+                        @if lightness( darken( $topbar-background, 10% ) ) < 50% {
+
+                            border-right-color: $dark-color;
+
+                        }
+                        @else {
+
+                            border-right-color: $light-color;
+
+                        }
 
                     }
 
@@ -131,11 +131,19 @@
             }
 
             // Top Level
-            > li:hover {
-                background-color: lighten( $topbar-background, 5% ) !important;
+            > li {
+                
+                a {
+                    color: $topbar-link-color;
+                }
+            
+                &:hover {
+                    background-color: lighten( $topbar-background, 5% ) !important;
 
-                > a {
-                    @include light-or-dark-text( lighten( $topbar-background, 5% ) );
+                    > a {
+                        @include light-or-dark-text( lighten( $topbar-background, 5% ) );
+                    }
+                
                 }
 
             }
@@ -145,6 +153,7 @@
 
                 li {
                     
+                    background-color: $body-background;
                     text-transform: none;
                     
                     a {
@@ -162,74 +171,6 @@
 
                 }
 
-                .is-dropdown-submenu-parent.is-right-arrow {
-
-                    > a:after {
-
-                        @if lightness( $dropdownmenu-background ) < 50% {
-
-                            border-left-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-left-color: $dark-color !important;
-
-                        }
-
-                    }
-
-                    // Sub-level with submenu:hover
-                    &:hover > a:after {
-
-                        @if lightness( $light-gray ) < 50% {
-
-                            border-left-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-left-color: $dark-color !important;
-
-                        }
-
-                    }
-
-                }
-                .is-dropdown-submenu-parent.is-down-arrow {
-
-                    > a:after {
-
-                        @if lightness( $dropdownmenu-background ) < 50% {
-
-                            border-top-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-top-color: $dark-color !important;
-
-                        }
-
-                    }
-
-                    &:hover > a:after {
-
-                        @if lightness( $light-gray ) < 50% {
-
-                            border-top-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-top-color: $dark-color !important;
-
-                        }
-
-                    }
-
-                }
-
             }
 
             > li li.current-menu-item, > li li.current-menu-ancestor {
@@ -238,44 +179,6 @@
 
                 > a {
                     @include light-or-dark-text( darken( $light-gray, 10% ) );
-                }
-                
-                &.is-dropdown-submenu-parent.is-right-arrow {
-
-                    > a:after {
-
-                        @if lightness( darken( $light-gray, 10% ) ) < 50% {
-
-                            border-left-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-left-color: $dark-color !important;
-
-                        }
-
-                    }
-
-                }
-                
-                &.is-dropdown-submenu-parent.is-down-arrow {
-
-                    > a:after {
-
-                        @if lightness( darken( $light-gray, 10% ) ) < 50% {
-
-                            border-top-color: $light-color !important;
-
-                        }
-                        @else {
-
-                            border-top-color: $dark-color !important;
-
-                        }
-
-                    }
-
                 }
 
             }
