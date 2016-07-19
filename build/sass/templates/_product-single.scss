@@ -53,6 +53,23 @@
     }
 
     .product-content {
+        
+        blockquote {
+            border: none;
+            font-style: italic;
+            padding: 0;
+            margin-bottom: 0.5em;
+
+            &, * {
+                color: $body-font-color;
+                line-height: 1.35;
+            }
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+
+        }
 
         .container {
 
