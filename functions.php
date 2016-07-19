@@ -1508,3 +1508,52 @@ function als_product_service_404( $template ) {
     return $template;
     
 }
+
+/**
+ * Relabel the Posts Post Type
+ * @param  object $labels Post Type Labels casted to an Object for some reason
+ * @return object Post Type Labels
+ *                     
+ * @since 1.1
+ */
+add_filter( 'post_type_labels_post', function( $labels ) {
+    
+    $labels->name = _x( 'News', THEME_ID );
+    $labels->all_items = _x( 'All News Posts', THEME_ID );
+    $labels->singular_name = _x( 'News Post', THEME_ID );
+    $labels->add_new = _x( 'Add News Post', THEME_ID );
+    $labels->add_new_item = _x( 'Add News Post', THEME_ID );
+    $labels->edit_item = _x( 'Edit News Post', THEME_ID );
+    $labels->new_item = _x( 'New News Post', THEME_ID );
+    $labels->view_item = _x( 'View News Post', THEME_ID );
+    $labels->search_items = _x( 'Search News Posts', THEME_ID );
+    $labels->not_found = _x( 'No News Posts found', THEME_ID );
+    $labels->not_found_in_trash = _x( 'No News Posts found in trash', THEME_ID );
+    $labels->parent_item_colon = _x( 'Parent News Post:', THEME_ID );
+    $labels->menu_name = _x( 'News', THEME_ID );
+    $labels->name_admin_bar = _x( 'News Post', THEME_ID );
+    $labels->archives = _x( 'News Archives', THEME_ID );
+    
+    return $labels;
+    
+} );
+
+/**
+ * Switch Menu Icon for Posts Post Type
+ * @param  array $args Post Type Args
+ * @param  string $post_type Post Type Key
+ * @return array Post Type Args
+ *                    
+ * @since 1.1
+ */
+add_filter( 'register_post_type_args', function( $args, $post_type ) {
+    
+    if ( $post_type == 'post' ) {
+        
+        $args['menu_icon'] = 'dashicons-welcome-widgets-menus';
+        
+    }
+    
+    return $args;
+    
+}, 10, 2 );

@@ -342,13 +342,21 @@ function als_custom_breadcrumbs() {
 
             <?php
 
-            if ( is_category() ) {
+            if ( is_home() ) { // Since we have a static front page, this is actually for the Blog
+
+                $post_type = get_post_type_object( get_post_type() );
+                echo $before_current . $post_type->labels->name . $after;
+                
+            }
+            elseif ( is_category() ) {
                 
                 $this_cat = get_category( get_query_var( 'cat' ), false );
 
                 if ( $this_cat->parent != 0 ) echo get_category_parents( $this_cat->parent, TRUE, $delimiter );
 
-                echo $before_current . sprintf( __( 'Archive by category "%s"', THEME_ID ), single_cat_title( '', false ) ) . $after;
+                $post_type = get_post_type_object( get_post_type() );
+                echo $before . '<a href="' . $home_link . '/news/">' . $post_type->labels->menu_name . '</a>' . $after;
+                echo $before_current . sprintf( __( '"%s" Archives', THEME_ID ), single_cat_title( '', false ) ) . $after;
 
             }
             elseif ( is_search() ) {
@@ -358,6 +366,8 @@ function als_custom_breadcrumbs() {
             }
             elseif ( is_day() ) {
 
+                $post_type = get_post_type_object( get_post_type() );
+                echo $before . '<a href="' . $home_link . '/news/">' . $post_type->labels->menu_name . '</a>' . $after;
                 echo $before . '<a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a>' . $after;
                 echo $before . '<a href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '">' . get_the_time( 'F' ) . '</a>' . $after;
                 echo $before_current . get_the_time( 'd' ) . $after;
@@ -365,12 +375,16 @@ function als_custom_breadcrumbs() {
             }
             elseif ( is_month() ) {
 
+                $post_type = get_post_type_object( get_post_type() );
+                echo $before . '<a href="' . $home_link . '/news/">' . $post_type->labels->menu_name . '</a>' . $after;
                 echo $before . '<a href="' . get_year_link( get_the_time( 'Y' ) ) . '">' . get_the_time( 'Y' ) . '</a>' . $after;
                 echo $before_current . get_the_time( 'F' ) . $after;
 
             }
             elseif ( is_year() ) {
 
+                $post_type = get_post_type_object( get_post_type() );
+                echo $before . '<a href="' . $home_link . '/news/">' . $post_type->labels->menu_name . '</a>' . $after;
                 echo $before_current . get_the_time( 'Y' ) . $after;
 
             }
@@ -399,6 +413,14 @@ function als_custom_breadcrumbs() {
                     $post_type = get_post_type_object( get_post_type() );
                     $slug = $post_type->rewrite;
                     echo $before . '<a href="' . $home_link . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>' . $after;
+
+                    if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
+
+                }
+                else if ( get_post_type() == 'post' ) {
+
+                    $post_type = get_post_type_object( get_post_type() );
+                    echo $before . '<a href="' . $home_link . '/news/">' . $post_type->labels->menu_name . '</a>' . $after;
 
                     if ( $show_current == 1 ) echo $before_current . get_the_title() . $after;
 
