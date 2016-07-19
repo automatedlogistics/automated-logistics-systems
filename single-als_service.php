@@ -118,15 +118,14 @@ the_post();
                                     $quote = apply_filters( 'the_content', $quote );
                                 ?>
                                 
-                                <span class="testimonial-title"><?php the_field( 'employee_title', $testimonial->ID ); ?></span>
-                                <strong class="testimonial-name"><?php get_the_title( $testimonial->ID );?></strong>
                                 <blockquote class="testimonial-quote"><?php echo $quote; ?></blockquote>
+                                <strong class="testimonial-name"><?php echo get_the_title( $testimonial->ID );?></strong><br />
                                 
                                 <?php if ( get_field( 'employee_testimonial', $testimonial->ID ) !== '' ) : 
                                     $hired_date = new DateTime( get_field( 'employee_hired_date', $testimonial->ID ) );
                                     $hired_date = $hired_date->format( 'F, Y' );
                                 ?>
-
+                                    <span class="testimonial-title"><?php the_field( 'employee_title', $testimonial->ID ); ?></span><br />
                                     <span class="testimonial-hired-date"><?php echo sprintf( __( 'Hired: %s', THEME_ID ), $hired_date ); ?></span>
                                 <?php else : ?>
                                     <span class="testimonial-company"><?php the_field( 'company_and_title', $testimonial->ID ); ?></span><br />
