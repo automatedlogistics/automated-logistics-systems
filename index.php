@@ -54,7 +54,7 @@ usort( $wp_query->posts, 'als_pages_first' );
 
         <div class="small-12 medium-9 columns">
             
-            <?php _e( 'Nothing is here... yet!', THEME_ID );
+            <?php _e( 'Nothing is here... yet!', THEME_ID ); ?>
             
         </div>
 
