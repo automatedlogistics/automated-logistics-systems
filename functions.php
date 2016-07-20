@@ -277,7 +277,7 @@ add_action( 'init', function () {
     wp_register_script(
         THEME_ID,
         get_template_directory_uri() . '/script.js',
-        array( 'jquery' ),
+        array( 'jquery', 'google-iframe-api' ),
         defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
         true
     );
@@ -298,6 +298,14 @@ add_action( 'init', function () {
         THEME_ID . '-customizer-controls',
         get_template_directory_uri() . '/customizer-controls.js',
         array( 'jquery', 'editor' ),
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        true
+    );
+    
+    wp_register_script(
+        'google-iframe-api',
+        '//www.youtube.com/iframe_api',
+        array(),
         defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
         true
     );
@@ -409,6 +417,7 @@ add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style( THEME_ID );
 
     // Theme script
+    wp_enqueue_script( 'google-iframe-api' );
     wp_enqueue_script( THEME_ID );
 
     // Theme fonts
@@ -1557,3 +1566,16 @@ add_filter( 'register_post_type_args', function( $args, $post_type ) {
     return $args;
     
 }, 10, 2 );
+
+add_filter( 'oembed_dataparse', function( $return, $data, $url ) {
+    
+    $has_youtube = preg_match( '/(http(s)?:\/\/)(www\.)?(youtube\.com\/watch\?v=|youtu.be\/)/i', $url );
+    
+    if ( $has_youtube ) {
+        
+        $return = str_replace( '?feature=oembed"', '?feature=oembed&rel=0" class="youtube-embed"', $return );
+    }
+    
+    return $return;
+    
+}, 10, 3 );
