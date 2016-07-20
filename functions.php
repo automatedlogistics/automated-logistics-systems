@@ -1567,11 +1567,19 @@ add_filter( 'register_post_type_args', function( $args, $post_type ) {
     
 }, 10, 2 );
 
+/**
+ * Make YouTube videos not show suggested videos at the end
+ * 
+ * @param string $return HTML
+ * @param object $data Data Object returned from oEmbed provider
+ * @param string $url URL String
+ * 
+ * @since 1.1.0
+ * @return HTML
+ */
 add_filter( 'oembed_dataparse', function( $return, $data, $url ) {
     
-    $has_youtube = preg_match( '/(http(s)?:\/\/)(www\.)?(youtube\.com\/watch\?v=|youtu.be\/)/i', $url );
-    
-    if ( $has_youtube ) {
+    if ( $data->provider_name == 'YouTube' ) {
         
         $return = str_replace( '?feature=oembed"', '?feature=oembed&rel=0" class="youtube-embed"', $return );
     }

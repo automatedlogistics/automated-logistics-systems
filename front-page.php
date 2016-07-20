@@ -15,14 +15,7 @@ if ( get_field( 'home_hero_image' ) ) :
 
     <section id="home-hero" class="hero-image" style="background-image: url( '<?php echo $hero_image[0];?>' ); height: <?php echo $hero_image[2]; ?>px;">
         <div class="row collapse">
-            <div class="small-12 medium-6 columns text-center animate-on-scroll slide-in-right">
-                <div class="hero-copy">
-                    <div class="vertical-align">
-                        <?php echo wp_oembed_get( get_field( 'home_hero_video' ) ); ?>
-                    </div>
-                </div>
-            </div>
-            <div class="small-12 medium-6 columns text-center animate-on-scroll slide-in-right">
+            <div class="small-12 medium-6 medium-offset-6 columns text-center animate-on-scroll slide-in-right">
                 <div class="hero-copy">
                     <div class="vertical-align">
                         <h1><?php the_field( 'home_hero_header' ); ?></h1>
@@ -90,6 +83,37 @@ if ( get_field( 'home_hero_image' ) ) :
                 <div class="row">
                     <div class="timeline-dot"></div>
                 </div>
+                
+                <?php if ( $home_timeline_video = get_field( 'home_timeline_video' ) ) : ?>
+                
+                    <div class="row animate-on-scroll fade-in">
+                        
+                        <div class="small-12 medium-6 columns text-right">
+                            
+                            <?php echo wp_oembed_get( $home_timeline_video ); ?>
+                        
+                        </div>
+                        
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="small-12 medium-6 columns text-left">
+                            
+                            <h3><?php the_field( 'home_timeline_video_header_text' ); ?></h3>
+                            <?php echo apply_filters( 'the_content', get_field( 'home_timeline_video_content' ) ); ?>
+                            
+                            <?php if ( $button_link = get_field( 'home_timeline_video_button_link' ) ) : ?>
+                                <a class="secondary tiny button with-arc" href="<?php echo $button_link; ?>"><?php the_field( 'home_timeline_video_button_text' ); ?></a>
+                            <?php endif; ?>
+                        
+                        </div>
+                        
+                    </div>
+                
+                <?php 
+                
+                    $index++;
+                
+                endif; ?>
 
                 <?php while ( have_rows( 'home_timeline' ) ) : the_row(); ?>
                 
