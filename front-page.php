@@ -90,7 +90,9 @@ if ( get_field( 'home_hero_image' ) ) :
                         
                         <div class="small-12 medium-6 columns text-right">
                             
-                            <?php echo wp_oembed_get( $home_timeline_video ); ?>
+                            <div class="queued-animation scale-in-up mui-enter">
+                                <?php echo wp_oembed_get( $home_timeline_video ); ?>
+                            </div>
                         
                         </div>
                         
