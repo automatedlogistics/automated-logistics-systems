@@ -1587,3 +1587,15 @@ add_filter( 'oembed_dataparse', function( $return, $data, $url ) {
     return $return;
     
 }, 10, 3 );
+
+/**
+ * Add Google Site Verification
+ * 
+ * @since 1.1.0
+ * @return void
+ */
+add_action( 'wp_head', function() { ?>
+    
+    <meta name="google-site-verification" content="86wQBi6XYib88ohcHcBq1I6CXp-0HetwfCVrzaQNr8s" />
+    
+<?php } );
