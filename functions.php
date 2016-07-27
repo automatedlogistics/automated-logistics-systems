@@ -1596,6 +1596,6 @@ add_filter( 'oembed_dataparse', function( $return, $data, $url ) {
  */
 add_action( 'wp_head', function() { ?>
     
-    <meta name="google-site-verification" content="86wQBi6XYib88ohcHcBq1I6CXp-0HetwfCVrzaQNr8s" />
+    <meta name="google-site-verification" content="MGsz3BKi1TcU9W_pdthu_Jv4FNaHjFd0PBengL4Wuvg" />
     
 <?php } );
