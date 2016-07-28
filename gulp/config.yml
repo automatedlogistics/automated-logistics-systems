@@ -8,9 +8,7 @@ javascript:
     bowerPaths:  
       - "build/vendor/js/modernizr.js"
       - "build/vendor/js/fastclick.js"
-      - "build/vendor/js/placeholder.js"
       - "build/vendor/js/jquery.cookie.js"
-      - "build/vendor/js/snap.svg-min.js"
       - "bower_components/foundation-sites/js/foundation.core.js"
       - "bower_components/foundation-sites/js/foundation.util.keyboard.js"
       - "bower_components/foundation-sites/js/foundation.util.box.js"

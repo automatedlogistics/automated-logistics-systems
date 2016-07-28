@@ -17,10 +17,10 @@ gulp.task( 'front-uglify', function() {
         .pipe( $.plumber( { errorHandler: onError } ) )
         .pipe( $.sourcemaps.init() )
         .pipe( $.babel( {
-            //presets: ['es2015'] // Gulp-uglify has no official support for ECMAScript 2015 (aka ES6, aka Harmony), so we'll transpile to EcmaScript5
+            presets: ['es2015'] // Gulp-uglify has no official support for ECMAScript 2015 (aka ES6, aka Harmony), so we'll transpile to EcmaScript5
         } ) )
         .pipe( $.concat( config.front.filename ) )
-        //.pipe( $.uglify() )
+        .pipe( $.uglify() )
         .pipe( $.sourcemaps.write( '.' ) )
         .pipe( gulp.dest( config.dest.root ) )
         .pipe( $.plumber.stop() )

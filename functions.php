@@ -272,12 +272,21 @@ add_action( 'init', function () {
         null,
         defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION
     );
+    
+    // Snap SVG
+    wp_register_script(
+        'snap-svg',
+        get_template_directory_uri() . '/snap.svg-min.js',
+        array( 'jquery' ),
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        true
+    );
 
     // Theme script
     wp_register_script(
         THEME_ID,
         get_template_directory_uri() . '/script.js',
-        array( 'jquery', 'google-iframe-api' ),
+        array( 'jquery', 'snap-svg' ),
         defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
         true
     );
