@@ -1125,8 +1125,15 @@ function add_products_services_list_shortcode( $atts, $content ) {
                         <?php endif; ?>
                             
                                 <?php if ( get_field( 'product_icon' ) ) : 
-                                    echo wp_get_attachment_image( get_field( 'product_icon' ), 'product-icon', false ); ?>
-                                <?php else : ?>
+    
+                                    if ( get_post_mime_type( get_field( 'product_icon' ) ) == 'image/svg+xml' ) {
+                                        echo file_get_contents( get_attached_file( get_field( 'product_icon' ) ) );
+                                    }
+                                    else {
+                                        echo wp_get_attachment_image( get_field( 'product_icon' ), 'product-icon', false );
+                                    }
+    
+                                else : ?>
                                     <span class="fa fa-fw fa-10x fa-truck"></span>
                                 <?php endif; ?>
                                 
@@ -1181,8 +1188,15 @@ function add_products_services_list_shortcode( $atts, $content ) {
                                     <?php endif; ?>
                                         
                                         <?php if ( get_field( 'product_icon' ) ) : 
-                                            echo wp_get_attachment_image( get_field( 'product_icon' ), 'product-icon', false ); ?>
-                                        <?php else : ?>
+    
+                                            if ( get_post_mime_type( get_field( 'product_icon' ) ) == 'image/svg+xml' ) {
+                                                echo file_get_contents( get_attached_file( get_field( 'product_icon' ) ) );
+                                            }
+                                            else {
+                                                echo wp_get_attachment_image( get_field( 'product_icon' ), 'product-icon', false );
+                                            }
+                                            
+                                        else : ?>
                                             <span class="fa fa-fw fa-10x fa-truck"></span>
                                         <?php endif; ?>
                                             
@@ -1608,3 +1622,18 @@ add_action( 'wp_head', function() { ?>
     <meta name="google-site-verification" content="MGsz3BKi1TcU9W_pdthu_Jv4FNaHjFd0PBengL4Wuvg" />
     
 <?php } );
+
+/**
+ * Allow SVGs to be uploaded
+ * 
+ * @param  array $mime_types Allowed MIME Types
+ *                                        
+ * @since 1.1.0
+ * @return array Modified MIME Types
+ */
+add_filter( 'upload_mimes', function( $mime_types ) {
+    
+    $mime_types['svg'] = 'image/svg+xml';
+    return $mime_types;
+    
+} );

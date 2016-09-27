@@ -4849,7 +4849,7 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
     visibility: hidden;
     transition: ease all 300ms;
     color: #2b4e65; }
-    .customers .products-services-list .queued-item img {
+    .customers .products-services-list .queued-item img, .customers .products-services-list .queued-item svg {
       display: block;
       width: auto;
       height: 10em; }
@@ -4859,24 +4859,32 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       margin-bottom: 0; }
     .customers .products-services-list .queued-item .fa-10x {
       font-size: 10em; }
+    .customers .products-services-list .queued-item svg path {
+      fill: #2b4e65 !important; }
     .customers .products-services-list .queued-item a .fa {
       color: #2b4e65; }
+    .customers .products-services-list .queued-item a svg path {
+      fill: #2b4e65 !important; }
     .customers .products-services-list .queued-item:hover {
       background-color: #005790;
       color: #fefefe; }
       .customers .products-services-list .queued-item:hover h1, .customers .products-services-list .queued-item:hover h2, .customers .products-services-list .queued-item:hover h3, .customers .products-services-list .queued-item:hover h4, .customers .products-services-list .queued-item:hover h5, .customers .products-services-list .queued-item:hover h6 {
         color: #fefefe;
         text-decoration: underline; }
+      .customers .products-services-list .queued-item:hover svg path {
+        fill: #fefefe !important; }
       .customers .products-services-list .queued-item:hover a .fa {
         color: #fefefe; }
+      .customers .products-services-list .queued-item:hover a svg path {
+        fill: #fefefe !important; }
     .customers .products-services-list .queued-item.no-link, .customers .products-services-list .queued-item a {
       padding: 0.625rem; }
-      .customers .products-services-list .queued-item.no-link img, .customers .products-services-list .queued-item.no-link .fa, .customers .products-services-list .queued-item a img, .customers .products-services-list .queued-item a .fa {
+      .customers .products-services-list .queued-item.no-link img, .customers .products-services-list .queued-item.no-link .fa, .customers .products-services-list .queued-item.no-link svg, .customers .products-services-list .queued-item a img, .customers .products-services-list .queued-item a .fa, .customers .products-services-list .queued-item a svg {
         margin: 0 auto 0.625rem auto; }
       @media screen and (min-width: 40em) {
         .customers .products-services-list .queued-item.no-link, .customers .products-services-list .queued-item a {
           padding: 0.9375rem; }
-          .customers .products-services-list .queued-item.no-link img, .customers .products-services-list .queued-item.no-link .fa, .customers .products-services-list .queued-item a img, .customers .products-services-list .queued-item a .fa {
+          .customers .products-services-list .queued-item.no-link img, .customers .products-services-list .queued-item.no-link .fa, .customers .products-services-list .queued-item.no-link svg, .customers .products-services-list .queued-item a img, .customers .products-services-list .queued-item a .fa, .customers .products-services-list .queued-item a svg {
             margin: 0 auto 0.9375rem auto; } }
     .customers .products-services-list .queued-item a {
       display: block; }

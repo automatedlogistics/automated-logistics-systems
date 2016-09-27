@@ -17,7 +17,7 @@
             transition: ease all 300ms;
             color: desaturate( $primary-color, 60% );
 
-            img {
+            img, svg {
                 display: block;
                 width: auto;
                 height: 10em;
@@ -30,17 +30,29 @@
                 margin-bottom: 0;
 
             }
-            
+
             .fa-10x {
                 font-size: 10em;
             }
-            
+
+            svg {
+                path {
+                    fill: desaturate( $primary-color, 60% ) !important;
+                }
+            }
+
             a {
-                
+
                 .fa {
                     color: desaturate( $primary-color, 60% );
                 }
-                
+
+                svg {
+                    path {
+                        fill: desaturate( $primary-color, 60% ) !important;
+                    }
+                }
+
             }
 
             &:hover {
@@ -54,13 +66,25 @@
                     text-decoration: underline;
 
                 }
-                
+
+                svg {
+                    path {
+                        fill: $white !important;
+                    }
+                }
+
                 a {
-                    
+
                     .fa {
                         color: $white;    
                     }
-                    
+
+                    svg {
+                        path {
+                            fill: $white !important;
+                        }
+                    }
+
                 }
 
             }
@@ -74,7 +98,7 @@
 
                         padding: $padding;
 
-                        img, .fa {
+                        img, .fa, svg {
                             margin: 0 auto $padding auto;
                         }
 
@@ -82,7 +106,7 @@
                 }
 
             }
-            
+
             a {
                 display: block;
             }
