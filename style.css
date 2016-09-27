@@ -4853,6 +4853,8 @@ ul[data-accordion-menu] > li:not(.menu-text) > ul {
       display: block;
       width: auto;
       height: 10em; }
+    .customers .products-services-list .queued-item svg, .customers .products-services-list .queued-item svg path {
+      visibility: hidden !important; }
     .customers .products-services-list .queued-item h1, .customers .products-services-list .queued-item h2, .customers .products-services-list .queued-item h3, .customers .products-services-list .queued-item h4, .customers .products-services-list .queued-item h5, .customers .products-services-list .queued-item h6 {
       text-align: center;
       color: #d1aa10;

@@ -1,4 +1,20 @@
 jQuery( function( $ ) {
+    
+    function forceVisibility( index, string ) {
+        
+        console.log( typeof string );
+        
+        if ( typeof string == 'string' && ! string.endsWith( ';' ) ) {
+            string = string + ';';
+        }
+        
+        if ( string == undefined ) {
+            string = '';
+        }
+        
+        return string + 'visibility: visible !important;';
+        
+    }
 
     var transitionIn = [ ".slide-in-down", ".slide-in-left", ".slide-in-up", ".slide-in-right", ".fade-in", ".hinge-in-from-top", ".hinge-in-from-right", ".hinge-in-from-bottom", ".hinge-in-from-left", ".hinge-in-from-middle-x", ".hinge-in-from-middle-y", ".scale-in-up", ".scale-in-down", ".spin-in", ".spin-in-ccw" ];
     var transitionInRegex = '\\b(' + transitionIn.join( '|' ) + ')\\b';
@@ -32,6 +48,8 @@ jQuery( function( $ ) {
                 setTimeout( function() {
                     
                     $( element ).css( 'visibility', 'visible' );
+                    $( element ).find( 'svg' ).attr( 'style', forceVisibility );
+                    $( element ).find( 'svg path' ).attr( 'style', forceVisibility );
                     Foundation.Motion.animateIn( element, $( queue ).data( 'animation' ) );
 
                 }, index * 250 );
