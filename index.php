@@ -17,7 +17,9 @@ get_header();
 
 global $wp_query;
 
-usort( $wp_query->posts, 'als_pages_first' );
+if ( is_search() ) {
+	usort( $wp_query->posts, 'als_pages_first' );
+}
 
 ?>
 
