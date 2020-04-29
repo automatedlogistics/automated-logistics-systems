@@ -959,7 +959,7 @@ function add_als_button_tinymce_filters() {
         
         // Attach script to the button rather than enqueueing it
         add_filter( 'mce_external_plugins', function( $plugin_array ) {
-            $plugin_array['als_button_shortcode_script'] = THEME_URL . '/build/js/tinymce/button-shortcode.js';
+            $plugin_array['als_button_shortcode_script'] = THEME_URL . 'dist/assets/js/tinymce/button-shortcode.js';
             return $plugin_array;
         } );
         

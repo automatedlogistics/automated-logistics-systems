@@ -179,7 +179,7 @@ gulp.task('webpack:watch', webpack.watch);
 
 function tinymce() {
 
-	return gulp.src( "src/assets/js/admin/tinymce/**/*.js" )
+	return gulp.src( "src/assets/js/tinymce/**/*.js" )
 		.pipe( $.foreach( function( stream, file ) {
 			return stream
 				.pipe( $.babel() )
@@ -297,7 +297,7 @@ function releaseCopy() {
         'dist/assets/**/*',
         'core/**/*',
         'core/library/**/*',
-		'!core/library/rbp-support/{build,build/**}',
+		'!core/library/rbp-support/{build,dist/assets/**}',
 		'!core/library/rbp-support/{gulp,gulp/**}',
 		'!core/library/rbp-support/{node_modules,node_modules/**}',
 		'!core/library/rbp-support/**/*.zip',

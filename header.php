@@ -27,7 +27,7 @@ if ( ! isset( $_SESSION ) ) {
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
         <!--[if lt IE 9]>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/build/vendor/js/html5.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/assets/vendor/js/html5.js"></script>
 <![endif]-->
 
         <?php wp_head(); ?>
