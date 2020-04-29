@@ -17,14 +17,15 @@ if ( ! version_compare( PHP_VERSION, '5.3.0', '>=' ) ) {
 }
 
 // Make sure no theme constants are already defined (realistically, there should be no conflicts)
-if ( defined( 'THEME_VERSION' ) || defined( 'THEME_ID' ) || isset( $als_fonts ) ) {
+if ( defined( 'THEME_VER' ) || defined( 'THEME_ID' ) || isset( $als_fonts ) ) {
     wp_die( 'ERROR in Automated Logistics Systems theme: There is a conflicting constant. Please either find the conflict or rename the constant.' );
 }
 
-/**
- * The theme's current version (make sure to keep this up to date!)
- */
-define( 'THEME_VERSION', '0.1.0' );
+$theme_header = wp_get_theme();
+
+define( 'THEME_VER', $theme_header->get( 'Version' ) );
+define( 'THEME_URL', trailingslashit( get_stylesheet_directory_uri() ) );
+define( 'THEME_DIR', trailingslashit( get_stylesheet_directory() ) );
 
 /**
  * The theme's ID (used in handlers).
@@ -268,26 +269,26 @@ add_action( 'init', function () {
     // Theme styles
     wp_register_style(
         THEME_ID,
-        get_template_directory_uri() . '/style.css',
+        THEME_URL . 'dist/assets/css/app.css',
         null,
-        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER
     );
     
     // Snap SVG
     wp_register_script(
         'snap-svg',
-        get_template_directory_uri() . '/snap.svg-min.js',
+        THEME_URL . 'dist/assets/vendor/js/snap.svg-min.js',
         array( 'jquery' ),
-        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
         true
     );
 
     // Theme script
     wp_register_script(
         THEME_ID,
-        get_template_directory_uri() . '/script.js',
+        THEME_URL . 'dist/assets/js/script.js',
         array( 'jquery', 'snap-svg' ),
-        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
         true
     );
     
@@ -296,18 +297,18 @@ add_action( 'init', function () {
     // Quick Edit Screen
     wp_register_script(
         THEME_ID . '-quick-edit',
-        get_template_directory_uri() . '/quick-edit.js',
+        THEME_URL . 'dist/assets/js/quick-edit.js',
         array( 'jquery' ),
-        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
         true
     );
     
     // Customizer Controls
     wp_register_script(
         THEME_ID . '-customizer-controls',
-        get_template_directory_uri() . '/customizer-controls.js',
+        THEME_URL . 'dist/assets/js/customizer-controls.js',
         array( 'jquery', 'editor' ),
-        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
         true
     );
     
@@ -315,7 +316,7 @@ add_action( 'init', function () {
         'google-iframe-api',
         '//www.youtube.com/iframe_api',
         array(),
-        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+        defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VER,
         true
     );
 
@@ -396,18 +397,18 @@ add_action( 'wp_head', '_als_favicon' );
 add_action( 'admin_head', '_als_favicon' );
 function _als_favicon() {
 
-    if ( ! file_exists( get_stylesheet_directory() . '/images/favicon.ico' ) ) {
+    if ( ! file_exists( THEME_DIR . 'dist/assets/images/favicon.ico' ) ) {
         return;
     }
 ?>
 <!--[if lte IE 10]>
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon.ico'; ?>" />
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo THEME_URL . 'dist/assets/images/favicon.ico'; ?>" />
 <![endif]-->
-<link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon16x16.png'; ?>" />
-<link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon32x32.png'; ?>" />
-<link rel="apple-touch-icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon152x152.png'; ?>">
+<link rel="shortcut icon" type="image/png" href="<?php echo THEME_URL . 'dist/assets/images/favicon16x16.png'; ?>" />
+<link rel="shortcut icon" type="image/png" href="<?php echo THEME_URL . 'dist/assets/images/favicon32x32.png'; ?>" />
+<link rel="apple-touch-icon" type="image/png" href="<?php echo THEME_URL . 'dist/assets/images/favicon152x152.png'; ?>">
 
-<link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri() . '/images/favicon196x196.png'; ?>" />
+<link rel="shortcut icon" type="image/png" href="<?php echo THEME_URL . 'dist/assets/images/favicon196x196.png'; ?>" />
 <meta name="theme-color" content="#005790">
 
 <?php
@@ -958,7 +959,7 @@ function add_als_button_tinymce_filters() {
         
         // Attach script to the button rather than enqueueing it
         add_filter( 'mce_external_plugins', function( $plugin_array ) {
-            $plugin_array['als_button_shortcode_script'] = get_stylesheet_directory_uri() . '/build/js/tinymce/button-shortcode.js';
+            $plugin_array['als_button_shortcode_script'] = THEME_URL . '/build/js/tinymce/button-shortcode.js';
             return $plugin_array;
         } );
         

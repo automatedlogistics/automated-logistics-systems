@@ -1,0 +1,61 @@
+# Browsersync config
+BROWSERSYNC:
+  # URL of local development server goes here (ex. http://localsite.dev)
+  url: ""
+
+# Autoprefixer will make sure your CSS works with these browsers
+COMPATIBILITY:
+  - "last 2 versions"
+  - "ie >= 9"
+  - "ios >= 7"
+  
+# Set to true if you want static asset revisioning, helpful for cache busting
+REVISIONING: false  
+
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to dist folder
+  dist: "dist/assets"
+  # Paths to static assets that aren't images, CSS, or JavaScript
+  # This can also be used to copy CSS/JS directly that shouldn't be processed by Gulp/Webpack
+  assets:
+    - "src/assets/**/*"
+    - "!src/assets/{images,images/**/*,js,js/**/*,scss,scss/**/*,vendor/scss,vendor/scss/**/*}"
+  # Paths to Sass libraries, which can then be loaded with @import
+  sass:
+    - "node_modules/foundation-sites/scss"
+    - "node_modules/motion-ui/src"
+  # Paths to JavaScript entry points for webpack to bundle modules
+  entries:
+    scss: 
+      - "src/assets/scss/app.scss"
+    js: 
+      - "src/assets/js/script.js"
+      - "src/assets/js/customizer-controls.js"
+      - "src/assets/js/quick-edit.js"
+  # Paths for the package task to include/exclude in .zip archive
+  package:
+    - "**/*"
+    - "!/node_modules/**"
+    - "!/packaged/**"
+    - "!/src/assets/**"
+    - "!/codesniffer.ruleset.xml"
+    - "!/composer.json"
+    - "!/composer.lock"
+    - "!/config.yml"
+    - "!/config.default.yml"
+    - "!/gulpfile.babel.js"
+    - "!/package.json"
+    - "!/package-lock.json"
+    - "!/webpack.config.js"
+    - "!/config-default.yml"
+    - "!/config.yml"
+    - "!/gruntfile.js"
+    - '!core/library/rbm-field-helpers/{bin,bin/**}'
+    - '!core/library/rbm-field-helpers/{node_modules,node_modules/**}'
+    - '!core/library/rbm-field-helpers/**/*.zip'
+  # Paths for PHP CodeSniffer
+  phpcs:
+    - "**/*.php"
+    - "!wpcs"
+    - "!wpcs/**"  

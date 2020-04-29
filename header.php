@@ -56,6 +56,10 @@ if ( ! isset( $_SESSION ) ) {
 
             <div class="off-canvas-content" data-off-canvas-content>
 
+                <?php if ( function_exists( 'als_show_inset_alerts' ) ) {
+                    als_show_inset_alerts();
+                } ?>
+
                 <header id="site-header">
 
                     <div class="top-bar">

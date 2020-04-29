@@ -1,0 +1,118 @@
+$dark-color: #333;
+$light-color: #fff;
+
+$primary-color: #005790;
+$secondary-color: #eec31a;
+$tertiary-color: #b32025;
+
+// Overriding with the three brand colors
+$success-color: $primary-color;
+$warning-color: $secondary-color;
+$alert-color: $tertiary-color;
+
+$foundation-palette: (
+    primary: $primary-color,
+    secondary: $secondary-color,
+    tertiary: $tertiary-color,
+    success: $success-color,
+    warning: $warning-color,
+    alert: $alert-color,
+);
+
+$topbar-background: $primary-color;
+$offcanvas-background: $topbar-background;
+
+$topbar-link-color: $dark-color;
+@if lightness( $topbar-background ) < 50% {
+
+    $topbar-link-color: $light-color;
+
+}
+@else {
+
+    $topbar-link-color: $dark-color;
+
+}
+
+$titlebar-icon-color: $topbar-link-color;
+$titlebar-icon-color-hover: darken( $topbar-link-color, 20% );
+
+$tooltip-background-color: $primary-color;
+$tooltip-color: $white;
+$has-tip-font-weight: 700;
+$has-tip-border-bottom: none;
+$tooltip-font-size: 0.85em;
+
+$header-font-family: 'Oswald', sans-serif;
+$body-font-family: 'Quattrocento Sans', sans-serif;
+
+$header-color: $primary-color;
+$header-font-weight: 700;
+
+$header-sizes: (
+  small: (
+    'h1': 24,
+    'h2': 20,
+    'h3': 19,
+    'h4': 18,
+    'h5': 17,
+    'h6': 16,
+  ),
+  medium: (
+    'h1': 40,
+    'h2': 32,
+    'h3': 28,
+    'h4': 20,
+    'h5': 18,
+    'h6': 16,
+  ),
+);
+
+// We use these to style anchors
+$anchor-color: scale-color( $secondary-color, $lightness: -15% );
+$anchor-color-hover: scale-color( $anchor-color, $lightness: -25% );
+
+$hr-border: 3px solid $tertiary-color;
+
+$accordionmenu-arrow-color: $tertiary-color;
+
+// Global sizing for Timeline sections
+$divider-width: 0.25em;
+$dot-width: 1em;
+
+// Media query ranges
+$small-range: (0em, 40em);
+$medium-range: (40.063em, 64em);
+$large-range: (64.063em, 90em);
+$xlarge-range: (90.063em, 120em);
+$xxlarge-range: (120.063em, 99999999em);
+
+$screen: "only screen";
+
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+
+$small-up: $screen;
+$small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})" !default;
+
+$medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})" !default;
+$medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})" !default;
+
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})" !default;
+$large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})" !default;
+
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})" !default;
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})" !default;
+
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})" !default;
+$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})" !default;
+
+// Flexbox breaks Media Object
+$global-flexbox: false;
+
+// This messes up creating columns in a loop and having them "spill over". It will often try to float: right an orphaned column
+$grid-column-align-edge: false;
+
+$button-background-hover-lightness: -20%;
+
+$body-background: $white;
