@@ -1647,7 +1647,7 @@ add_filter( 'wp_kses_allowed_html', 'als_widget_allowed_posttags', 10, 2 );
  * @param		array        $allowedposttags Allowed Tags and Attributes
  * @param 		string|array $context         Context for which Tags and Attributes should be allowed
  *                                                                                        
- * @since		{{VERSION}}
+ * @since		1.2.1
  * @return		array        Allowed Tags and Attributes
  */
 function als_widget_allowed_posttags( $allowedposttags, $context ) {

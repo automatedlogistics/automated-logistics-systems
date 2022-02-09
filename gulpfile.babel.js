@@ -245,6 +245,8 @@ function version() {
         'languages/**/*',
         'templates/**/*',
         'cpt-lesson.php',
+        '*.php',
+        'style.css',
         'readme.txt'
     ], { base: './', allowEmpty: true } )
 		// Doc block versions, only update on non-Betas and 1.0.0+ releases
