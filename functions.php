@@ -1638,3 +1638,50 @@ add_filter( 'upload_mimes', function( $mime_types ) {
     return $mime_types;
     
 } );
+
+add_filter( 'wp_kses_allowed_html', 'als_widget_allowed_posttags', 10, 2 );
+
+/**
+ * Allow additional Tags and Attributes for Editors that aren't normally allowed
+ * 
+ * @param		array        $allowedposttags Allowed Tags and Attributes
+ * @param 		string|array $context         Context for which Tags and Attributes should be allowed
+ *                                                                                        
+ * @since		{{VERSION}}
+ * @return		array        Allowed Tags and Attributes
+ */
+function als_widget_allowed_posttags( $allowedposttags, $context ) {
+
+    if ( ! is_user_logged_in() ) return $allowedposttags;
+
+    // We aren't restricting what they can do, bail
+    if ( current_user_can( 'unfiltered_html' ) ) return $allowedposttags;
+
+    $user = get_current_user();
+
+    // Not an editor, bail
+    if ( ! in_array( 'editor', $user->roles ) ) return $allowedposttags;
+	
+	$allowedposttags = wp_kses_allowed_html( 'post' );
+	
+	$allowedposttags = array_merge( $allowedposttags, apply_filters( 'als_allowed_posttags', array(
+		'iframe' => array(
+			'id' => true,
+			'class' => true,
+			'width' => true,
+			'height' => true,
+			'src' => true,
+			'frameborder' => true,
+			'allow' => true,
+			'allowfullscreen' => true,
+            'name' => true,
+            'scrolling' => true,
+		),
+        'script' => array(
+            'src' => true,
+        )
+	) ) );
+	
+	return $allowedposttags;
+	
+}
