@@ -5,6 +5,7 @@
 @import "foundation";
 
 // Dependencies
+@import "foundation-settings";
 @import "settings.scss";
 @import "functions.scss";
 
@@ -32,6 +33,7 @@
 @include foundation-thumbnail;
 @include foundation-table;
 @include foundation-tooltip;
+@include foundation-xy-grid-classes;
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
@@ -64,3 +66,4 @@
 @import "templates/product-single";
 @import "templates/testimonial-partial";
 @import "templates/index.scss";
+@import "templates/careers";

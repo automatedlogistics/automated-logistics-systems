@@ -33,53 +33,52 @@ the_post();
         </div>
     </div>
     
-    <div class="row">
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x grid-padding-y">
         
-        <div class="small-12 medium-9 columns">
-            <div class="page-copy">
-                <?php the_content(); ?>
+            <div class="small-12 medium-9 cell content">
+                <div class="page-copy">
+                    <?php the_content(); ?>
+                </div>
             </div>
-        </div>
-        
-        <div class="small-12 medium-3 columns">
             
-            <?php 
+            <div id="after-content-text" class="small-12 cell text-center">
+                <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
+            </div>
             
-            $args = array(
-                'post_type' => 'als_testimonial',
-                'posts_per_page' => 1,
-                'meta_query' => array(
-                    array(
-                        'key' => 'employee_testimonial',
-                        'value' => '"true"',
-                        'compare' => 'LIKE',
+            <div class="small-12 medium-pull-12 medium-3 cell testimonials">
+                
+                <?php 
+                
+                $args = array(
+                    'post_type' => 'als_testimonial',
+                    'posts_per_page' => 1,
+                    'meta_query' => array(
+                        array(
+                            'key' => 'employee_testimonial',
+                            'value' => '"true"',
+                            'compare' => 'LIKE',
+                        ),
                     ),
-                ),
-            );
-            
-            global $post;
-            $testimonials = new WP_Query( $args );
-            
-            if ( $testimonials->have_posts() ) : 
-            
-                while ( $testimonials->have_posts() ) : $testimonials->the_post();
-            
-                    get_template_part( 'partials/als_testimonial', 'sidebar-single' );
-            
-                endwhile;
-            
-            endif; 
-            
-            wp_reset_postdata(); ?>
-            
-        </div>
+                );
+                
+                global $post;
+                $testimonials = new WP_Query( $args );
+                
+                if ( $testimonials->have_posts() ) : 
+                
+                    while ( $testimonials->have_posts() ) : $testimonials->the_post();
+                
+                        get_template_part( 'partials/als_testimonial', 'sidebar-single' );
+                
+                    endwhile;
+                
+                endif; 
+                
+                wp_reset_postdata(); ?>
+                
+            </div>
 
-    </div>
-    
-    <div class="row">
-        
-        <div id="after-content-text" class="small-12 columns text-center">
-            <?php echo apply_filters( 'the_content', get_field( 'after_content_text' ) ); ?>
         </div>
     
     </div>

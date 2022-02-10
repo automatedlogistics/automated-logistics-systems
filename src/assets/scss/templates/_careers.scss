@@ -1,0 +1,23 @@
+body.page-template-template-careers {
+
+    #site-content {
+
+        @include breakpoint( medium ) {
+
+            .content {
+                order: 1;
+            }
+
+            .testimonials {
+                order: 2;
+            }
+
+            #after-content-text {
+                order: 3;
+            }
+
+        }
+
+    }
+
+}

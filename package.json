@@ -49,7 +49,7 @@
 		"build": "gulp package"
 	},
 	"dependencies": {
-		"foundation-sites": "^6.4.1",
+		"foundation-sites": "6.4.1",
 		"motion-ui": "^1.2.2"
 	}
 }
