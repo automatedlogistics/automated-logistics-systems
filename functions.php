@@ -509,7 +509,6 @@ function als_post_types_in_search( $query ) {
            'page',
            'als_service',
            'als_staff',
-           'als_job_opening',
        ) );
         
     }
